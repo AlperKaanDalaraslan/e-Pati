@@ -13,7 +13,7 @@
 <body>
 <section class="main">
     <nav>
-        <a href="index.html" class="logo">
+        <a href={{route('anasayfa')}} class="logo">
             <img src="/images/logo.png">
         </a>
 
@@ -29,7 +29,7 @@
             </li >
 
             <li>
-                <a href="{{ route('sahiplenme') }}">
+                <a href="{{ route('sahiplenmesayfasi') }}">
                     <p class="menuyazisi"> HAYVAN SAHİPLENME </p>
                 </a>
             </li>

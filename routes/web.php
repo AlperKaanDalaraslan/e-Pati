@@ -15,7 +15,20 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('anasayfa');
+})->name('anasayfa');
+
+Route::prefix('sahiplenme')->group(function (){
+
+    Route::get('/', function (){
+        return view('sahiplenmesayfasi');
+    })->name('sahiplenmesayfasi');
+
+    Route::get('/sahiplenilecek_hayvan' , function (){
+        return view('sahiplenilecek_hayvan');
+    })->name('sahiplenilecek_hayvan');
+
 });
-Route::get('/sahiplenme', function (){
-    return view('sahiplenme');
-})->name('sahiplenme');
+
+
+
+

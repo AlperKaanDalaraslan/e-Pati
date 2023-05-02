@@ -1,0 +1,126 @@
+nav .kullanici{
+    display: flex;
+}
+
+nav div .kullanici_siralama{
+    padding: 5px  ;
+}
+
+
+nav div div .kullanici_adi{
+    font-size: 25.232px;
+    font-family: "Myriad Pro";
+    color: rgb(81, 83, 85);
+    line-height: 0.5 ;
+
+
+}
+
+nav div div a .user_resmi{
+    width: 40px;
+    height: 40px;
+}
+
+
+.container{
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 20px;
+}
+
+.hayvan_kart {
+    border-width: 0px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 20px;
+    box-shadow: 0px 7px 232.5px 17.5px rgba(0, 0, 0, 0.09);
+    width: 100%;
+    height: 970px;
+    z-index: 56;
+}
+
+.resim_divi{
+    width: 500px;
+}
+
+.hayvan_kart_resim{
+    height: 300px;
+    width: 300px;
+}
+
+.resim_bilgi_birleştirme{
+    display: flex;
+    align-items: center;
+}
+
+nav .sahiplenme_foto{
+    position: absolute;
+    top: 220px;
+}
+
+.duzenleme{
+    flex-direction: column;
+}
+
+nav div .bilgi_basligi{
+    font-size: 31.69px;
+    font-family: "OpenSans";
+    color: rgb(73, 70, 70);
+    font-weight: bold;
+    text-align: center;
+}
+
+nav div .bilgi_yazisi{
+    font-size: 21px;
+    font-family: "Myriad Pro";
+    color: rgb(73, 70, 70);
+    text-align: center;
+}
+
+
+
+
+nav div table th , td{
+    padding: 20px;
+}
+
+
+
+nav div table .ilkyazi{
+
+    font-size: 14.75px;
+    font-family: "Myriad Pro";
+    color: rgba(73, 70, 70, 0.82);
+}
+
+
+
+
+nav table .ikinciyazi{
+    font-size: 20px;
+    font-family: "Myriad Pro";
+    color: #329ce0 ;
+}
+
+
+.location, .date, .title {
+    font-size: 15px;
+    font-family: "Nunito Sans";
+    color: #329ce0;
+}
+
+.kart-resimleri{
+    width: 10px;
+    height: 10px;
+    padding-right: 10px;
+}
+.yan-yana-birleştirme{
+    display: flex;
+    align-items: center;
+}
+

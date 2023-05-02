@@ -72,7 +72,7 @@
 
 
 
-            <a href="" style="text-decoration: none">
+            <a href="{{route('sahiplenilecek_hayvan')}}" style="text-decoration: none">
 
                 <div class="sahiplendirme-kart">
                     <div class="yan-yana-birleştirme" >
