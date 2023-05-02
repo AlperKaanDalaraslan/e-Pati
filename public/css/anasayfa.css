@@ -199,7 +199,7 @@ nav div .hizmetimage{
     box-sizing: border-box;
     position: absolute;
     left: 0px;
-    top: 1767px;
+    top: auto;
     width: 100%;
     height: 391px;
     z-index: 31;

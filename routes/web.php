@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('anasayfa');
 });
+Route::get('/sahiplenme', function (){
+    return view('sahiplenme');
+})->name('sahiplenme');
