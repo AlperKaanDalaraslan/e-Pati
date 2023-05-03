@@ -13,6 +13,25 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <link href="/css/anasayfa.css" rel="stylesheet">
+    <style>
+         .kullanici_siralama{
+             padding: 10px  ;
+         display: flex;
+         align-items: center}
+         .dropdown-menu{
+             padding-left: 30px;
+             font-size: 25.232px;
+             font-family: "Myriad Pro";
+             color: rgb(81, 83, 85);
+             line-height: 0.5 ;
+         }
+         .kullanici_adi{
+             font-size: 25.232px;
+             font-family: "Myriad Pro";
+             color: rgb(81, 83, 85);
+             line-height: 0.5 ;
+         }
+    </style>
 
     @yield('css_js')
     <!-- Scripts -->
@@ -64,21 +83,20 @@
         </ul>
                         @guest
                             @if (Route::has('login'))
-                           <a href="{{ route('login') }}"> <img src="/images/kayitol.png" class="kayitol-girisyap"> </a>
+                           <a href="{{ route('login') }}"> <img src="/images/girisyap.png" class="kayitol-girisyap"> </a>
 
                             @endif
 
                             @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"> <img src="/images/girisyap.png" class="kayitol-girisyap" > </a>
+                                    <a href="{{ route('register') }}"> <img src="/images/kayitol.png" class="kayitol-girisyap" > </a>
 
                             @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
+                            <div class="kullanici_siralama">
+                                <div ><a href=""> <img src="/images/user.png" class="user_resmi" ></a></div>
+                                <div > <a href=""> <p class="kullanici_adi" > {{Auth::user()->name}} </p></a> </div>
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -89,7 +107,7 @@
                                         @csrf
                                     </form>
                                 </div>
-                            </li>
+                            </div>
                         @endguest
     </nav>
     <!--   Header   -->

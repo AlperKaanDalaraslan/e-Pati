@@ -3,6 +3,24 @@
     Anasayfa
 @endsection
 @section('content')
+    <style>
+        .footer{
+
+            border-width: 1px;
+            border-color: rgb(0, 0, 0);
+            border-style: solid;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-image: url(/images/footer_resmi.png);
+            box-sizing: border-box;
+            position: absolute;
+            left: 0px;
+            top: 1767px;
+            width: 100%;
+            height: 391px;
+            z-index: 31;
+        }
+    </style>
 
     <nav class="reklam">
         <div>
