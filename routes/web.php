@@ -35,7 +35,7 @@ Route::prefix('sahiplenme')->group(function (){
 
 Route::prefix('kayip')->group(function (){
 
-    Route::get('', function (){
+    Route::get('/', function (){
         return view('kayip_ilan_sayfasi');
     })->name('kayip_ilan_sayfasi');
 
@@ -43,6 +43,25 @@ Route::prefix('kayip')->group(function (){
         return view('kayip_ilan_form');
     })->name('kayip_ilan_form');
 
+    Route::get('/kayip_hayvan', function (){
+        return view('kayip_hayvan');
+    })->name('kayip_hayvan');
+
+
+});
+Route::prefix('es_bulma')->group(function (){
+
+    Route::get('/', function (){
+        return view('es_bulma_sayfasi');
+    })->name('es_bulma_sayfasi');
+
+    Route::get('/es_ilan_ver', function (){
+        return view('es_ilan_form');
+    })->name('es_ilan_form');
+
+    Route::get('/es_bulma_hayvan', function (){
+        return view('es_bulma_hayvan');
+    })->name('es_bulma_hayvan');
 
 
 });

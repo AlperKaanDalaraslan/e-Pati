@@ -8,7 +8,7 @@
     <script src="/js/sahiplendirme_ilan_form.js"></script>
 @endsection
 @section('content')
-    <h1 style="text-align: center;">Kayıp İlan Sayfası</h1>
+    <h1 style="text-align: center;">Eş Bulma Sayfası</h1>
     <nav class="sahiplendirme-form-nav">
         <div class="container">
             <div class="sahiplendirme-form">
@@ -28,7 +28,7 @@
                             </select>
                         </div>
                         <div class="ic-kutular">
-                            <a href="{{route('kayip_ilan_form')}}" style="text-decoration: none;">
+                            <a href="{{route('es_ilan_form')}}" style="text-decoration: none;">
                                 <div class="ilan-ver-butonu">İlan Ver</div>
                             </a>
                         </div>
@@ -73,7 +73,7 @@
 
 
 
-            <a href="{{route('kayip_hayvan')}}" style="text-decoration: none">
+            <a href="{{route('es_bulma_hayvan')}}" style="text-decoration: none">
 
                 <div class="sahiplendirme-kart">
                     <div class="yan-yana-birleştirme" >

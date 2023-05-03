@@ -1,5 +1,5 @@
 
-       
+
 		/* Genel stiller */
 body {
 	background-color: #f1f1f1;
@@ -14,7 +14,7 @@ body {
     background-color: #ffffff;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    height: 60px; 
+    height: 60px;
     width: 100%;
 }
 .giris_navbar a {
@@ -39,7 +39,7 @@ body {
     padding: 20px 140px;
     text-decoration: none;
 }
-form {
+.form-bolumu {
 	background-color: #fff;
 	border-radius: 10spx;
     top: 50px;
@@ -111,12 +111,12 @@ label[for="kisirlık_durumu"], label[for="asi_durumu"] {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
   }
-  
+
   .custom-select:hover,
   .custom-select:focus {
     background-color: #e9e9e9;
   }
-  
+
   .custom-select:after {
     content: "\25BC";
     position: absolute;
@@ -126,22 +126,22 @@ label[for="kisirlık_durumu"], label[for="asi_durumu"] {
     font-size: 0.8em;
     pointer-events: none;
   }
-  
+
   .custom-select option {
     background-color: #f9f9f9;
     color: #333;
     font-size: 1em;
   }
-  
+
   .custom-select option:hover {
     background-color: #e9e9e9;
   }
-  
+
   .custom-select option:checked {
     background-color: #007bff;
     color: #fff;
   }
-  
+
 input[type="submit"] {
 	background-color: #4DBCEC;
 	color: #fff;
@@ -149,8 +149,8 @@ input[type="submit"] {
 	padding: 10px 20px;
 	border: none;
 	cursor: pointer;
-    display: block; 
-    margin: auto; 
+    display: block;
+    margin: auto;
 }
 
 input[type="submit"]:hover {

@@ -12,7 +12,7 @@ Hayvan İlan Formu
         <!--    <a href="javascript:history.back()"><b>&#129040; Geri</b></a>    içindeki js kodu bi önceki sayfaya dönmesi için   -->
       <b class="baslik">Sahiplendirme İçin İlan Ver</b>
     </div>
-<form>
+<form class="form-bolumu">
         @csrf
         <label for="foto">Hayvanın Fotoğrafı:</label>
         <input type="file" id="foto" name="foto" accept="image/*" required>

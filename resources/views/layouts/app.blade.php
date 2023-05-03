@@ -39,7 +39,7 @@
 </head>
 <body>
 <section class="main">
-    <nav>
+    <nav class="header">
         <a href={{route('anasayfa')}} class="logo">
             <img src="/images/logo.png">
         </a>
@@ -76,7 +76,7 @@
             </li>
 
             <li>
-                <a href="">
+                <a href="{{route('es_bulma_sayfasi') }}">
                     <p class="menuyazisi"> EŞ BULMA</p>
                 </a>
             </li>
@@ -103,7 +103,7 @@
                                         {{ __('çıkış yap') }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    <form class="log-out" style="" id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>

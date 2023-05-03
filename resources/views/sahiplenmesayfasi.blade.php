@@ -8,6 +8,7 @@
     <script src="/js/sahiplendirme_ilan_form.js"></script>
 @endsection
 @section('content')
+    <h1 style="text-align: center;">Sahiplenilecek Hayvan Sayfası</h1>
     <nav class="sahiplendirme-form-nav">
         <div class="container">
             <div class="sahiplendirme-form">
