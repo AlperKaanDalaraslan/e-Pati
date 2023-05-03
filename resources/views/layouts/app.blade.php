@@ -1,139 +1,80 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>e Pati | @yield('title')</title>
-    <link type="text/css" rel="stylesheet" href="/css/anasayfa.css">
-    @yield('css_js')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+
+    <!-- Scripts -->
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
-
 <body>
-<section class="main">
-    <nav>
-        <a href={{route('anasayfa')}} class="logo">
-            <img src="/images/logo.png">
-        </a>
-
-        <ul>
-            <li>
-                <a href="">
-                    <p class="menuyazisi">VETERİNER RANDEVU </p></p>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    {{ config('app.name', 'Laravel') }}
                 </a>
-            </li>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-            <li>
-                <p class="menucizgisi"></p>
-            </li >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
 
-            <li>
-                <a href="{{ route('sahiplenmesayfasi') }}">
-                    <p class="menuyazisi"> HAYVAN SAHİPLENME </p>
-                </a>
-            </li>
+                    </ul>
 
-            <li>
-                <p class="menucizgisi"></p>
-            </li>
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
 
-            <li>
-                <a href="">
-                    <p class="menuyazisi"> KAYIP İLANI </p>
-                </a>
-            </li>
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
 
-            <li>
-                <p class="menucizgisi"></p>
-            </li>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
 
-            <li>
-                <a href="">
-                    <p class="menuyazisi"> EŞ BULMA</p>
-                </a>
-            </li>
-        </ul>
-
-        <a href=""> <img src="/images/kayitol.png" class="kayitol-girisyap"> </a>
-        <a href=""> <img src="/images/girisyap.png" class="kayitol-girisyap" > </a>
-    </nav>
-    <!--   Header   -->
-
-
-
-    @yield('content')
-
-
-
-    <!--   Footer   -->
-
-    <nav class="footer ">
-
-
-
-        <div class="footerduzenleme">
-            <div class="footerduzenlemeic">
-                <h1 class="footerbaslik">BİZ KİMİZ ?</h1>
-                <hr>
-                <pre class="footeryazisi">Biz hayvanseverler topluluğu için kar amacı gütmeyen
-bir platform oluşturuyoruz. Bu platformda
-veteriner randevuları, hayvan sahiplendirme,
-kayıp ilanları ve hayvanlara yardım için bağış toplama
-gibi hizmetler sunuyoruz. Amacımız, hayvanseverlerin
-tüm ihtiyaçlarını tek bir yerden karşılamalarını sağlamak.
-                        </pre>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="footerduzenleme">
-            <div class="footerduzenlemeic">
-                <h1 class="footerbaslik">İLETİŞİM</h1>
-                <hr c>
-                <pre class="footeryazisi"><a href=""><img src="/images/email.png" ></a>  e_pati@gmail.com
+        </nav>
 
-<a href=""><img src="/images/phone-call.png" ></a>  0555 555 55 55
-
-<a href=""><img src="/images/pin.png" ></a>  Üniversite, 23200 Elâzığ Merkez/Elazığ
-                        </pre>
-            </div>
-        </div>
-
-        <div class="footerduzenleme">
-            <div class="footerduzenlemeic">
-                <h1 class="footerbaslik">BİZİ TAKİP EDİN</h1>
-                <hr>
-                <pre class="footeryazisi"><a href=""><img src="/images/facebook.png" ></a>               <a href=""><img src="/images/instagram.png" ></a>              <a href=""><img src="/images/twitter.png" ></a>              <a href=""><img src="/images/linkedin.png" ></a>
-                        </pre>
-            </div>
-        </div>
-
-        <div class="footerduzenleme">
-            <div class="footerduzenlemeic">
-                <h1 class="footerbaslik">BAĞIŞTA BULUN</h1>
-                <hr class="cizgikonum">
-                <pre class="footeryazisi">Hayvanlar da bizim
-gibi sevgi dolu
-varlıklardır, onların
-mutluluğu ve sağlığı da
-bizim sorumluluğumuzdadır.
-Lütfen onları sevin,
-koruyun ve hayatlarına
-dokunacak bir <a href="---------------" style="color:yellow">bağışta bulunun.</a>
-                        </pre>
-            </div>
-        </div>
-
-
-
-    </nav>
-
-</section>
-
-
-
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
 </body>
-
-
-
 </html>
-
