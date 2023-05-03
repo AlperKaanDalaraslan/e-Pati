@@ -27,7 +27,7 @@
                             </select>
                         </div>
                         <div class="ic-kutular">
-                            <a href="{{route('sahiplendirme_ilan_form')}}" style="text-decoration: none;">
+                            <a href="{{route('kayip_ilan_form')}}" style="text-decoration: none;">
                                 <div class="ilan-ver-butonu">İlan Ver</div>
                             </a>
                         </div>

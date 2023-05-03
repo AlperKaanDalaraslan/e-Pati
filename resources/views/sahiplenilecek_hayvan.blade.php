@@ -5,7 +5,9 @@
 @endsection
 
 @section('css_js')
-    <link rel="stylesheet" href="/css/sahiplenilecek_hayvan.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="/js/sahiplendirme_ilan_form.js"></script>
+    <link href="/css/sahiplendir_ilan_form.css" rel="stylesheet" >
 @endsection
     @section('content')
     <h1 style="text-align: center;">HAYVAN SAHİPLENME</h1>

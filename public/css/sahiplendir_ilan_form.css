@@ -1,0 +1,202 @@
+
+       
+		/* Genel stiller */
+body {
+	background-color: #f1f1f1;
+	font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 1070px;
+    width: 100vw;
+
+}
+.giris_navbar {
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    height: 60px; 
+    width: 100%;
+}
+.giris_navbar a {
+    font-size: 30px;
+    font-family: "Microsoft PhagsPa";
+    line-height: 0.5;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+  }
+.baslik{
+    font-size: 30px;
+    font-family: "Microsoft PhagsPa";
+    line-height: 0.5;
+    float: center;
+    display: block;
+    color: #4DBCEC;
+    text-align: center;
+    padding: 20px 140px;
+    text-decoration: none;
+}
+form {
+	background-color: #fff;
+	border-radius: 10spx;
+    top: 50px;
+	padding: 20px;
+	max-width: 600px;
+	margin: 0 auto;
+    margin-top: 50px;
+}
+
+h2 {
+	margin-top: 0;
+}
+
+label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+textarea {
+	border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	padding: 5px;
+	margin-bottom: 10px;
+	border: none;
+	width: 100%;
+}
+
+label[for="kisirlık_durumu"], label[for="asi_durumu"] {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
+}
+
+.kisirlik-secenekleri, .asi-secenekleri {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.kisirlik-secenekleri label, .asi-secenekleri label {
+  display: flex;
+  align-items: center;
+}
+
+.kisirlik-secenekleri input[type="radio"], .asi-secenekleri input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.custom-select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 2.5em;
+    line-height: 2.5em;
+    background-color: #f9f9f9;
+    color: #333;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    font-size: 1em;
+    padding: 0 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .custom-select:hover,
+  .custom-select:focus {
+    background-color: #e9e9e9;
+  }
+  
+  .custom-select:after {
+    content: "\25BC";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translateY(-50%);
+    font-size: 0.8em;
+    pointer-events: none;
+  }
+  
+  .custom-select option {
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+  }
+  
+  .custom-select option:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .custom-select option:checked {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+input[type="submit"] {
+	background-color: #4DBCEC;
+	color: #fff;
+	border-radius: 5px;
+	padding: 10px 20px;
+	border: none;
+	cursor: pointer;
+    display: block; 
+    margin: auto; 
+}
+
+input[type="submit"]:hover {
+	background-color: #2578D7;
+}
+
+/* İlgili stiller */
+#hayvan-ad,
+#cinsiyet,
+#yas,
+#chip,
+#sehir,
+#ilce,
+#adres {
+	height: 30px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+label[for="asi1"],
+label[for="asi2"],
+label[for="asi3"] {
+	margin-right: 10px;
+}
+
+textarea {
+	height: 100px;
+}
+label[for="foto"] {
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #555;
+}
+
+#foto {
+  display: block;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
+}

@@ -27,6 +27,24 @@ Route::prefix('sahiplenme')->group(function (){
         return view('sahiplenilecek_hayvan');
     })->name('sahiplenilecek_hayvan');
 
+    Route::get('/sahiplenme_ilan_ver' , function (){
+        return view('sahiplendirme_ilan_form');
+    })->name('sahiplendirme_ilan_form');
+
+});
+
+Route::prefix('kayip')->group(function (){
+
+    Route::get('', function (){
+        return view('kayip_ilan_sayfasi');
+    })->name('kayip_ilan_sayfasi');
+
+    Route::get('/kayip_ilan_ver', function (){
+        return view('kayip_ilan_form');
+    })->name('kayip_ilan_form');
+
+
+
 });
 
 
