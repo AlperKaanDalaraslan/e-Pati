@@ -66,7 +66,7 @@
             </li>
 
             <li>
-                <a href="">
+                <a href="{{route('kayip_ilan_sayfasi') }}">
                     <p class="menuyazisi"> KAYIP İLANI </p>
                 </a>
             </li>
