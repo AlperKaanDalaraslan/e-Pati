@@ -66,6 +66,10 @@ Route::prefix('es_bulma')->group(function (){
 
 });
 
+Route::get('/profil', function (){
+    return view('profil');
+})->name('profil');
+
 
 
 Auth::routes();

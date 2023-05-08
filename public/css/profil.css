@@ -1,0 +1,106 @@
+.kullanici_profil_kart{
+    border-width: 0px;
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-radius: 20px;
+    box-shadow: 0px 7px 232.5px 17.5px rgba(0, 0, 0, 0.09);
+    position: relative;
+    margin: 0 auto;
+    width: 1000px ;
+    margin-top: 50px;
+    height: auto;
+    z-index: 132;
+    display: flex;
+    flex-direction: column;
+
+}
+.kullanici_profil_baslik{
+    background: #329ce0;
+    height: 100px;
+    border-radius:15px 15px 0px 0px;
+}
+.username_baslik{
+    font-size: 30px;
+    font-family: "Microsoft PhagsPa";
+    line-height: 0.5;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 140px;
+    text-decoration: none;
+}
+.kullanici_profil_bilgi {
+    display: flex;
+    height: 300px;
+
+}
+.profil-resim-div{
+    width: 300px;
+}
+
+.kullanici_profil_resim{
+    height: 200px;
+    width: 200px;
+    border: 1px solid #329ce0;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    left: 50px;
+    bottom: 50px;
+}
+.kullanici_yazi_bilgi {
+    width: 500px;
+    position: relative;
+    top: 50px;
+    left: 200px;
+
+    font-size: 14.75px;
+    font-family: "Nunito Sans";
+    color: rgba(73, 70, 70, 0.82);
+    font-style: italic;
+    line-height: 1.67;
+    --moz-transform: matrix( 1.3530099742542,0,0,1.3530099742542,0,0);
+    --webkit-transform: matrix( 1.3530099742542,0,0,1.3530099742542,0,0);
+    --ms-transform: matrix( 1.3530099742542,0,0,1.3530099742542,0,0);
+}
+.kullanici_yazi_bilgi_alt{
+
+    font-size: 20px;
+    font-family: "Nunito Sans";
+    color: #329ce0;
+    font-weight: bold;
+    line-height: 1.67;
+
+
+}
+.profili_duzenle_button_div{
+width: 90%;
+
+
+
+
+}
+.profili_düzenle_button_border{
+    width: 190px;
+
+    font-family: "Nunito Sans";
+    font-weight: bold;
+
+    background-color: transparent;
+    border-width: 3px;
+    border-color: #329ce0;
+    color: #329ce0;
+    border-style: solid;
+    border-radius: 11px;
+    text-align: center;
+    padding: 6px 24.5px;
+    cursor: pointer;
+}
+.profili_düzenle_button_border:hover{
+    background-color: rgb(49, 153, 219);
+    color: #fff;
+}
+
+
+
+
