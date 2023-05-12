@@ -83,7 +83,7 @@
         </ul>
                         @guest
                             @if (Route::has('login'))
-                           <a href="{{ route('login') }}"> <img src="/images/girisyap.png" class="kayitol-girisyap"> </a>
+                           <a href="{{ route('login') }}"> <img src="/images/girisyap.png " class="kayitol-girisyap"> </a>
 
                             @endif
 
@@ -94,7 +94,7 @@
                         @else
                             <div class="kullanici_siralama">
                                 <div ><a href=""> <img src="/images/user.png" class="user_resmi" ></a></div>
-                                <div > <a href=""> <p class="kullanici_adi" > {{Auth::user()->name}} </p></a> </div>
+                                <div > <a href=""> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"

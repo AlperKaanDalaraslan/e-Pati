@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class RegisterController extends Controller
 {
@@ -50,7 +52,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+           'image' =>['image'],
+            'username' => ['required', 'string', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -64,9 +69,17 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if(isset($data['image'])) {
+            $imageName = Str::slug($data['username']) . '.' . $data['image']->getClientOriginalExtension();//uploadlanan resmin uzantısını tutar
+            $data['image']->move(public_path('user_images'), $imageName);
+            $data['image'] = 'user_images/' . $imageName;
+        }
         return User::create([
+            'username' => $data['username'],
             'name' => $data['name'],
+            'surname' => $data['surname'],
             'email' => $data['email'],
+            'user_image' => $data['image'],
             'password' => Hash::make($data['password']),
         ]);
     }
