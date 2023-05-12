@@ -93,8 +93,8 @@
                             @endif
                         @else
                             <div class="kullanici_siralama">
-                                <div ><a href=""> <img src="/images/user.png" class="user_resmi" ></a></div>
-                                <div > <a href=""> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
+                                <div ><a href="{{route('profil')}}"> <img src="/images/user.png" class="user_resmi" ></a></div>
+                                <div > <a href="{{route('profil')}}"> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -17,7 +17,7 @@ Route::get('/', function () {
     return view('anasayfa');
 })->name('anasayfa');
 
-Route::prefix('sahiplenme')->group(function (){
+Route::prefix('sahiplenme')->middleware('auth')->group(function (){
 
     Route::get('/', function (){
         return view('sahiplenmesayfasi');
@@ -33,7 +33,7 @@ Route::prefix('sahiplenme')->group(function (){
 
 });
 
-Route::prefix('kayip')->group(function (){
+Route::prefix('kayip')->middleware('auth')->group(function (){
 
     Route::get('/', function (){
         return view('kayip_ilan_sayfasi');
@@ -49,7 +49,7 @@ Route::prefix('kayip')->group(function (){
 
 
 });
-Route::prefix('es_bulma')->group(function (){
+Route::prefix('es_bulma')->middleware('auth')->group(function (){
 
     Route::get('/', function (){
         return view('es_bulma_sayfasi');
@@ -66,7 +66,7 @@ Route::prefix('es_bulma')->group(function (){
 
 });
 
-Route::get('/profil', function (){
+Route::middleware('auth')->get('/profil', function (){
     return view('profil');
 })->name('profil');
 
