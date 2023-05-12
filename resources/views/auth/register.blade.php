@@ -1,11 +1,13 @@
 @extends('layouts.app')
-
+@section('css_js')
+    <link href="/css/sign_up.css" rel="stylesheet">
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header" style="text-align: center"><h1>{{ __('KAYIT OL') }}</h1></div>
 
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data" action="{{ route('register') }}">

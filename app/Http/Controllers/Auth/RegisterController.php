@@ -52,7 +52,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-           'image' =>['image|mimes:jpeg,png,jpg'],
+           'image' =>['image','mimes:jpeg,png,jpg'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'surname' => ['required', 'string', 'max:255'],
@@ -73,6 +73,11 @@ class RegisterController extends Controller
             $imageName = Str::slug($data['username']) . '.' . $data['image']->getClientOriginalExtension();//uploadlanan resmin uzantısını tutar
             $data['image']->move(public_path('user_images'), $imageName);
             $data['image'] = 'user_images/' . $imageName;
+
+        }
+        else {
+            // Kullanıcı resim yüklemediği durum
+            $data['image'] = 'images/user_2.png'; // Varsayılan resim dosyasının yolu
         }
         return User::create([
             'username' => $data['username'],
