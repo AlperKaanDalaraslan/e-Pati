@@ -1461,7 +1461,7 @@ var data = [
 	  ]
 	}
   ]
- 
+
   function search(nameKey, myArray){
 	for (var i=0; i < myArray.length; i++) {
 	  if (myArray[i].plaka == nameKey) {
@@ -1496,10 +1496,10 @@ var data = [
 	  }
 	  $('#Ilceler').prop("disabled", true);
 	});
-  
+
 	$("#Ilceler").prop('required',true); //ilçe seçiminin zorunlu hale gelmesi için eklendi
   });
-  
+
 
   var tur_data = [
 	{
@@ -1555,7 +1555,7 @@ var data = [
         "Ukrayna Levkoy",
         "Van kedisi",
         "York Chocolate."
-        
+
 	  ]
 	},
 	{
@@ -1588,10 +1588,10 @@ var data = [
 	  "cinsleri": [
         "Altın Balık", "Beta Balığı (Kampiyon)", "Çöpçü Balığı", "Cüce Gurami", "Diskus Balığı", "Gümüş Balık", "Guppy", "Hacıyevrengi Balığı", "İris Balığı", "Japon Balığı", "Kardinal Tetra", "Kertenkele Balığı", "Kılıç Balığı", "Köpek Balığı", "Molly", "Neon Mavi Balık", "Neon Tetra", "Prenses Balığı", "Platy", "Rasbora Balığı", "Sazan Balığı", "Sera Balığı", "Siyam Balığı", "Yılan Balığı", "Zebra Balığı", "Akvaryum Balığı", "Balon Balığı", "Çiklit Balığı", "Cüce Balık", "Zehirli Ok Balığı"	  ]
 	},
-	
-	
+
+
   ]
- 
+
   function t_search(nameKey, myArray){
 	for (var i=0; i < myArray.length; i++) {
 	  if (myArray[i].turID == nameKey) {
@@ -1601,32 +1601,31 @@ var data = [
   }
   $( document ).ready(function() {
 	$.each(tur_data, function( index, value ) {
-	  $('#Turler').append($('<option>', {
+	  $('#Tur').append($('<option>', {
 		value: value.turID,
 		text:  value.tur
 	  }));
 	});
-	$("#Turler").change(function(){
+	$("#Tur").change(function(){
 	  var valueSelected = this.value;
-	  if($('#Turler').val() > 0) {
-		$('#Cinsler').html('');
-		$('#Cinsler').append($('<option>', {
+	  if($('#Tur').val() > 0) {
+		$('#Cins').html('');
+		$('#Cins').append($('<option>', {
 		  value: '',
 		  text:  'Lütfen Bir Cins seçiniz'
 		}));
-		$('#Cinsler').prop("disabled", false);
-		var resultObject = t_search($('#Turler').val(), tur_data);
+		$('#Cins').prop("disabled", false);
+		var resultObject = t_search($('#Tur').val(), tur_data);
 		$.each(resultObject.cinsleri, function( index, value ) {
-		  $('#Cinsler').append($('<option>', {
+		  $('#Cins').append($('<option>', {
 			  value: value,
 			  text:  value
 		  }));
 		});
 		return false;
 	  }
-	  $('#Cinsler').prop("disabled", true);
+	  $('#Cins').prop("disabled", true);
 	});
-  
-	$("#Cinsler").prop('required',true); //Cins seçiminin zorunlu hale gelmesi için eklendi
+
+	$("#Cins").prop('required',true); //Cins seçiminin zorunlu hale gelmesi için eklendi
   });
-  

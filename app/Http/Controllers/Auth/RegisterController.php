@@ -55,6 +55,7 @@ class RegisterController extends Controller
            'image' =>['image','mimes:jpeg,png,jpg'],
             'username' => ['required', 'string', 'max:255', 'unique:users'],
             'name' => ['required', 'string', 'max:255'],
+            'tel'=>['required','regex:/^(05)[0-9]{9}$/'],
             'surname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
@@ -84,6 +85,7 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'surname' => $data['surname'],
             'email' => $data['email'],
+            'tel' => $data['tel'],
             'user_image' => $data['image'],
             'password' => Hash::make($data['password']),
         ]);
