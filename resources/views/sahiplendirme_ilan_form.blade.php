@@ -12,10 +12,10 @@ Hayvan İlan Formu
         <!--    <a href="javascript:history.back()"><b>&#129040; Geri</b></a>    içindeki js kodu bi önceki sayfaya dönmesi için   -->
       <b class="baslik">Sahiplendirme İçin İlan Ver</b>
     </div>
-<form action="" class="form-bolumu" enctype="multipart/form-data">
+<form action="{{route('sahiplendirme_ilan_post')}}" method="post" class="form-bolumu" enctype="multipart/form-data">
         @csrf
         <label for="foto">Hayvanın Fotoğrafı:</label>
-        <input type="file" id="hayvan_foto" name="hayva_foto" accept="image/*" required>
+        <input type="file" id="hayvan_foto" name="hayvan_foto" accept="image/*" required>
         <br>
 		<label for="hayvan-ad">Hayvanın Adı:</label>
 		<input type="text" id="hayvan_ad" name="hayvan_ad" required>
@@ -31,7 +31,7 @@ Hayvan İlan Formu
         </select>
 
 		<label for="cinsiyet">Cinsiyet:</label>
-		<select class="custom-select"  id="" required>
+		<select class="custom-select" name="cinsiyet" id="cinsiyet" required>
             <option value="">Lütfen Hayvanın Cinsiyetini Seçin</option>
             <option value="0">Erkek</option>
             <option value="1">Dişi</option>
@@ -47,7 +47,7 @@ Hayvan İlan Formu
     Kısırlaştırılmış
   </label>
   <label>
-    <input type="radio" name="kisirlık_durumu" value="0" required>
+    <input type="radio" name="kisir" value="0" required>
     Kısırlaştırılmamış
   </label>
 </div>
@@ -56,13 +56,13 @@ Hayvan İlan Formu
 
 
         <label for="asi1">Kuduz</label>
-		<input type="checkbox" id="kuduz" name="kuduz" value="kuduz">
+		<input type="checkbox" id="kuduz" name="kuduz" value="1">
 		<label for="asi2">Karma</label>
-		<input type="checkbox" id="karma" name="karma" value="karma">
+		<input type="checkbox" id="karma" name="karma" value="1">
         <label for="asi3">Parazit</label>
-		<input type="checkbox" id="parazit" name="parazit" value="parazit">
+		<input type="checkbox" id="parazit" name="parazit" value="1">
         <label for="asi3">Kalp Kurtları</label>
-		<input type="checkbox" id="kalp_kurtlari" name="kalp_kurtlari" value="kalp_kurtlari">
+		<input type="checkbox" id="kalp_kurtlari" name="kalp_kurtlari" value="1">
 
     </div>
 		<label for="chip">Çip Numarası:</label>

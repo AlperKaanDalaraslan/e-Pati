@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SahiplendirmeController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,11 +19,15 @@ Route::get('/', function () {
     return view('anasayfa');
 })->name('anasayfa');
 
+Route::post('sahiplenme/sahiplendirme_ilan_post',[SahiplendirmeController::class,'create'])->name('sahiplendirme_ilan_post');
+
+
 Route::prefix('sahiplenme')->middleware('auth')->group(function (){
 
     Route::get('/', function (){
         return view('sahiplenmesayfasi');
     })->name('sahiplenmesayfasi');
+
 
     Route::get('/sahiplenilecek_hayvan' , function (){
         return view('sahiplenilecek_hayvan');

@@ -25,6 +25,7 @@ class Sahiplen extends Model
         'adres',
         'aciklama',
     ];
+    protected $table = 'sahiplen';
 
     use HasFactory;
 }
