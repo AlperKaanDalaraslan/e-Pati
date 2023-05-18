@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
+        DB::table('iller')->truncate();
+        Db::table('ilce')->truncate();
 
 
             $cities = [

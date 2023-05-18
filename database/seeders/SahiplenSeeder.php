@@ -15,10 +15,15 @@ class SahiplenSeeder extends Seeder
      */
     public function run(): void
     {
+
+        DB::table('sahiplen')->truncate();
+
+
         $hayvan_ad = ['minnoş','muhtar','karamel','bıyık','boncuk'];
         $cins = ['Tekir(sokak kedisi)', 'Ankara Kedisi','Amerikan Kılı','Birman'];
         $ilce = ['Karatay', 'Selçuklu','Meram'];
         $faker = Faker::create();
+
         for ($i = 0; $i< 100; $i++){
            DB::table('sahiplen')->insert([
                'user_id' => 1,
