@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->string('hayvan_image');
             $table->string('hayvan_ad');
-            $table->string('tur');
+            $table->integer('tur');
             $table->integer('yas');
             $table->string('cins');
             $table->boolean('cinsiyet');
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->integer('il_id');
             $table->string('ilce');
             $table->longText('adres');
+            $table->text('baslik');
             $table->longText('aciklama');
             $table->timestamps();
         });

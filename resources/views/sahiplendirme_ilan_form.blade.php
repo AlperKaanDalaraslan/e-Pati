@@ -81,6 +81,9 @@ Hayvan İlan Formu
 		<label for="adres">Adres:</label>
 		<textarea id="adres" name="adres" rows="4" cols="50" required></textarea>
 
+    <label for="baslik">İlan Başlık:</label>
+    <textarea id="baslik" name="baslik" rows="4" cols="50" required></textarea>
+
     <label for="adres">Açıklama:</label>
     <textarea id="aciklama" name="aciklama" rows="4" cols="50" required></textarea>
 

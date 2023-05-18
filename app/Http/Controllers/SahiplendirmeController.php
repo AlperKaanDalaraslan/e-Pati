@@ -15,6 +15,7 @@ class SahiplendirmeController extends Controller
         $request->validate([
             'hayvan_foto'=>'required',
             'hayvan_ad'=>'required',
+            'baslik' => 'required',
             'tur'=>'required',
             'cins'=>'required',
             'cinsiyet'=>'required',
@@ -45,6 +46,7 @@ class SahiplendirmeController extends Controller
         $data->il_id = $request->il_id;
         $data->ilce = $request->ilce;
         $data->adres = $request->adres;
+        $data->baslik = $request->baslik;
         $data->aciklama = $request->aciklama;
 
         if($request->hasFile('hayvan_foto')) {
@@ -66,4 +68,5 @@ class SahiplendirmeController extends Controller
         return redirect()->route('sahiplendirme_ilan_form');
 
     }
+    
 }

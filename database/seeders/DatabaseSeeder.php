@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+
             $cities = [
                 ['id' => 1, 'title' => 'ADANA'],
                 ['id' => 2, 'title' => 'ADIYAMAN'],
@@ -1081,6 +1084,7 @@ class DatabaseSeeder extends Seeder
             ['id' => 972, 'city_id' => 81, 'name' => 'MERKEZ']
         ];
         DB::table('ilce')->insert($districts);
+        $this->call(SahiplenSeeder::class,$cities,$districts);
 
     }
 }
