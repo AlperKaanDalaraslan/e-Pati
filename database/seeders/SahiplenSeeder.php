@@ -39,6 +39,8 @@ class SahiplenSeeder extends Seeder
                'adres' => rand(1000,1500).'sokak',
                'baslik' => 'Baslik'.rand(1000,1500),
                'aciklama' => 'Bu bir acıklama mesajıdır'.rand(1000,1500),
+               'created_at' =>$faker->DateTime('2007-05-29 22:30:48', 'Europe/Paris'),
+
 
            ]);
         }

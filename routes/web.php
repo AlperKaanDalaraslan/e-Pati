@@ -24,9 +24,7 @@ Route::post('sahiplenme/sahiplendirme_ilan_post',[SahiplendirmeController::class
 
 Route::prefix('sahiplenme')->middleware('auth')->group(function (){
 
-    Route::get('/', function (){
-        return view('sahiplenmesayfasi');
-    })->name('sahiplenmesayfasi');
+    Route::get('/',[SahiplendirmeController::class,'index'])->name('sahiplenmesayfasi');
 
 
     Route::get('/sahiplenilecek_hayvan' , function (){

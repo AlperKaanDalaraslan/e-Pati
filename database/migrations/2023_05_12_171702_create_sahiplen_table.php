@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sahiplen', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('hayvan_image');
             $table->string('hayvan_ad');
             $table->integer('tur');
@@ -32,6 +32,8 @@ return new class extends Migration
             $table->text('baslik');
             $table->longText('aciklama');
             $table->timestamps();
+
+           $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

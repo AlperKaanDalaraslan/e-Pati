@@ -8,7 +8,9 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header" style="text-align: center"><h1>{{ __('KAYIT OL') }}</h1></div>
-
+                @if($errors->any())
+                    <div class="alert alert-danger" style="color: red;">{{$errors->first()}}</div>
+                @endif
                 <div class="card-body">
                     <form method="POST" enctype="multipart/form-data" action="{{ route('register') }}">
                         @csrf

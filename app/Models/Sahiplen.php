@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sahiplen extends Model
 {
+    use HasFactory;
+    protected $table = 'sahiplen';
     protected $fillable = [
         'hayvan_image',
         'hayvan_ad',
@@ -25,7 +27,11 @@ class Sahiplen extends Model
         'adres',
         'aciklama',
     ];
-    protected $table = 'sahiplen';
 
-    use HasFactory;
+
+
+    public function getUser(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
+
 }

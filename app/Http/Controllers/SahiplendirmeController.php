@@ -68,5 +68,9 @@ class SahiplendirmeController extends Controller
         return redirect()->route('sahiplendirme_ilan_form');
 
     }
-    
+    public function index(){
+        $data = Sahiplen::paginate(5);
+        return view('sahiplenmesayfasi',compact('data'));
+
+    }
 }
