@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('parazit')->nullable();
             $table->boolean('kalp_kurtlari')->nullable();
             $table->string('cip_no');
-            $table->integer('il_id');
+            $table->unsignedBigInteger('il_id');
             $table->string('ilce');
             $table->longText('adres');
             $table->text('baslik');
@@ -34,6 +34,7 @@ return new class extends Migration
             $table->timestamps();
 
            $table->foreign('user_id')->references('id')->on('users');
+           $table->foreign('il_id')->references('id')->on('iller');
         });
     }
 

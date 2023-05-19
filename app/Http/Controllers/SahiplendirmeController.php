@@ -73,4 +73,9 @@ class SahiplendirmeController extends Controller
         return view('sahiplenmesayfasi',compact('data'));
 
     }
+
+    public function show($id){
+        $data =Sahiplen::find($id);
+        return view('sahiplenilecek_hayvan',compact('data'));
+    }
 }

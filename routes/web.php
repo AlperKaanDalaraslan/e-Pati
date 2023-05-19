@@ -27,9 +27,7 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
     Route::get('/',[SahiplendirmeController::class,'index'])->name('sahiplenmesayfasi');
 
 
-    Route::get('/sahiplenilecek_hayvan' , function (){
-        return view('sahiplenilecek_hayvan');
-    })->name('sahiplenilecek_hayvan');
+    Route::get('/sahiplenilecek_hayvan/{id}',[SahiplendirmeController::class,'show'])->name('sahiplenilecek_hayvan');
 
     Route::get('/sahiplenme_ilan_ver' , function (){
         return view('sahiplendirme_ilan_form');

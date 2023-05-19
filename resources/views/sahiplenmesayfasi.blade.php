@@ -75,7 +75,7 @@
 
             @foreach($data as $dt)
 
-                <a href="{{route('sahiplenilecek_hayvan')}}" style="text-decoration: none">
+                <a href="{{route('sahiplenilecek_hayvan',$dt->id)}}" style="text-decoration: none">
 
                     <div class="sahiplendirme-kart">
                         <div class="yan-yana-birleştirme" >
@@ -90,7 +90,7 @@
                                 <div class="yan-yana-birleştirme">
                                     <div class="kısa-bilgi-divi">
                                         <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$dt->tur}}</span><br>
-                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{$dt->ilce}},{{$dt->il_id}}</span><br>
+                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location" style="text-transform: capitalize;">{{$dt->ilce}},{{$dt->getIl->title}}</span><br>
                                         <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$dt->created_at}}  </span><br>
                                     </div>
                                     <div class="aciklama-div">

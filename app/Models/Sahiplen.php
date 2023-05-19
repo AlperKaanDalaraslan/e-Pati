@@ -33,5 +33,8 @@ class Sahiplen extends Model
     public function getUser(){
         return $this->belongsTo(User::class,'user_id','id');
     }
+    public function getIL(){
+        return $this->belongsTo(il::class,'il_id','id');
+    }
 
 }
