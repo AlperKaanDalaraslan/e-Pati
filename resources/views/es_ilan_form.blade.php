@@ -13,7 +13,7 @@
         <b class="baslik">Eş Bulmak İçin İlan Ver</b>
     </div>
     <form class="form-bolumu" enctype="multipart/form-data">
-        @csrf
+
         <label for="foto">Hayvanın Fotoğrafı:</label>
         <input type="file" id="foto" name="foto" accept="image/*" required>
         <br>

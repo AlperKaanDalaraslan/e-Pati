@@ -13,7 +13,7 @@ Hayvan İlan Formu
       <b class="baslik">Sahiplendirme İçin İlan Ver</b>
     </div>
 <form action="{{route('sahiplendirme_ilan_post')}}" method="post" class="form-bolumu" enctype="multipart/form-data">
-        @csrf
+
         <label for="foto">Hayvanın Fotoğrafı:</label>
         <input type="file" id="hayvan_foto" name="hayvan_foto" accept="image/*" required>
         <br>
