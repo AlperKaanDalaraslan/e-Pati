@@ -16,7 +16,7 @@
                 <div class="resim_bilgi_birleştirme">
 
                     <div class="resim_divi">
-                        <img src="{{$data->hayvan_image}}" class="hayvan_kart_resim" >
+                        <img src="/{{$data->hayvan_image}}" class="hayvan_kart_resim" >
                     </div>
 
                     <div class="right">

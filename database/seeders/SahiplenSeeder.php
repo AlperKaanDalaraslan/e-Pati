@@ -16,7 +16,7 @@ class SahiplenSeeder extends Seeder
     public function run(): void
     {
 
-        DB::table('sahiplen')->truncate();
+    //  DB::table('sahiplen')->truncate();  hata veriyor
 
 
         $hayvan_ad = ['minnoş','muhtar','karamel','bıyık','boncuk'];

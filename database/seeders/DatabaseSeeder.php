@@ -19,9 +19,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        DB::table('iller')->truncate();
-        Db::table('ilce')->truncate();
 
+
+        $this->call(Userseeder::class);
+//        DB::table('iller')->truncate();
+//        Db::table('ilce')->truncate();
 
             $cities = [
                 ['id' => 1, 'title' => 'ADANA'],
@@ -1085,7 +1087,7 @@ class DatabaseSeeder extends Seeder
             ['id' => 972, 'city_id' => 81, 'name' => 'MERKEZ']
         ];
         DB::table('ilce')->insert($districts);
-        $this->call(SahiplenSeeder::class,$cities,$districts);
+       $this->call(SahiplenSeeder::class);
 
     }
 }
