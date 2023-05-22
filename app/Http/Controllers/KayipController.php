@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Sahiplen;
 use Illuminate\Http\Request;
+use App\Models\Kayip;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -48,16 +48,15 @@ class KayipController extends Controller
 
     }
     public function index(){
-        $data = Sahiplen::paginate(5);
+        $data = Kayip::paginate(5);
         return view('kayip_ilan_sayfasi',compact('data'));
 
     }
 
     public function show($id){
-        $data =Sahiplen::find($id);
+        $data =Kayip::find($id);
         return view('kayip_hayvan',compact('data'));
     }
 
-    }
-    //
+
 }
