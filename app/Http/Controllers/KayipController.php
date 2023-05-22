@@ -41,6 +41,20 @@ class KayipController extends Controller
         $data->baslik = $request->baslik;
         $data->aciklama = $request->aciklama;
 
+        if($request->hasFile('hayvan_foto')) {
+
+
+
+
+            $imageName=Str::slug($request->hayvan_ad).'.'.$request->hayvan_foto->getClientOriginalExtension();
+
+            $request->hayvan_foto->move(public_path('kayip_images'),$imageName);
+            $data->hayvan_image = 'kayip_images/'.$imageName;
+
+        }
+
+
+
 
         $data->save();
 

@@ -91,7 +91,7 @@
                                     <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_at}} </span><br>
                                 </div>
                                 <div class="aciklama-div">
-                                    <div class="description">{{$dt->aciklama}}</div>
+                                    <div class="description">{{$veri->aciklama}}</div>
                                 </div>
                             </div>
                         </div>

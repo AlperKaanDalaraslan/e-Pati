@@ -42,10 +42,10 @@ Route::post('kayip/kayip_ilan_post',[SahiplendirmeController::class,'create'])->
 
 Route::prefix('kayip')->middleware('auth')->group(function (){
 
-    Route::get('/',[SahiplendirmeController::class,'index'])->name('kayip_ilan_sayfasi');
+    Route::get('/',[KayipController::class,'index'])->name('kayip_ilan_sayfasi');
 
 
-    Route::get('/kayip_hayvan/{id}',[SahiplendirmeController::class,'show'])->name('kayip_hayvan');
+    Route::get('/kayip_hayvan/{id}',[KayipController::class,'show'])->name('kayip_hayvan');
 
     Route::get('/kayip_ilan_ver' , function (){
         return view('kayip_ilan_form');
