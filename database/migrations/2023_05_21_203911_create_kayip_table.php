@@ -17,10 +17,13 @@ return new class extends Migration
             $table->string('hayvan_image');
             $table->integer('tur');
             $table->boolean('cinsiyet');
-            $table->boolean('kayip')->nullable();
-            $table->boolean('bulunan')->nullable();
+            $table->boolean('kayip_durumu')->nullable();
             $table->string('cip_no');
             $table->unsignedBigInteger('il_id');
+            $table->string('ilce');
+            $table->longText('adres');
+            $table->text('baslik');
+            $table->longText('aciklama');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');

@@ -12,26 +12,26 @@
         <!--    <a href="javascript:history.back()"><b>&#129040; Geri</b></a>    içindeki js kodu bi önceki sayfaya dönmesi için   -->
         <b class="baslik">Kayıp İlan Ver</b>
     </div>
-    <form action="{{route('kayip_ilan_post')}} method="post" class="form-bolumu" enctype="multipart/form-data">
+    <form action="{{route('kayip_ilan_post')}}" method="post" class="form-bolumu" enctype="multipart/form-data">
         @csrf
         <label for="foto">Hayvanın Fotoğrafı:</label>
-        <input type="file" id="foto" name="foto" accept="image/*" required>
+        <input type="file" id="hayvan_foto" name="hayvan_foto" accept="image/*" required>
         <br>
         <br>
 
 
         <label for="Tur">Hayvanın Türü:</label>
-        <select class="custom-select" id="Turler" required>
+        <select class="custom-select" id="Tur" name="tur" required>
             <option value="">Lütfen Hayvanınızıın Türünü Seçiniz</option>
         </select>
         <br>
         <br>
 
         <label for="cinsiyet">Cinsiyet:</label>
-        <select class="custom-select"  id="" required>
+        <select class="custom-select"  id="cinsiyet"  name="cinsiyet" required>
             <option value="">Lütfen Hayvanın Cinsiyetini Seçin</option>
-            <option value="1">Erkek</option>
-            <option value="2">Dişi</option>
+            <option value="0">Erkek</option>
+            <option value="1">Dişi</option>
         </select>
         <br>
         <br>
@@ -41,11 +41,11 @@
         <label for="kayip_durumu">Kayıp & Bulanan Durumu:</label>
         <div class="kisirlik-secenekleri">
             <label>
-                <input type="radio" name="kayip_durumu" value="kayip" required>
+                <input type="radio" name="kayip_durumu" value="1" required>
                 Kayip
             </label>
             <label>
-                <input type="radio" name="kayip_durumu" value="nulunan" required>
+                <input type="radio" name="kayip_durumu" value="0" required>
                 Bulunan
             </label>
         </div>
@@ -53,16 +53,16 @@
         <br>
 
         <label for="chip">Çip Numarası:</label>
-        <input type="text" id="chip" name="chip" required>
+        <input type="text" id="cip_no" name="cip" required>
         <br><br>
 
         <label for="sehir">Şehir:</label>
-        <select class="custom-select" id="Iller" required>
+        <select class="custom-select" id="Iller" name="il_id" required>
             <option value="">Lütfen Bir İl Seçiniz</option>
         </select>
 
         <label for="ilce">İlçe:</label>
-        <select class="custom-select" id="Ilceler" disabled="disabled" required>
+        <select class="custom-select" id="Ilceler" name="ilce" disabled="disabled" required>
             <option value="">Lütfen Önce bir İl seçiniz</option>
         </select>
         <br>

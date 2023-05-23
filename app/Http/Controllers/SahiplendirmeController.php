@@ -29,7 +29,6 @@ class SahiplendirmeController extends Controller
         ]);
 
 
-
         $data = new Sahiplen();
         $data->user_id = Auth::id();
         $data->hayvan_ad = $request->hayvan_ad;

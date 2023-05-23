@@ -97,9 +97,9 @@
                         </div>
                     </div>
                 </div>
-         @endforeach
             </a>
-
+         @endforeach
+             {{$data->links('pagination::bootstrap-4')}}
 
 
         </div>

@@ -16,12 +16,12 @@
                 <div class="resim_bilgi_birleştirme">
 
                     <div class="resim_divi">
-                        <img src="{{}}" class="hayvan_kart_resim" >
+                        <img src="/{{$data->hayvan_image}}" class="hayvan_kart_resim" >
                     </div>
 
                     <div class="right">
                         <div class="yan-yana-birleştirme">
-                            <img src="sahiplenme_images/options-lines.png" alt="" class="kart-resimleri" ><p class="title">$data->tur</p>
+                            <img src="sahiplenme_images/options-lines.png" alt="" class="kart-resimleri" ><p class="title">{{$data->tur}}</p>
                         </div>
                         <div class="yan-yana-birleştirme">
                             <img src="sahiplenme_images/pin.png" alt="" class="kart-resimleri"><p class="location">{{$data->ilce}}, {{$data->getIl->title}}</p>

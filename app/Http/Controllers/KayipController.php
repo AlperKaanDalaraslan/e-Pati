@@ -12,19 +12,19 @@ class KayipController extends Controller
 {
     public function create(Request $request){
 
-        $request->validate([
-            'hayvan_foto'=>'required',
-            'baslik' => 'required',
-            'tur'=>'required',
-            'cinsiyet'=>'required',
-            'kayip'=>'required',
-            'bulunan'=>'required',
-            'il_id'=>'required',
-            'ilce'=>'required',
-            'adres'=>'required',
-            'aciklama'=>'required',
-
-        ]);
+//        $request->validate([
+//            'hayvan_foto'=>'required',
+//            'baslik' => 'required',
+//            'tur'=>'required',
+//            'cinsiyet'=>'required',
+//            'kayip'=>'required',
+//            'bulunan'=>'required',
+//            'il_id'=>'required',
+//            'ilce'=>'required',
+//            'adres'=>'required',
+//            'aciklama'=>'required',
+//
+//        ]);
 
 
 
@@ -32,8 +32,7 @@ class KayipController extends Controller
         $data->user_id = Auth::id();
         $data->tur = $request->tur;
         $data->cinsiyet = $request->cinsiyet;
-        $data->kayip = $request->kayip;
-        $data->bulunan = $request->bulunan;
+        $data->kayip_durumu = $request->kayip_durumu;
         $data->cip_no = $request->cip;
         $data->il_id = $request->il_id;
         $data->ilce = $request->ilce;
@@ -46,7 +45,7 @@ class KayipController extends Controller
 
 
 
-            $imageName=Str::slug($request->hayvan_ad).'.'.$request->hayvan_foto->getClientOriginalExtension();
+            $imageName=Str::slug($request->cip).'.'.$request->hayvan_foto->getClientOriginalExtension();
 
             $request->hayvan_foto->move(public_path('kayip_images'),$imageName);
             $data->hayvan_image = 'kayip_images/'.$imageName;
@@ -63,7 +62,7 @@ class KayipController extends Controller
     }
     public function index(){
         $data = Kayip::paginate(5);
-        return view('kayip_ilan_sayfasi',compact('data'));
+        return view(' kayip_ilan_sayfasi ',compact('data'));
 
     }
 

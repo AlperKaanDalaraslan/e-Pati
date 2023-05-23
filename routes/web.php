@@ -37,13 +37,14 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
 
 });
 
-Route::post('kayip/kayip_ilan_post',[SahiplendirmeController::class,'create'])->name('kayip_ilan_post');
+Route::post('kayip/kayip_ilan_post',[KayipController::class,'create'])->name('kayip_ilan_post');
 
 
 Route::prefix('kayip')->middleware('auth')->group(function (){
 
-    Route::get('/',[KayipController::class,'index'])->name('kayip_ilan_sayfasi');
 
+
+    Route::get('/',[KayipController::class,'index'])->name('kayip_ilan_sayfasi');
 
     Route::get('/kayip_hayvan/{id}',[KayipController::class,'show'])->name('kayip_hayvan');
 
