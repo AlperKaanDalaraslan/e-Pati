@@ -70,180 +70,36 @@
     <nav class="sahiplendirme-toplu-kart-nav">
         <div class="sahiplendirme-toplu-kart">
 
+            @foreach($data as $veri)
+
+                <a href="{{route('es_bulma_hayvan',$veri->id)}}" style="text-decoration: none">
+
+                    <div class="sahiplendirme-kart">
+                        <div class="yan-yana-birleştirme" >
+                            <div class="left">
+
+                                <img src="{{ $veri->hayvan_image }}" class="circle">
+                            </div>
 
 
-
-            <a href="{{route('es_bulma_hayvan')}}" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
+                            <div class="right">
+                                <h1 class="title">İlan Başlık</h1>
+                                <div class="yan-yana-birleştirme">
+                                    <div class="kısa-bilgi-divi">
+                                        <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur"> {{ $veri->tur }} </span><br>
+                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{ $veri->getIl->title }},{{ $veri->ilce }}</span><br>
+                                        <img src="/images/clock.png" class="kart-resimleri"><span class="date"> {{ $veri->created_at }} </span><br>
+                                    </div>
+                                    <div class="aciklama-div">
+                                        <div class="description"> {{ $veri->aciklama }} </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a>
-
-
-            <a href="" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-
-            <a href="" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-
-
-            <a href="" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-
-
-            <a href="" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-
-
-            <a href="" style="text-decoration: none">
-
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">İlan Başlık</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">Kedi</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">Selçuklu,Konya</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">18.04.2023</span><br>
-                                </div>
-                                <div class="aciklama-div">
-                                    <div class="description">Burası açıklama kısmıdır aaaaaaadsvr r bdtbdgxf bx  b xfttbxbtbfb  dtbtdb  tb bzbtsdfvsdvdb zt</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-
-
+                </a>
+            @endforeach
+                {{ $data->links('pagination::bootstrap-4') }}
         </div>
     </nav>
 

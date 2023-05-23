@@ -27,7 +27,7 @@ Hayvan İlan Formu
 
 		<label for="Cins">Hayvanınızın Cinsi:</label>
 		<select class="custom-select" id="Cins" name="cins" disabled="disabled" required>
-                <option value="">Lütfen Önce bir İl seçiniz</option>
+                <option value="">Lütfen Önce bir il seçiniz</option>
         </select>
 
 		<label for="cinsiyet">Cinsiyet:</label>

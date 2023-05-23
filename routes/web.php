@@ -4,6 +4,7 @@ use App\Http\Controllers\KayipController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SahiplendirmeController;
+use App\Http\Controllers\EsBulmaController;
 
 
 /*
@@ -55,22 +56,21 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
 });
 
 
+
+
 Route::prefix('es_bulma')->middleware('auth')->group(function (){
 
-    Route::get('/', function (){
-        return view('es_bulma_sayfasi');
-    })->name('es_bulma_sayfasi');
+    Route::get('/', [EsBulmaController::class, 'index'])->name('es_bulma_sayfasi');
 
-    Route::get('/es_ilan_ver', function (){
-        return view('es_ilan_form');
-    })->name('es_ilan_form');
+    Route::get('/es_bulma_hayvan/{id}', [EsBulmaController::class, 'show'])->name('es_bulma_hayvan');
 
-    Route::get('/es_bulma_hayvan', function (){
-        return view('es_bulma_hayvan');
-    })->name('es_bulma_hayvan');
+    Route::get('/es_ilan_ver', function (){ return view('es_ilan_form'); })->name('es_ilan_form');
 
-
+    Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
 });
+
+
+
 
 Route::middleware('auth')->get('/profil', function (){
     return view('profil');
