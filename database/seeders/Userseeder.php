@@ -23,5 +23,30 @@ class Userseeder extends Seeder
             'tel' => '0555 555 55 55',
             'password' => Hash::make('123456789'),
 
-        ]);    }
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Admin1',
+            'name'=>'Admin1',
+            'surname' =>'Admin1',
+            'email'=>'admin1@gmail.com',
+            'user_image' => 'admin.png',
+            'tel' => '0522 222 2222',
+            'password' => Hash::make('987654321'),
+
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'Admin2',
+            'name'=>'Admin2',
+            'surname' =>'Admin2',
+            'email'=>'admin2@gmail.com',
+            'user_image' => '.png',
+            'tel' => '0533 333 3333',
+            'password' => Hash::make('147258369'),
+
+        ]);
+
+
+    }
 }

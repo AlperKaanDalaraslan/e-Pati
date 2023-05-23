@@ -1088,6 +1088,6 @@ class DatabaseSeeder extends Seeder
         ];
         DB::table('ilce')->insert($districts);
        $this->call(SahiplenSeeder::class);
-
+       $this->call(KayipSeeder::class);
     }
 }
