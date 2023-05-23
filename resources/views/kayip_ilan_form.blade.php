@@ -6,6 +6,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/js/sahiplendirme_ilan_form.js"></script>
     <link href="/css/sahiplendir_ilan_form.css" rel="stylesheet" >
+    <style>
+        .kayip-bold {
+            font-weight: bold;
+        }
+
+        .kayip-bold::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: blue;
+            margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
+        }
+
+    </style>
 @endsection
 @section('content')
     <div class="giris_navbar">

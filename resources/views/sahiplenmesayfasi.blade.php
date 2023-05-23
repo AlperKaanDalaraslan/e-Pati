@@ -7,7 +7,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/js/sahiplendirme_ilan_form.js"></script>
 
+    <style>
+        .sahiplenme-bold {
+            font-weight: bold;
+        }
 
+        .sahiplenme-bold::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: blue;
+            margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
+        }
+
+    </style>
 @endsection
 @section('content')
     <h1 style="text-align: center;">Sahiplenilecek Hayvan Sayfası</h1>

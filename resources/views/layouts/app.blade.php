@@ -57,7 +57,7 @@
 
             <li>
                 <a href="{{ route('sahiplenmesayfasi') }}">
-                    <p class="menuyazisi"> HAYVAN SAHİPLENME </p>
+                    <p class="menuyazisi"><span class="sahiplenme-bold">HAYVAN SAHİPLENME</span>   </p>
                 </a>
             </li>
 
@@ -67,7 +67,7 @@
 
             <li>
                 <a href="{{route('kayip_ilan_sayfasi') }}">
-                    <p class="menuyazisi"> KAYIP İLANI </p>
+                    <p class="menuyazisi"> <span class="kayip-bold"> KAYIP İLANI</span>  </p>
                 </a>
             </li>
 
@@ -77,7 +77,7 @@
 
             <li>
                 <a href="{{route('es_bulma_sayfasi') }}">
-                    <p class="menuyazisi"> EŞ BULMA</p>
+                    <p class="menuyazisi"><span class="es-bul-bold"> EŞ BULMA </span>  </p>
                 </a>
             </li>
         </ul>
