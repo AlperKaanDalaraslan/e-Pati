@@ -70,15 +70,15 @@
     <nav class="sahiplendirme-toplu-kart-nav">
         <div class="sahiplendirme-toplu-kart">
 
-            @foreach($data as $veri)
+            @foreach($data as $dat)
 
-                <a href="{{route('es_bulma_hayvan',$veri->id)}}" style="text-decoration: none">
+                <a href="{{route('es_bulma_hayvan',$dat->id)}}" style="text-decoration: none">
 
                     <div class="sahiplendirme-kart">
                         <div class="yan-yana-birleştirme" >
                             <div class="left">
 
-                                <img src="{{ $veri->hayvan_image }}" class="circle">
+                                <img src="{{ $dat->hayvan_image }}" class="circle">
                             </div>
 
 
@@ -86,12 +86,12 @@
                                 <h1 class="title">İlan Başlık</h1>
                                 <div class="yan-yana-birleştirme">
                                     <div class="kısa-bilgi-divi">
-                                        <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur"> {{ $veri->tur }} </span><br>
-                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{ $veri->getIl->title }},{{ $veri->ilce }}</span><br>
-                                        <img src="/images/clock.png" class="kart-resimleri"><span class="date"> {{ $veri->created_at }} </span><br>
+                                        <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur"> {{ $dat->tur }} </span><br>
+                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{ $dat->getIl->title }},{{ $dat->ilce }}</span><br>
+                                        <img src="/images/clock.png" class="kart-resimleri"><span class="date"> {{ $dat->created_at }} </span><br>
                                     </div>
                                     <div class="aciklama-div">
-                                        <div class="description"> {{ $veri->aciklama }} </div>
+                                        <div class="description"> {{ $dat->aciklama }} </div>
                                     </div>
                                 </div>
                             </div>
