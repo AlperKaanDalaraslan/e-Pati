@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: #ffffff;
+  }
+.giris_navbar {
+    background-color: #ffffff;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    height: 60px; 
+    width: 100%;
+}
+.giris_navbar a {
+    font-size: 30px;
+    font-family: "Microsoft PhagsPa";
+    line-height: 0.5;
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+  }
+  .baslik{
+    font-size: 30px;
+    font-family: "Microsoft PhagsPa";
+    line-height: 0.5;
+    float: center;
+    display: block;
+    color: #4DBCEC;
+    text-align: center;
+    padding: 20px 140px;
+    text-decoration: none;
+}
+.login-container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+.sign_up_kismi {
+font-family: "Nunito Sans";
+margin-top: 20px;
+text-align: center;
+}
+
+
+form {
+width: 350px;
+margin: 0 20px;
+padding: 30px;
+border: 1px solid #ddd;
+border-radius: 10px;
+background-color: #f7f7f7;
+}
+
+h2 {
+margin-bottom: 20px;
+text-align: center;
+}
+
+label {
+display: block;
+margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] {
+width: 100%;
+padding: 10px;
+margin-bottom: 20px;
+border: 1px solid #ddd;
+border-radius: 5px;
+}
+
+.blue-button {
+padding: 10px 20px;
+background-color: #007bff;
+color: #fff;
+border: none;
+border-radius: 5px;
+font-size: 18px;
+}
+
+a {
+    color: #009688;
+    text-decoration: none;
+  }
+  
