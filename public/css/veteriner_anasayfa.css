@@ -1,0 +1,64 @@
+.randevu-listesi {
+    width: 1000px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.scrollable {
+
+    height: 300px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 1px solid #ccc;
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.islem-buttons {
+    display: flex;
+}
+
+.islem-buttons button {
+    flex: 1;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.islem-buttons button.incele {
+    background-color: #2196f3;
+}
+
+.islem-buttons button.onayla {
+    background-color: #4caf50;
+}
+
+.islem-buttons button.sil {
+    background-color: #f44336;
+}
+
+.islem-buttons button:hover {
+    background-color: #fff;
+    color: inherit;
+}
+
+

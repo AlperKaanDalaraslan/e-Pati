@@ -41,8 +41,8 @@ Sende bir bağışta bulun.
 Onlara umut ol.</pre>
             <div class="logo_yazi_duzenleme">
 
-            <img class="epati_logo" src="/images/e_pati_logolu.png" >
-            <pre class="bagisyazi3">e-pati gündemini takip edin
+                <img class="epati_logo" src="/images/e_pati_logolu.png" >
+                <pre class="bagisyazi3">e-pati gündemini takip edin
             </pre>
 
             </div>

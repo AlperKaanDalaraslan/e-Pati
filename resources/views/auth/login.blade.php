@@ -106,14 +106,25 @@
             <div class="sign_up_kismi"> Hesabınız yok mu? <a href="{{'register'}}"> Hesap Oluştur</a></div>
         </form>
 
-        <form class="vet-login">
+        <form method="POST" action="{{route('vet_login')}}" class="vet-login">
+            @csrf
             <h2>Veteriner Girişi</h2>
             <label for="clinicname">Kullanıcı email</label>
-            <input type="text" id="email" name="email" required>
+            <input type="text" id="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" required autocomplete="email" autofocus>
+            @error('email')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+            </span>
+            @enderror
             <label for="password">Şifre:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+            @error('password')
+            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+            @enderror
             <button class="blue-button" type="submit">Giriş Yap</button>
-            <div class="sign_up_kismi">Yeni veteriner misiniz? <a href="#">Veteriner hesabı Oluştur</a></div>
+            <div class="sign_up_kismi">Yeni veteriner misiniz? <a href="{{route('vet_register')}}">Veteriner hesabı Oluştur</a></div>
         </form>
     </div>
 

@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\VetRegisterController;
 use App\Http\Controllers\KayipController;
+use App\Http\Middleware\Veteriner;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SahiplendirmeController;
@@ -75,6 +78,17 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
 Route::middleware('auth')->get('/profil', function (){
     return view('profil');
 })->name('profil');
+
+Route::get('/vet_register',function (){return view('auth/vet_register');})->name('vet_register');
+Route::post('/vet_register_post',[VetRegisterController::class,'create'])->name('vet_register_post');
+
+Route::post('/login',[LoginController::class, 'authenticated'])->name('login');
+Route::post('/vet_login',[LoginController::class, 'vet_authenticated'])->name('vet_login');
+
+
+
+Route::middleware([Veteriner::class])->get('/Veteriner-Panel',function (){return view('Veteriner/Veteriner_anasayfa');})->name('Veteriner_anasayfa');
+Route::middleware([Veteriner::class])->get('/Veteriner-Profil',function (){return view('Veteriner/Vet_profil');})->name('Vet_profil');
 
 
 

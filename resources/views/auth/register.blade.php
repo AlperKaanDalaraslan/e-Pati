@@ -122,6 +122,7 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="sign_up_kismi">Yeni veteriner misiniz? <a href="{{route('vet_register')}}">Veteriner hesabı Oluştur</a></div>
                     </form>
                 </div>
             </div>
