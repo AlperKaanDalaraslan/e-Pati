@@ -81,6 +81,7 @@ class RegisterController extends Controller
             $data['image'] = 'images/user_2.png'; // Varsayılan resim dosyasının yolu
         }
         return User::create([
+            'status' => "1",
             'username' => $data['username'],
             'name' => $data['name'],
             'surname' => $data['surname'],

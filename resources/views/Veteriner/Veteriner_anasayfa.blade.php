@@ -65,6 +65,8 @@
         <h1>Uzmanlık Alanları</h1>
 
         <ul><?php $i = 0?>
+            @if(!empty($uzmanliklar))
+
             @foreach($uzmanlik_isim as $uzmanlik)
                 @if($uzmanliklar[$uzmanlik])
             <li><span class="expertise">{{$uzmanlik}}</span>  </li>
@@ -72,6 +74,7 @@
                 @endif
 
             @endforeach
+            @endif
             @if($i == 0)
                 <h4 style="color: red">LÜTFEN UZMANLIK ALANLARINIZI GİRİNİZ</h4>
             @endif

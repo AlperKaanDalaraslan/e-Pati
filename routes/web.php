@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SahiplendirmeController;
 use App\Http\Controllers\EsBulmaController;
 use App\Http\Controllers\VeterinerController;
+use App\Http\Controllers\AnasayfaController;
 
 
 /*
@@ -22,9 +23,7 @@ use App\Http\Controllers\VeterinerController;
 |
 */
 
-Route::get('/', function () {
-    return view('anasayfa');
-})->name('anasayfa');
+Route::get('/',[AnasayfaController::class,'kontrol'])->name('anasayfa');
 
 Route::post('sahiplenme/sahiplendirme_ilan_post',[SahiplendirmeController::class,'create'])->name('sahiplendirme_ilan_post');
 
