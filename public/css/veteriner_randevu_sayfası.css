@@ -1,0 +1,104 @@
+.veteriner_arama{
+
+    height: 400px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-image: url(/images/veteriner_arama.png);
+    background-position: center top 4px;
+}
+.kart {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px auto;
+    max-width: 80%;
+}
+
+.kart .kart-icerik {
+    flex-basis: calc(33.33% - 130px);
+    margin-bottom: 20px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background: linear-gradient(to top, #3390e4 0%, #ffffff 70%);
+}
+
+
+.kart .kart-icerik img {
+    background-color: white;
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to left, #8B4513, #ffffff);
+}
+
+.kart .kart-icerik h3 {
+    font-weight: bold;
+}
+
+.kart .kart-icerik .lokasyon {
+    color: rgb(73, 70, 70);
+    margin-top: 10px;
+    font-weight: bold;
+    padding-top: 10px;
+}
+.hr_kart{
+    border-top: 5px solid black; margin: 10px 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.form-container {
+    width: 300px;
+    max-height: 250px;
+    padding: 50px;
+    margin-left: auto;
+    margin-right: 20%;
+    margin-bottom: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.form-container select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.form-container select:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-container select:focus {
+    outline: none;
+    border-color: #3390e4;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 0 5px rgba(51, 144, 228, 0.5);
+}
+
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3390e4;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-container button:hover {
+    background-color: #1472c4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}

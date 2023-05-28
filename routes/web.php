@@ -10,6 +10,7 @@ use App\Http\Controllers\SahiplendirmeController;
 use App\Http\Controllers\EsBulmaController;
 use App\Http\Controllers\VeterinerController;
 use App\Http\Controllers\AnasayfaController;
+use App\Http\Controllers\VeterinerRandevuController;
 
 
 /*
@@ -84,6 +85,9 @@ Route::post('/vet_register_post',[VetRegisterController::class,'create'])->name(
 
 Route::post('/login',[LoginController::class, 'authenticated'])->name('login');
 Route::post('/vet_login',[LoginController::class, 'vet_authenticated'])->name('vet_login');
+
+
+Route::middleware('auth')->get('/Veteriner-randevu',[VeterinerRandevuController::class, 'index'])->name('veteriner_randevu_anasayfa');
 
 
 

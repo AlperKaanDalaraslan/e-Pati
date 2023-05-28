@@ -19,13 +19,16 @@ class Veteriner extends Model
 
 
     public function getUser(){
-        return $this->hasOne(User::class,'vet_id','vet_id');
+        return $this->hasOne(User::class,'id','vet_id');
     }
     public function getUzmalik(){
         return $this->hasOne(Vet_uzmanlik::class,'vet_id','vet_id');
     }
     public function getCalisma(){
         return $this->hasOne(Vet_calisma::class,'vet_id','vet_id');
+    }
+    public function getIL(){
+        return $this->belongsTo(il::class,'il_id','id');
     }
 
 

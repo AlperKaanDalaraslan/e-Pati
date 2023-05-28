@@ -1091,28 +1091,6 @@ class DatabaseSeeder extends Seeder
        $this->call(SahiplenSeeder::class);
        $this->call(KayipSeeder::class);
        $this->call(EsBulmaSeeder::class);
-        DB::table('users')->insert([
-            'id' =>5,
-            'status' => 2,
-            'email'=>'admin3@gmail.com',
-            'user_image' => '.png',
-            'tel' => '0533 333 3333',
-            'password' => Hash::make('147258369'),
-        ]);
-        DB::table('veteriner')->insert([
-
-            'vet_id' => 5,
-            'klinik_ad' => 'deneme',
-            'il_id' => rand(1, 81),
-            'ilce' => 'deneme',
-            'adres' => 'adres1',
-
-
-
-        ]);
-        DB::table('vet_uzmanlik')->insert([
-            'vet_id' => 5,
-            'cerrahi' => 1
-        ]);
+       $this->call(VeterinerSeeder::class);
     }
 }
