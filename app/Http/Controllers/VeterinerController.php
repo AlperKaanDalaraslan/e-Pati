@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Vet_calisma;
+use App\Models\Vet_uzmanlik;
 use App\Models\Veteriner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,28 @@ class VeterinerController extends Controller
 
 
     }
+
+    public function createUzmanlik(Request $request){
+                $vetId = Auth::id();
+                if(!empty($vetId)){
+                    Vet_uzmanlik::where('vet_id', $vetId)->delete();
+                }
+                $data = new Vet_uzmanlik();
+                $data->vet_id = $vetId;
+                $data->cerrahi = $request->cerrahi;
+                $data->muayene = $request->muayene;
+                $data->teshis = $request->teshis;
+                $data->kuafor = $request->kuafor;
+                $data->dahiliye = $request->dahiliye;
+                $data->lab = $request->lab;
+                $data->koruyucu_hekim = $request->koruyucu_hekim;
+                $data->rontgen = $request->rontgen;
+                $data->yogun_bakim = $request->yogun_bakim;
+                $data->save();
+
+        return redirect()->route('Veteriner_anasayfa');
+
+    }
     public function vet_anasayfa(){
         $data = Vet_calisma::where('vet_id', Auth::id())->get();
         $gunler = [
@@ -49,15 +72,36 @@ class VeterinerController extends Controller
             'Cumartesi',
             'Pazar'];
         $gun_no = ['1', '2', '3', '4', '5', '6', '7',];
-
-        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no'));
+        $vetID = Auth::id();
+        $uzmanliklar = Vet_uzmanlik::where('vet_id', $vetID)->first();
+        $uzmanlik_isim = [
+            'cerrahi',
+            'muayene',
+            'teshis',
+            'kuafor',
+            'dahiliye',
+            'lab',
+            'koruyucu_hekim',
+            'rontgen',
+            'yogun_bakim'
+        ];
+        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no','uzmanliklar','uzmanlik_isim'));
 
     }
-    public function form(){
+    public function calisma_form(){
         $gunler = ['Pazartesi', 'Salı', 'Çarşamba', 'Perşembe', 'Cuma', 'Cumartesi', 'Pazar'];
         $gun_no = ['1', '2', '3', '4', '5', '6', '7',];
         $bas_saat = ['02:00', '03:00', '04:00', '05:00', '06:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00', '20:00', '21:00', '22:00', '23:00',];
         $randevu_aralik = ['15', '20', '30', '60',];
         return view('Veteriner/Vet_calisma_form',compact('gunler','gun_no','bas_saat','randevu_aralik'));
+    }
+
+    public function uzmanlik_form(){
+        $vetID = Auth::id();
+        $data = Vet_uzmanlik::where('vet_id', $vetID)->first();
+        if(empty($data)) {
+            $data = new Vet_uzmanlik();
+        }
+        return view('Veteriner/Vet_uzmanlik_form',compact('data'));
     }
 }

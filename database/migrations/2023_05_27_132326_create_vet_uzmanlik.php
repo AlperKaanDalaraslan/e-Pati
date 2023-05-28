@@ -19,7 +19,7 @@ return new class extends Migration
         $table->boolean('muayene')->nullable();
         $table->boolean('koruyucu_hekim')->nullable();
         $table->boolean('rontgen')->nullable();
-        $table->boolean('yoğun_bakım')->nullable();
+        $table->boolean('yogun_bakim')->nullable();
 
         $table->foreign('vet_id')->references('id')->on('users');
 

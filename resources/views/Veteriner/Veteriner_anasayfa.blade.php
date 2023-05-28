@@ -64,13 +64,23 @@
     <div class="container">
         <h1>Uzmanlık Alanları</h1>
 
-        <ul>
-            <li><span class="expertise">Cerrahi</span>  </li>
-            <li><span class="expertise">Muayene</span> </li>
+        <ul><?php $i = 0?>
+            @foreach($uzmanlik_isim as $uzmanlik)
+                @if($uzmanliklar[$uzmanlik])
+            <li><span class="expertise">{{$uzmanlik}}</span>  </li>
+                        <?php $i = 1?>
+                @endif
+
+            @endforeach
+            @if($i == 0)
+                <h4 style="color: red">LÜTFEN UZMANLIK ALANLARINIZI GİRİNİZ</h4>
+            @endif
+
+
 
         </ul>
 
-            <button class="incele_uzmanlik">Düzenle</button>
+            <button class="incele_uzmanlik" type="button" onclick="window.location.href = '{{route('Vet_uzmanlik_form')}}';" >Düzenle</button>
 
 
     </div>

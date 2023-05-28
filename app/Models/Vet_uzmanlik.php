@@ -10,7 +10,7 @@ class Vet_uzmanlik extends Model
     use HasFactory;
     protected $table = 'vet_uzmanlik';
     protected $fillable = [
-        'ceraahi' ,
+        'cerrahi' ,
         'muayene',
         'teshis',
         'kuafor',

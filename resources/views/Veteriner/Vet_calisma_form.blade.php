@@ -1,6 +1,6 @@
 @extends('layouts.vet_app')
 @section('title')
-    PROFİL
+    VETERİNER PANEL
 @endsection
 @section('css_js')
     <link href="/css/calisma_form.css" rel="stylesheet" >
