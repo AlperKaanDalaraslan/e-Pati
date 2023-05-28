@@ -50,4 +50,7 @@ class User extends Authenticatable
     public function getSahiplen(){
         return $this->hasMany(Sahiplen::class,'user_id','id');
     }
+    public function getVeteriner(){
+        return $this->hasOne(Veteriner::class,'vet_id','id');
+    }
 }

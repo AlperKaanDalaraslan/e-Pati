@@ -31,6 +31,18 @@
             color: rgb(81, 83, 85);
             line-height: 0.5 ;
         }
+        .veteriner-bold {
+            font-weight: bold;
+        }
+
+        .veteriner-bold::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: blue;
+            margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
+        }
     </style>
 
     @yield('css_js')
@@ -49,19 +61,11 @@
 
             <li>
                 <a href="#">
-                    <p class="menuyazisi"> RANDEVULARIM </p>
+                    <p class="menuyazisi"><span class="veteriner-bold">  VETERİNER PANEL</span>  </p>
                 </a>
             </li>
 
-            <li>
-                <p class="menucizgisi"></p>
-            </li>
 
-            <li>
-                <a href="#">
-                    <p class="menuyazisi"> RANDEVU DÜZENLE </p>
-                </a>
-            </li>
 
 
         </ul>
@@ -78,7 +82,7 @@
         @else
             <div class="kullanici_siralama">
                 <div ><a href="{{route('Vet_profil')}}"> <img src="/images/user.png" class="user_resmi" ></a></div>
-                <div > <a href="{{route('Vet_profil')}}"> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
+                <div > <a href="{{route('Vet_profil')}}"> <p class="kullanici_adi" > {{Auth::user()->getVeteriner->klinik_ad}} </p></a> </div>
 
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="{{ route('logout') }}"

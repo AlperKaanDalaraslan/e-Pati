@@ -1,4 +1,5 @@
 .randevu-listesi {
+    padding-top: 50px;
     width: 1000px;
     margin: 0 auto;
     margin-bottom: 50px;
@@ -43,6 +44,23 @@ th {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.incele_uzmanlik{
+    flex: 1;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: #2196f3;
+}
+.incele_uzmanlik:hover{
+    background-color: #fff;
+    color: inherit;
+}
+
 
 .islem-buttons button.incele {
     background-color: #2196f3;
@@ -59,6 +77,60 @@ th {
 .islem-buttons button:hover {
     background-color: #fff;
     color: inherit;
+}
+.kutu {
+
+    max-width: 600px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.baslik {
+    text-align: center;
+    color: #333;
+}
+
+.tablo {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.baslik-hucre, .veri-hucre {
+    padding: 10px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+ul {
+
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.expertise {
+
 }
 
 

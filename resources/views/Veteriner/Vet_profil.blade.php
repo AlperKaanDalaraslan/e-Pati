@@ -12,7 +12,7 @@
 
 <div class="kullanici_profil_kart" >
     <div class="kullanici_profil_baslik" style="display: flex; justify-content: center; align-items: center; ">
-        <b class="username_baslik">{{Auth::user()->username}}</b>
+        <b class="username_baslik">{{Auth::user()->getVeteriner->klinik_ad}}</b>
     </div>
     <div class="kullanici_profil_bilgi">
         <div class="profil-resim-div">

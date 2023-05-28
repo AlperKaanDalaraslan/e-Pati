@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SahiplendirmeController;
 use App\Http\Controllers\EsBulmaController;
+use App\Http\Controllers\VeterinerController;
 
 
 /*
@@ -87,10 +88,11 @@ Route::post('/vet_login',[LoginController::class, 'vet_authenticated'])->name('v
 
 
 
-Route::middleware([Veteriner::class])->get('/Veteriner-Panel',function (){return view('Veteriner/Veteriner_anasayfa');})->name('Veteriner_anasayfa');
+Route::middleware([Veteriner::class])->get('/Veteriner-Panel',[VeterinerController::class,'vet_anasayfa'])->name('Veteriner_anasayfa');
 Route::middleware([Veteriner::class])->get('/Veteriner-Profil',function (){return view('Veteriner/Vet_profil');})->name('Vet_profil');
+Route::middleware([Veteriner::class])->get('/Veteriner-Calisma-Saat',[VeterinerController::class,'form'])->name('Vet_calisma_form');
 
-
+Route::middleware([Veteriner::class])->get('/Vet_calisma_form_post',[VeterinerController::class,'createCalisma'])->name('Vet_calisma_form_post');
 
 Auth::routes();
 

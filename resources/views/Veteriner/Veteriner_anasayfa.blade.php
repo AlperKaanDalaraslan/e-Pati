@@ -7,7 +7,75 @@
 @endsection
 @section('content')
 
+    <div class="kutu">
+
+
+
+        <h1 class="baslik">Çalışma Günleri ve Saatleri</h1>
+        <table class="tablo">
+            @if(isset($data) && count($data) > 0)
+
+            <tr>
+                <th class="baslik-hucre">Gün</th>
+                <th class="baslik-hucre">Başlangıç Saati</th>
+                <th class="baslik-hucre">Bitiş Saati</th>
+            </tr>
+                @foreach($gunler as $index => $gun)
+                    @php
+                        $veri = $data->where('gun', $index + 1)->first();
+                    @endphp
+                    <tr>
+                        @if(!empty($veri))
+                            <td class="veri-hucre">{{ $gun }}</td>
+                            <td class="veri-hucre">{{$veri->randevu_bas}} </td>
+                            <td class="veri-hucre">{{$veri->randevu_bit}} </td>
+                        @else
+                            <td class="veri-hucre">{{ $gun }}</td>
+                            <td class="veri-hucre"> - </td>
+                            <td class="veri-hucre"> - </td>
+                        @endif
+                    </tr>
+                @endforeach
+
+
+
+            <td class="islem-buttons">
+                <a href="{{route('Vet_calisma_form')}}">
+                    <button class="incele" >Düzenle</button>
+                </a>
+
+            </td>
+            @else
+                <h1 style="color: red">
+                    Randevu gelmesi İçin Çalışma saatlerinizi Girmelisiniz
+                </h1>
+                <td class="islem-buttons">
+                    <a href="{{route('Vet_calisma_form')}}">
+                        <button class="incele" >Düzenle</button>
+                    </a>
+
+                </td>
+            @endif
+
+
+        </table>
+
+    </div>
+    <div class="container">
+        <h1>Uzmanlık Alanları</h1>
+
+        <ul>
+            <li><span class="expertise">Cerrahi</span>  </li>
+            <li><span class="expertise">Muayene</span> </li>
+
+        </ul>
+
+            <button class="incele_uzmanlik">Düzenle</button>
+
+
+    </div>
 <div class="randevu-listesi">
+    <h1 style="color: red">Randevular</h1>
     <div class="scrollable">
         <table>
             <thead>

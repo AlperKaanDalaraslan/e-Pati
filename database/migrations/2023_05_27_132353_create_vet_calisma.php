@@ -11,6 +11,7 @@ return new class extends Migration
     {Schema::create('vet_calisma', function (Blueprint $table) {
         $table->id();
         $table->unsignedBigInteger('vet_id');
+        $table->smallInteger('gun');
         $table->string('randevu_bas');
         $table->string('randevu_bit');
         $table->string('randevu_aralik');

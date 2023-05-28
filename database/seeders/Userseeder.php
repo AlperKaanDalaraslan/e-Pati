@@ -39,6 +39,7 @@ class Userseeder extends Seeder
         ]);
 
         DB::table('users')->insert([
+            'status' =>0,
             'username' => 'Admin2',
             'name'=>'Admin2',
             'surname' =>'Admin2',
