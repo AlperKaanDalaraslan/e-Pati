@@ -1,6 +1,6 @@
 .veteriner_arama{
 
-    height: 400px;
+    height: 300px;
     width: 100%;
     background-repeat: no-repeat;
     background-image: url(/images/veteriner_arama.png);
@@ -15,8 +15,8 @@
 }
 
 .kart .kart-icerik {
-    flex-basis: calc(33.33% - 130px);
-    margin-bottom: 20px;
+    flex-basis: calc(33.33% - 90px);
+    margin-top: 75px;
     padding: 10px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);

@@ -47,7 +47,7 @@
         <ul>
             <li>
                 <a href="{{route('veteriner_randevu_anasayfa')}}">
-                    <p class="menuyazisi">VETERİNER RANDEVU </p>
+                    <p class="menuyazisi"><span class="vet-bold">VETERİNER RANDEVU</span>  </p>
                 </a>
             </li>
 

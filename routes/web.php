@@ -88,7 +88,7 @@ Route::post('/vet_login',[LoginController::class, 'vet_authenticated'])->name('v
 
 
 Route::middleware('auth')->get('/Veteriner-randevu',[VeterinerRandevuController::class, 'index'])->name('veteriner_randevu_anasayfa');
-
+Route::middleware('auth')->get('/Veteriner-randevu-1',[VeterinerRandevuController::class, 'elequenormindex'])->name('vet_index_orm');
 
 
 Route::middleware([Veteriner::class])->get('/Veteriner-Panel',[VeterinerController::class,'vet_anasayfa'])->name('Veteriner_anasayfa');

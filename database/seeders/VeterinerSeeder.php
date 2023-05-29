@@ -20,7 +20,14 @@ class VeterinerSeeder extends Seeder
         $rand_bas = ['06', '07','08','09'];
         $rand_bit = ['16', '17','18','19'];
         $rand_aralik = ['15','20','30'];
-        for ($i = 0; $i< 100; $i++){
+        $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
+        for ($i = 0; $i< 500; $i++){
+            $rand_il = rand(1, 81);
+            $filteredArray = array_filter($districts, function ($item) use ($rand_il){
+                return $item['il_id'] == $rand_il;
+            });
+            $randomItem = array_rand($filteredArray);
+            $randomilce = $filteredArray[$randomItem]['ilce_ad'];
             $userID = DB::table('users')->insertGetId([
                 'status' => 2,
                 'email'=>$faker->email,
@@ -29,11 +36,10 @@ class VeterinerSeeder extends Seeder
                 'password' => Hash::make('123456789'),
             ]);
             DB::table('veteriner')->insert([
-
                 'vet_id' => $userID,
                 'klinik_ad' => 'Veterinerad'.rand(1,1000),
-                'il_id' => rand(1, 81),
-                'ilce' => $ilce[rand(0,2)],
+                'il_id' => $rand_il,
+                'ilce' => $randomilce,
                 'adres' => 'adres'.rand(1000,10000),
 
 
