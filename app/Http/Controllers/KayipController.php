@@ -71,21 +71,7 @@ class KayipController extends Controller
         $data =Kayip::find($id);
         return view('kayip_hayvan',compact('data'));
     }
-    public function kriter_fonksiyonu(Request $request)
-    {
-        $kriter=$request([
-            'il_id',
-            'cinsiyet',
-            'kategori',
-            'siralama',
-        ]);
 
-
-
-
-
-
-    }
 
 
 }

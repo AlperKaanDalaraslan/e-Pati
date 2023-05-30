@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class ilceler extends Model
+class Tur extends Model
 {
     use HasFactory;
-    protected $table = 'ilceler';
+    protected $table = 'tur';
     protected $fillable = [
+        'tur_ad',
+        ];
 
-        'il_id',
-        'ilce_ad'
-    ];
+
 }

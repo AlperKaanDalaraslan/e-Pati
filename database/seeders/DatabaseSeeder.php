@@ -115,5 +115,6 @@ class DatabaseSeeder extends Seeder
        $this->call(KayipSeeder::class);
        $this->call(EsBulmaSeeder::class);
        $this->call(VeterinerSeeder::class);
+       $this->call((TurSeeder::class));
     }
 }

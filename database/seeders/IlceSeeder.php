@@ -14,6 +14,7 @@ class IlceSeeder extends Seeder
      */
     public function run(): void
     {
+
       //  DB::table('ilceler')->truncate();
 
         ilceler::create( [

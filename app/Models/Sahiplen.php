@@ -37,4 +37,7 @@ class Sahiplen extends Model
         return $this->belongsTo(il::class,'il_id','id');
     }
 
+    public function getTur(){
+        return $this->belongsTo(Tur::class, 'tur' , 'id');
+    }
 }
