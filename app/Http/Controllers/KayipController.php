@@ -8,23 +8,24 @@ use App\Models\Kayip;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
+
 class KayipController extends Controller
 {
     public function create(Request $request){
 
-//        $request->validate([
-//            'hayvan_foto'=>'required',
-//            'baslik' => 'required',
-//            'tur'=>'required',
-//            'cinsiyet'=>'required',
-//            'kayip'=>'required',
-//            'bulunan'=>'required',
-//            'il_id'=>'required',
-//            'ilce'=>'required',
-//            'adres'=>'required',
-//            'aciklama'=>'required',
-//
-//        ]);
+        $request->validate([
+            'hayvan_foto'=>'required',
+            'baslik' => 'required',
+            'tur'=>'required',
+            'cinsiyet'=>'required',
+            'kayip'=>'required',
+            'bulunan'=>'required',
+            'il_id'=>'required',
+            'ilce'=>'required',
+            'adres'=>'required',
+            'aciklama'=>'required',
+
+        ]);
 
 
 
@@ -69,6 +70,21 @@ class KayipController extends Controller
     public function show($id){
         $data =Kayip::find($id);
         return view('kayip_hayvan',compact('data'));
+    }
+    public function kriter_fonksiyonu(Request $request)
+    {
+        $kriter=$request([
+            'il_id',
+            'cinsiyet',
+            'kategori',
+            'siralama',
+        ]);
+
+
+
+
+
+
     }
 
 

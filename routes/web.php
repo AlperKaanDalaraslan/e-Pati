@@ -57,6 +57,8 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
         return view('kayip_ilan_form');
     })->name('kayip_ilan_form');
 
+    Route::get('/kritere_bagli_arama' , [KayipController::class, 'kriter_fonksiyonu'])->name('kritere_bagli_arama');
+
 });
 
 
@@ -102,3 +104,5 @@ Route::middleware([Veteriner::class])->get('/Vet_uzmanlik_form_post',[VeterinerC
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+

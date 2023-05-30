@@ -29,15 +29,16 @@
             <div class="sahiplendirme-form">
                 <div style="width: 90%; height: 200px; display: flex; flex-direction: column; justify-content: space-around; position: absolute; top: 10%; left: 5%;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <form action="{{ route('kritere_bagli_arama') }}" method="get">
                         <div class="ic-kutular">
                             <label for="city">Bulunduğunuz Şehir:</label><br>
-                            <select class="custom-select" id="Iller" required>
+                            <select class="custom-select" id="Iller" name="il_id" >
                                 <option value="">Lütfen Bir İl Seçiniz</option>
                             </select>
                         </div>
                         <div class="ic-kutular">
                             <label for="gender">Cinsiyet:</label><br>
-                            <select class="custom-select" id="gender" name="gender">
+                            <select class="custom-select" name="cinsiyet" id="cinsiyet">
                                 <option value="erkek">Erkek</option>
                                 <option value="dişi">Dişi</option>
                             </select>
@@ -51,7 +52,7 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="ic-kutular">
                             <label for="category">Kategori:</label><br>
-                            <select class="custom-select" id="category" name="category">
+                            <select class="custom-select" id="kategori" name="kategori">
                                 <option value="kedi">Kedi</option>
                                 <option value="köpek">Köpek</option>
                                 <option value="kuş">Kuş</option>
@@ -61,7 +62,7 @@
                         </div>
                         <div class="ic-kutular">
                             <label for="sorting">Akıllı Sıralama:</label><br>
-                            <select class="custom-select" id="sorting" name="sorting">
+                            <select class="custom-select" id="siralama" name="siralama">
                                 <option value="alphabetical">İlan Tarihine Göre</option>
                                 <option value="date">Alfabetik</option>
                             </select>
@@ -69,9 +70,11 @@
                         <div class="ic-kutular">
                             <button type="submit">Arama Yap</button>
                         </div>
+                        </form>
                     </div>
 
                 </div>
+
 
 
             </div>
