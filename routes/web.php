@@ -57,7 +57,7 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
         return view('kayip_ilan_form');
     })->name('kayip_ilan_form');
 
-    Route::get('/kritere_bagli_arama' , [KayipController::class, 'kriter_fonksiyonu'])->name('kritere_bagli_arama');
+    Route::get('kayip/arama_post' , [KayipController::class, 'kriter_fonksiyonu'])->name('arama_post');
 
 });
 

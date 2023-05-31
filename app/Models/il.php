@@ -10,7 +10,7 @@ class il extends Model
     use HasFactory;
     protected $table = 'iller';
     protected $fillable = [
-        
+
       'id',
       'title',
     ];
