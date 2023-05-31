@@ -10,6 +10,7 @@ use App\Models\Vet_uzmanlik;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Models\Veteriner;
 
@@ -106,7 +107,8 @@ public function show_vet($vet_id,$tarih){
             }
         }
         if($alabilir){
-            $sonuc[] = "<button class=\"button-alt-withlink\" type=\"button\" onclick=\"window.location.href = '#';\">$current_time</button>";
+            $sonuc[] = "<a class=\"button-alt-withlink\" href=\"" . route('randevu_olustur', ['id' => $vet_id, 'saat' => $current_time,'tarih' =>$tarih]) . "\">$current_time</a>";
+
 
         }
 
@@ -120,5 +122,14 @@ public function show_vet($vet_id,$tarih){
     }
 
 
+public function createRandevu($vet_id,$saat,$tarih){
+        $data = new Randevu();
+        $data->user_id = Auth::id();
+        $data->vet_id = $vet_id;
+        $data->randevu_saat = $saat;
+        $data->randevu_tarih = $tarih;
+        $data->save();
+        return redirect()->route('anasayfa');
 
+}
 }
