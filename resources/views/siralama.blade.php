@@ -29,28 +29,26 @@
             <div class="sahiplendirme-form">
                 <form action="{{route('arama_post')}}" method="get">
                 <div style="width: 90%; height: 200px; display: flex; flex-direction: column; justify-content: space-around; position: absolute; top: 10%; left: 5%;">
-
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                        <div class="ic-kutular">
-                            <label for="city">Bulunduğunuz Şehir:</label><br>
-                            <select class="custom-select" id="Iller" name="il_id" required>
-                                <option value="">Lütfen Bir İl Seçiniz</option>
-                            </select>
-                        </div>
-                        <div class="ic-kutular">
-                            <label for="gender">Cinsiyet:</label><br>
-                            <select class="custom-select" name="cinsiyet" id="cinsiyet" required>
-                                <option value="">Cinsiyet</option>
-                                <option value="0">Erkek</option>
-                                <option value="1">Dişi</option>
-                            </select>
-                        </div>
-                        <div class="ic-kutular">
-                            <a href="{{route('kayip_ilan_form')}}" style="text-decoration: none;">
-                                <div class="ilan-ver-butonu">İlan Ver</div>
-                            </a>
-                        </div>
+                            <div class="ic-kutular">
+                                <label for="city">Bulunduğunuz Şehir:</label><br>
+                                <select class="custom-select" id="Iller" name="il_id" required>
+                                    <option value="">Lütfen Bir İl Seçiniz</option>
+                                </select>
+                            </div>
+                            <div class="ic-kutular">
+                                <label for="gender">Cinsiyet:</label><br>
+                                <select class="custom-select" name="cinsiyet" id="cinsiyet" required>
+                                    <option value="">Cinsiyet</option>
+                                    <option value="0">Erkek</option>
+                                    <option value="1">Dişi</option>
+                                </select>
+                            </div>
+                            <div class="ic-kutular">
+                                <a href="{{route('kayip_ilan_form')}}" style="text-decoration: none;">
+                                    <div class="ilan-ver-butonu">İlan Ver</div>
+                                </a>
+                            </div>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="ic-kutular">
@@ -67,7 +65,7 @@
                         <div class="ic-kutular">
                             <label for="sorting">Akıllı Sıralama:</label><br>
                             <select class="custom-select" id="siralama" name="siralama" required>
-                                <option value="alphabetical">Siralama</option>
+                                <option value="">Siralama</option>
                                 <option value="alphabetical">İlan Tarihine Göre</option>
                                 <option value="date">Alfabetik</option>
                             </select>
@@ -75,7 +73,7 @@
                         <div class="ic-kutular">
                             <button type="submit">Arama Yap</button>
                         </div>
-
+                        
                     </div>
 
                 </div>
@@ -92,37 +90,35 @@
 
     <nav class="sahiplendirme-toplu-kart-nav">
         <div class="sahiplendirme-toplu-kart">
+            @foreach($veritabanindan_gelen as $veri)
 
-         @foreach($data as $veri)
+                    <a href="{{route('kayip_hayvan',$veri->id)}}" style="text-decoration: none">
 
-            <a href="{{route('kayip_hayvan',$veri->id)}}" style="text-decoration: none">
+                        <div class="sahiplendirme-kart">
+                            <div class="yan-yana-birleştirme" >
+                                <div class="left">
 
-                <div class="sahiplendirme-kart">
-                    <div class="yan-yana-birleştirme" >
-                        <div class="left">
-
-                            <img src="{{$veri->hayvan_image}}" class="circle">
-                        </div>
-
-
-                        <div class="right">
-                            <h1 class="title">{{$veri->baslik}}</h1>
-                            <div class="yan-yana-birleştirme">
-                                <div class="kısa-bilgi-divi">
-                                    <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$veri->tur}}</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{$veri->ilce}},{{$veri->getIl->title}}</span><br>
-                                    <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_at}} </span><br>
+                                    <img src="{{$veri->hayvan_image}}" class="circle">
                                 </div>
-                                <div class="aciklama-div">
-                                    <div class="description">{{$veri->aciklama}}</div>
+
+
+                                <div class="right">
+                                    <h1 class="title">{{$veri->baslik}}</h1>
+                                    <div class="yan-yana-birleştirme">
+                                        <div class="kısa-bilgi-divi">
+                                            <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$veri->tur}}</span><br>
+                                            <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{$veri->ilce}},{{$veri->getIl->title}}</span><br>
+                                            <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_at}} </span><br>
+                                        </div>
+                                        <div class="aciklama-div">
+                                            <div class="description">{{$veri->aciklama}}</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </a>
-         @endforeach
-
+                    </a>
+            @endforeach
 
 
 
@@ -130,6 +126,3 @@
     </nav>
 
 @endsection
-
-
-
