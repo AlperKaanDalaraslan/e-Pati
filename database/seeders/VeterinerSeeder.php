@@ -73,6 +73,7 @@ class VeterinerSeeder extends Seeder
                 'vet_id' => $userID,
                 'randevu_saat' => "09:00",
                 'randevu_tarih' => Carbon::tomorrow(),
+                'onay' => 0,
             ]);
         }
 

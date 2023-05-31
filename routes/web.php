@@ -101,7 +101,8 @@ Route::middleware([Veteriner::class])->get('/Veteriner-uzmanlik',[VeterinerContr
 
 Route::middleware([Veteriner::class])->get('/Vet_calisma_form_post',[VeterinerController::class,'createCalisma'])->name('Vet_calisma_form_post');
 Route::middleware([Veteriner::class])->get('/Vet_uzmanlik_form_post',[VeterinerController::class,'createUzmanlik'])->name('Vet_uzmanlik_form_post');
-
+Route::middleware([Veteriner::class])->get("/Vet_randevu_onay/{id}",[VeterinerController::class,'randevu_onayla'])->name('randevu_onayla');
+Route::middleware([Veteriner::class])->get("/Vet_randevu_sil/{id}",[VeterinerController::class,'randevu_sil'])->name('randevu_sil');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

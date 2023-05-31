@@ -108,6 +108,17 @@
         }
         // Takvimi oluştur
         // Takvimi oluştur
+        function showConfirmation(klinikAd, tarih, saat) {
+            var confirmation = confirm('Şu ' + klinikAd + ' adlı veterinerden ' + tarih + ' tarihinde ' + saat + ' saatinde randevu alıyorsunuz, onaylıyor musunuz?');
+            if (confirmation) {
+                redirectToRandevuOlustur('{{ $vet->vet_id }}', saat,tarih);
+            }
+        }
+
+        function redirectToRandevuOlustur(vetId, currentTime, tarih) {
+            var url = '/Veteriner-randevu-alma/' + vetId + '/' + encodeURIComponent(currentTime) + '/' + encodeURIComponent(tarih);
+            window.location.href = url;
+        }
         function createCalendar() {
             var calendar = document.getElementById("calendar");
             var today = new Date();

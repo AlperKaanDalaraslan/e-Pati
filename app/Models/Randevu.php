@@ -16,4 +16,8 @@ class Randevu extends Model
         'randevu_saat',
         'randevu_tarih',
     ];
+
+    public function getUser(){
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

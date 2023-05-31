@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Randevu;
 use App\Models\Vet_calisma;
 use App\Models\Vet_uzmanlik;
 use App\Models\Veteriner;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,6 +65,17 @@ class VeterinerController extends Controller
     }
     public function vet_anasayfa(){
         $data = Vet_calisma::where('vet_id', Auth::id())->get();
+
+        $onaylanacakrandevular = Randevu::where('vet_id',Auth::id())
+            ->where('randevu_tarih', '>=',Carbon::tomorrow()->format('Y-m-d'))
+            ->where('onay', '=', 0)
+            ->get();
+
+
+            $onaylananrandevular = Randevu::where('vet_id',Auth::id())
+        ->where('randevu_tarih', '>=',Carbon::tomorrow()->format('Y-m-d'))
+        ->where('onay', '=', 1)
+        ->get();
         $gunler = [
             'Pazartesi',
             'Salı',
@@ -85,7 +98,9 @@ class VeterinerController extends Controller
             'rontgen',
             'yogun_bakim'
         ];
-        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no','uzmanliklar','uzmanlik_isim'));
+        if($onaylanacakrandevular === null){ $onaylanacakrandevular = false;}
+        if($onaylananrandevular === null){ $onaylananrandevular = false;}
+        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no','uzmanliklar','uzmanlik_isim','onaylanacakrandevular','onaylananrandevular'));
 
     }
     public function calisma_form(){
@@ -103,5 +118,13 @@ class VeterinerController extends Controller
             $data = new Vet_uzmanlik();
         }
         return view('Veteriner/Vet_uzmanlik_form',compact('data'));
+    }
+    public function randevu_onayla($id){
+        Randevu::where('randevu_id', $id)->update(['onay' => 1]);
+        return redirect()->route('Veteriner_anasayfa');
+    }
+    public function randevu_sil($id){
+        Randevu::where('randevu_id', $id)->delete(['onay' => 1]);
+        return redirect()->route('Veteriner_anasayfa');
     }
 }

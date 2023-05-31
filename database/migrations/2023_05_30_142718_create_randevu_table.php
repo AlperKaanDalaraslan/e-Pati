@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('vet_id');
             $table->string('randevu_saat');
             $table->date('randevu_tarih');
+            $table->boolean('onay');
             $table->timestamps();
         });
     }

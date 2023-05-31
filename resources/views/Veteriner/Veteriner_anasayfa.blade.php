@@ -88,7 +88,8 @@
 
     </div>
 <div class="randevu-listesi">
-    <h1 style="color: red">Randevular</h1>
+    <h1 style="color: red">Onaylanacak Randevular</h1>
+    @if($onaylanacakrandevular && count($onaylanacakrandevular) > 0)
     <div class="scrollable">
         <table>
             <thead>
@@ -96,7 +97,6 @@
                 <th>İsim</th>
                 <th>Soyisim</th>
                 <th>Email</th>
-                <th>Randevu nedeni</th>
                 <th>Randevu Tarihi</th>
                 <th>Randevu Saati</th>
                 <th>İşlemler</th>
@@ -104,102 +104,66 @@
             </thead>
             <tbody>
             <!-- Randevu kayıtlarını burada listele -->
-            <tr>
-                <td>Alper Kaan</td>
-                <td>Dalarslan</td>
 
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
+            @foreach($onaylanacakrandevular as $randevu)
             <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
+                <td>{{$randevu->getUser->name}}</td>
+                <td>{{$randevu->getUser->surname}}</td>
+
+                <td>{{$randevu->getUser->email}}</td>
+                <td>{{$randevu->randevu_tarih}}</td>
+                <td>{{$randevu->randevu_saat}}</td>
                 <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
+                    <button class="onayla" type="button" onclick="window.location.href = '{{ route('randevu_onayla', ['id' => $randevu->randevu_id]) }}';">Onayla</button>
+                    <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil', ['id' => $randevu->randevu_id]) }}';">Sil</button>
                 </td>
             </tr>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-                <td>john@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Jane</td>
-                <td>Smith</td>
-                <td>jane@example.com</td>
-                <td>Kısırlık</td>
-                <td>18.02.2023</td>
-                <td>18.15</td>
-                <td class="islem-buttons">
-                    <button class="incele">İncele</button>
-                    <button class="onayla">Onayla</button>
-                    <button class="sil">Sil</button>
-                </td>
-            </tr>
+            @endforeach
             </tbody>
         </table>
+        @else
+            <h1>Onaylanacak Randevunuz bulunmamaktadır!!</h1>
+        @endif
     </div>
 </div>
+    <div class="randevu-listesi">
+        <h1 style="color: greenyellow">Onaylanan Randevular</h1>
+        @if($onaylananrandevular && count($onaylananrandevular) > 0)
+            <div class="scrollable">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>İsim</th>
+                        <th>Soyisim</th>
+                        <th>Email</th>
+                        <th>Randevu Tarihi</th>
+                        <th>Randevu Saati</th>
+                        <th>İşlemler</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Randevu kayıtlarını burada listele -->
+
+                    @foreach($onaylananrandevular as $randevu)
+                        <tr>
+                            <td>{{$randevu->getUser->name}}</td>
+                            <td>{{$randevu->getUser->surname}}</td>
+
+                            <td>{{$randevu->getUser->email}}</td>
+                            <td>{{$randevu->randevu_tarih}}</td>
+                            <td>{{$randevu->randevu_saat}}</td>
+                            <td class="islem-buttons">
+                                <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil', ['id' => $randevu->randevu_id]) }}';">İptal et</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
+                @else
+                    <h1>Onaylanacak Randevunuz bulunmamaktadır!!</h1>
+                @endif
+            </div>
+    </div>
 
 @endsection
 
