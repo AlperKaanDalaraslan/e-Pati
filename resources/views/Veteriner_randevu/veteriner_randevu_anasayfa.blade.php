@@ -56,7 +56,7 @@
                 @foreach($data as $dt)
 
                 <div class="kart-icerik">
-                    <a href="#" style="text-decoration: none; display: inline-block;">
+                    <a href="{{route('randevu_alma', [$dt->vet_id, 'tarih' => $tarih])}}" style="text-decoration: none; display: inline-block;">
                     <img src="{{$dt->getUser->user_image}}" alt="Veteriner Resmi">
                     <h2 style="font-weight: bold; color: black">{{$dt->klinik_ad}}</h2>
                     <hr class="hr_kart">

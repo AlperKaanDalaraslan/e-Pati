@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Seeders;
-
+use Carbon\Carbon;
 use Faker\Factory as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +22,7 @@ class VeterinerSeeder extends Seeder
         $rand_aralik = ['15','20','30'];
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
         for ($i = 0; $i< 100; $i++){
+            $r_aralik = $rand_aralik[rand(0,2)];
             $rand_il = rand(1, 81);
             $filteredArray = array_filter($districts, function ($item) use ($rand_il){
                 return $item['il_id'] == $rand_il;
@@ -49,23 +50,31 @@ class VeterinerSeeder extends Seeder
                 'vet_id' => $userID,
                 'cerrahi' => 1,
                 'muayene' => rand(0,1),
-               'lab' => rand(0,1),
-               'teshis' => rand(0,1),
-               'kuafor' => rand(0,1),
-               'koruyucu_hekim' => rand(0,1),
+                'lab' => rand(0,1),
+                'teshis' => rand(0,1),
+                'kuafor' => rand(0,1),
+                'koruyucu_hekim' => rand(0,1),
                 'yogun_bakim' => rand(0,1),
                 'rontgen' => rand(0,1),
                 'dahiliye' => rand(0,1),
             ]);
             for($j=0; $j < 5 ; $j++ ){
-            DB::table('vet_calisma')->insert([
-                'vet_id' => $userID,
-                'gun' => $j+1,
-                'randevu_bas' => $rand_bas[rand(0,3)].':00',
-                'randevu_bit' => $rand_bit[rand(0,3)].':00',
-                'randevu_aralik' => $rand_aralik[rand(0,2)],
-            ]);
+                DB::table('vet_calisma')->insert([
+                    'vet_id' => $userID,
+                    'gun' => $j+1,
+                    'randevu_bas' => $rand_bas[rand(0,3)].':00',
+                    'randevu_bit' => $rand_bit[rand(0,3)].':00',
+                    'randevu_aralik' => $r_aralik,
+                ]);
+
             }
+            DB::table('randevu')->insert([
+                'user_id' => 1,
+                'vet_id' => $userID,
+                'randevu_saat' => "09:00",
+                'randevu_tarih' => Carbon::tomorrow(),
+            ]);
         }
+
     }
 }

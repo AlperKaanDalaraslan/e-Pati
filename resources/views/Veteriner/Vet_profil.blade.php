@@ -22,10 +22,10 @@
         <img src="{{ asset(Auth::user()->user_image ?: '/images/user_2.png' )}}" alt="" class="kullanici_profil_resim">
         </div>
         <div class="kullanici_yazi_bilgi">
-            <span>İsim &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span >&nbsp&nbsp&nbsp<span class="kullanici_yazi_bilgi_alt">{{Auth::user()->name}}</span> <br>
-            <span>Soyisim &nbsp:</span>&nbsp&nbsp&nbsp<span class="kullanici_yazi_bilgi_alt">{{Auth::user()->surname}}</span><br>
             <span>Telefon &nbsp&nbsp:</span>&nbsp&nbsp<span class="kullanici_yazi_bilgi_alt">{{Auth::user()->tel}}</span><br>
             <span>email &nbsp&nbsp&nbsp&nbsp:</span>&nbsp&nbsp&nbsp&nbsp<span class="kullanici_yazi_bilgi_alt">{{Auth::user()->email}}</span><br>
+            <span>Adres &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:</span >&nbsp&nbsp&nbsp<span class="kullanici_yazi_bilgi_alt">{{Auth::user()->getVeteriner->adres}}</span> <br>
+
 
         </div>
     </div>
