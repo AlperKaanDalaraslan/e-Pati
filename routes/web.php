@@ -137,6 +137,7 @@ Route::middleware([Veteriner::class])->get('/Veteriner-Panel',[VeterinerControll
 Route::middleware([Veteriner::class])->get('/Veteriner-Profil',function (){return view('Veteriner/Vet_profil');})->name('Vet_profil');
 Route::middleware([Veteriner::class])->get('/Veteriner-Calisma-Saat',[VeterinerController::class,'calisma_form'])->name('Vet_calisma_form');
 Route::middleware([Veteriner::class])->get('/Veteriner-uzmanlik',[VeterinerController::class,'uzmanlik_form'])->name('Vet_uzmanlik_form');
+Route::middleware([Veteriner::class])->get('/Veteriner-Panel-randevu',[VeterinerController::class,'vet_randevular'])->name('Randevularim');
 
 Route::middleware([Veteriner::class])->get('/Vet_calisma_form_post',[VeterinerController::class,'createCalisma'])->name('Vet_calisma_form_post');
 Route::middleware([Veteriner::class])->get('/Vet_uzmanlik_form_post',[VeterinerController::class,'createUzmanlik'])->name('Vet_uzmanlik_form_post');

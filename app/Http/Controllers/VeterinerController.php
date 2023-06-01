@@ -63,19 +63,29 @@ class VeterinerController extends Controller
         return redirect()->route('Veteriner_anasayfa');
 
     }
-    public function vet_anasayfa(){
-        $data = Vet_calisma::where('vet_id', Auth::id())->get();
-
+    public function vet_randevular(){
         $onaylanacakrandevular = Randevu::where('vet_id',Auth::id())
             ->where('randevu_tarih', '>=',Carbon::tomorrow()->format('Y-m-d'))
             ->where('onay', '=', 0)
             ->get();
 
 
-            $onaylananrandevular = Randevu::where('vet_id',Auth::id())
-        ->where('randevu_tarih', '>=',Carbon::tomorrow()->format('Y-m-d'))
-        ->where('onay', '=', 1)
-        ->get();
+        $onaylananrandevular = Randevu::where('vet_id',Auth::id())
+            ->where('randevu_tarih', '>=',Carbon::tomorrow()->format('Y-m-d'))
+            ->where('onay', '=', 1)
+            ->get();
+        if($onaylanacakrandevular === null){ $onaylanacakrandevular = false;}
+        if($onaylananrandevular === null){ $onaylananrandevular = false;}
+        return view('Veteriner/Randevularim',compact('onaylanacakrandevular','onaylananrandevular'));
+
+    }
+    public function vet_anasayfa(){
+        $data = Vet_calisma::where('vet_id', Auth::id())->get();
+        $bugununrendevular = Randevu::where('vet_id',Auth::id())
+            ->where('randevu_tarih', '>=',Carbon::today()->format('Y-m-d'))
+            ->where('onay', '=', 1)
+            ->get();
+
         $gunler = [
             'Pazartesi',
             'Salı',
@@ -98,9 +108,8 @@ class VeterinerController extends Controller
             'rontgen',
             'yogun_bakim'
         ];
-        if($onaylanacakrandevular === null){ $onaylanacakrandevular = false;}
-        if($onaylananrandevular === null){ $onaylananrandevular = false;}
-        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no','uzmanliklar','uzmanlik_isim','onaylanacakrandevular','onaylananrandevular'));
+
+        return view('Veteriner/Veteriner_anasayfa',compact('data','gunler','gun_no','uzmanliklar','uzmanlik_isim','bugununrendevular'));
 
     }
     public function calisma_form(){
@@ -121,10 +130,10 @@ class VeterinerController extends Controller
     }
     public function randevu_onayla($id){
         Randevu::where('randevu_id', $id)->update(['onay' => 1]);
-        return redirect()->route('Veteriner_anasayfa');
+        return redirect()->route('Randevularim');
     }
     public function randevu_sil($id){
-        Randevu::where('randevu_id', $id)->delete(['onay' => 1]);
-        return redirect()->route('Veteriner_anasayfa');
+        Randevu::where('randevu_id', $id)->delete();
+        return redirect()->route('Randevularim');
     }
 }

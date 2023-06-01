@@ -31,6 +31,9 @@
              color: rgb(81, 83, 85);
              line-height: 0.5 ;
          }
+         .header {
+             font-family: "Nunito Sans";
+         }
     </style>
 
     @yield('css_js')
