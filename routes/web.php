@@ -97,7 +97,12 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::post('/delete_sahiplen_ilan/{id}', [AdminController::class, 'delete_sahiplen_ilan'])->name('delete_sahiplen_ilan');
     });
 
-    Route::get('/kayip_ilanlari', [AdminController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
+    Route::prefix('/kayip_ilanlari')->middleware('auth')->group(function(){
+
+        Route::get('/', [AdminController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
+
+        Route::post('/delete_kayip_ilan/{id}', [AdminController::class, 'delete_kayip_ilan'])->name('delete_kayip_ilan');
+    });
 
     Route::get('/es_bulma_ilanlari', [AdminController::class, 'es_bulma_ilanlari'])->name('es_bulma_ilanlari');
 });

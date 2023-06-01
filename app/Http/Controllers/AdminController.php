@@ -44,6 +44,11 @@ class AdminController extends Controller
         return view('admin.kayip_ilanlari', compact('data'));
     }
 
+    public function delete_kayip_ilan($id){
+        Kayip::destroy($id);
+        return redirect()->back()->with('basarili', 'İlan başarıyla silindi.');
+    }
+
     public function es_bulma_ilanlari(){
         $data = Es_bul::paginate(10);
         return view('admin.es_bulma_ilanlari', compact('data'));
