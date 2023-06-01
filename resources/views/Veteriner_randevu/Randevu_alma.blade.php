@@ -11,7 +11,6 @@
 @section('content')
     <div class="kullanici_profil_kart" >
         <div class="kullanici_profil_baslik" style="display: flex; justify-content: center; align-items: center; ">
-
             <b class="username_baslik">{{$vet->klinik_ad}}</b>
         </div>
         <div class="kullanici_profil_bilgi">
@@ -89,7 +88,7 @@
                 @else
                     <h1 style="color: red; text-align: center"> Bu güne uygun randevu bulunmamaktadır</h1>
                 @endif
-                
+
             </div>
 
         </div>
@@ -109,6 +108,17 @@
         }
         // Takvimi oluştur
         // Takvimi oluştur
+        function showConfirmation(klinikAd, tarih, saat) {
+            var confirmation = confirm('Şu ' + klinikAd + ' adlı veterinerden ' + tarih + ' tarihinde ' + saat + ' saatinde randevu alıyorsunuz, onaylıyor musunuz?');
+            if (confirmation) {
+                redirectToRandevuOlustur('{{ $vet->vet_id }}', saat,tarih);
+            }
+        }
+
+        function redirectToRandevuOlustur(vetId, currentTime, tarih) {
+            var url = '/Veteriner-randevu-alma/' + vetId + '/' + encodeURIComponent(currentTime) + '/' + encodeURIComponent(tarih);
+            window.location.href = url;
+        }
         function createCalendar() {
             var calendar = document.getElementById("calendar");
             var today = new Date();
@@ -146,7 +156,7 @@
 
                     var vetId = {{$vet->vet_id}}; // Vet ID'sini güncelleyin
                     var selectedDate = this.innerText;
-                    var url = '{{ route("randevu_alma", ["id" => $vet->id, "tarih" => ":selectedDate"]) }}'
+                    var url = '{{ route("randevu_alma", ["id" => $vet->vet_id, "tarih" => ":selectedDate"]) }}'
                         .replace(':vet_id', vetId)
                         .replace(':selectedDate', selectedDate);
 

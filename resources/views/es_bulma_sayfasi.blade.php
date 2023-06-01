@@ -27,19 +27,21 @@
     <nav class="sahiplendirme-form-nav">
         <div class="container">
             <div class="sahiplendirme-form">
+                <form action="{{route('esbulma_post')}}" method="get">
                 <div style="width: 90%; height: 200px; display: flex; flex-direction: column; justify-content: space-around; position: absolute; top: 10%; left: 5%;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="ic-kutular">
                             <label for="city">Bulunduğunuz Şehir:</label><br>
-                            <select class="custom-select" id="Iller" required>
+                            <select class="custom-select" id="Iller" name="il_id" required>
                                 <option value="">Lütfen Bir İl Seçiniz</option>
                             </select>
                         </div>
                         <div class="ic-kutular">
                             <label for="gender">Cinsiyet:</label><br>
-                            <select class="custom-select" id="gender" name="gender">
-                                <option value="erkek">Erkek</option>
-                                <option value="dişi">Dişi</option>
+                            <select class="custom-select" name="cinsiyet" id="cinsiyet" required>
+                                <option value="">Cinsiyet</option>
+                                <option value="0">Erkek</option>
+                                <option value="1">Dişi</option>
                             </select>
                         </div>
                         <div class="ic-kutular">
@@ -51,17 +53,19 @@
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <div class="ic-kutular">
                             <label for="category">Kategori:</label><br>
-                            <select class="custom-select" id="category" name="category">
-                                <option value="kedi">Kedi</option>
-                                <option value="köpek">Köpek</option>
-                                <option value="kuş">Kuş</option>
-                                <option value="hamter">Hamster</option>
-                                <option value="balık">Balık</option>
+                            <select class="custom-select" id="tur" name="tur" required>
+                                <option value="">Kategori</option>
+                                <option value="1">Kedi</option>
+                                <option value="2">Köpek</option>
+                                <option value="3">Kuş</option>
+                                <option value="4">Hamster</option>
+                                <option value="5">Balık</option>
                             </select>
                         </div>
                         <div class="ic-kutular">
                             <label for="sorting">Akıllı Sıralama:</label><br>
-                            <select class="custom-select" id="sorting" name="sorting">
+                            <select class="custom-select" id="siralama" name="siralama" >
+                                <option value="alphabetical">Siralama</option>
                                 <option value="alphabetical">İlan Tarihine Göre</option>
                                 <option value="date">Alfabetik</option>
                             </select>
@@ -72,7 +76,7 @@
                     </div>
 
                 </div>
-
+                </form>
 
             </div>
         </div>
