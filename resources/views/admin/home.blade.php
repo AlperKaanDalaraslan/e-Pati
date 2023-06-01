@@ -1,0 +1,163 @@
+@extends('admin.layouts.admin_panel')
+@section('title')
+    Home
+@endsection
+@section('content')
+    <h2>Section title</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Header</th>
+                <th scope="col">Header</th>
+                <th scope="col">Header</th>
+                <th scope="col">Header</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="#" style="text-decoration: #1a1e21">adfadfadfadf</a></td>
+                <td>random</td>
+                <td>data</td>
+                <td>placeholder</td>
+                <td>text</td>
+                <td><a href="#"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">İncele</font></font></button></a></td>
+            </tr>
+            <tr>
+                <td>1,002</td>
+                <td>placeholder</td>
+                <td>irrelevant</td>
+                <td>visual</td>
+                <td>layout</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>data</td>
+                <td>rich</td>
+                <td>dashboard</td>
+                <td>tabular</td>
+            </tr>
+            <tr>
+                <td>1,003</td>
+                <td>information</td>
+                <td>placeholder</td>
+                <td>illustrative</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,004</td>
+                <td>text</td>
+                <td>random</td>
+                <td>layout</td>
+                <td>dashboard</td>
+            </tr>
+            <tr>
+                <td>1,005</td>
+                <td>dashboard</td>
+                <td>irrelevant</td>
+                <td>text</td>
+                <td>placeholder</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,007</td>
+                <td>placeholder</td>
+                <td>tabular</td>
+                <td>information</td>
+                <td>irrelevant</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            <tr>
+                <td>1,006</td>
+                <td>dashboard</td>
+                <td>illustrative</td>
+                <td>rich</td>
+                <td>data</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+@endsection
