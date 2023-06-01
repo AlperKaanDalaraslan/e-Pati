@@ -13,6 +13,8 @@ use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\VeterinerRandevuController;
 
 
+use App\Http\Controllers\AdminController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -75,7 +77,30 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
     Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
 });
 
+Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
+    Route::get('/', [AdminController::class, 'home'])->name('admin_panel');
+
+    Route::prefix('/kullanicilar')->middleware('auth')->group(function(){
+
+        Route::get('/', [AdminController::class, 'kullanicilar'])->name('kullanicilar');
+
+        Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
+    });
+
+    Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){
+
+        Route::get('/', [AdminController::class, 'sahiplenme_ilanlari'])->name('sahiplenme_ilanlari');
+
+        Route::get('/ilan_detay/{id}', [AdminController::class, 'sahiplenme_ilan_detay'])->name('ilan_detay');
+
+        Route::post('/delete_sahiplen_ilan/{id}', [AdminController::class, 'delete_sahiplen_ilan'])->name('delete_sahiplen_ilan');
+    });
+
+    Route::get('/kayip_ilanlari', [AdminController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
+
+    Route::get('/es_bulma_ilanlari', [AdminController::class, 'es_bulma_ilanlari'])->name('es_bulma_ilanlari');
+});
 
 
 Route::middleware('auth')->get('/profil', function (){
