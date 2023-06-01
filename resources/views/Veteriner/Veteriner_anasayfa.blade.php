@@ -115,7 +115,7 @@
                 <td>{{$randevu->randevu_saat}}</td>
                 <td class="islem-buttons">
                     <button class="onayla" type="button" onclick="window.location.href = '{{ route('randevu_onayla', ['id' => $randevu->randevu_id]) }}';">Onayla</button>
-                    <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil', ['id' => $randevu->randevu_id]) }}';">Sil</button>
+                    <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil_vet', ['id' => $randevu->randevu_id]) }}';">Sil</button>
                 </td>
             </tr>
             @endforeach
@@ -153,7 +153,7 @@
                             <td>{{$randevu->randevu_tarih}}</td>
                             <td>{{$randevu->randevu_saat}}</td>
                             <td class="islem-buttons">
-                                <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil', ['id' => $randevu->randevu_id]) }}';">İptal et</button>
+                                <button class="sil" type="button" onclick="window.location.href = '{{ route('randevu_sil_vet', ['id' => $randevu->randevu_id]) }}';">İptal et</button>
                             </td>
                         </tr>
                     @endforeach
