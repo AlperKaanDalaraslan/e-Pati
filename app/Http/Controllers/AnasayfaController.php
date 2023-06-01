@@ -11,7 +11,12 @@ class AnasayfaController extends Controller
     public function kontrol(){
         if(Auth::check()) {
             if (Auth::user()->status == 2) {
+                if(Auth::user()->getVeteriner->onay == 1){
                 return redirect()->route('Veteriner_anasayfa');
+                }
+                else{
+                    return redirect()->route('sertifika');
+                }
             }
             else if (Auth::user()->status == 0){
                 return redirect()->route('anasayfa'); // admin paneli olunca değiştirilecek

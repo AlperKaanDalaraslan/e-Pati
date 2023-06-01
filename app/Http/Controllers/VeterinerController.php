@@ -4,16 +4,37 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Randevu;
+use App\Models\Sertifika;
 use App\Models\Vet_calisma;
 use App\Models\Vet_uzmanlik;
 use App\Models\Veteriner;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class VeterinerController extends Controller
 {
+    public function sertifika_kontrol(){
+        $vet_id = Auth::id();
+        $kontrol = Sertifika::where('vet_id',$vet_id)->first();
+        return view('Veteriner/sertifika',compact('kontrol'));
 
+    }
+    public function sertifika(Request $request){
+        $data = new Sertifika();
+        $data->vet_id = Auth::id();
+
+        if($request->hasFile('image')) {
+
+            $imageName=Str::slug(Auth::user()->email).'.'.$request->image->getClientOriginalExtension();
+
+            $request->image->move(public_path('sertifika'),$imageName);
+            $data->sertifika_img = 'sertifika/'.$imageName;
+    }
+        $data->save();
+        return redirect()->route('sertifika');
+}
     public function createCalisma(Request $request){
 
 

@@ -133,6 +133,9 @@ Route::middleware('auth')->get('/Veteriner-randevu-alma/{id}/{saat}/{tarih}/',[V
 Route::middleware('auth')->get('/Veteriner-randevu-success', function (){return view('/Veteriner_randevu/alinan_randevu');})->name('alinan_randev');
 Route::middleware('auth')->get('/Randevu-iptal/{id}',[VeterinerRandevuController::class,'randevu_sil'])->name('randevu_sil_user');
 
+Route::middleware([Veteriner::class])->get('/Veteriner-Dogrulama',[VeterinerController::class,'sertifika_kontrol'])->name('sertifika');
+Route::middleware([Veteriner::class])->post('/Veteriner-Dogrulama_post',[VeterinerController::class,'sertifika'])->name('sertifika_post');
+
 Route::middleware([Veteriner::class])->get('/Veteriner-Panel',[VeterinerController::class,'vet_anasayfa'])->name('Veteriner_anasayfa');
 Route::middleware([Veteriner::class])->get('/Veteriner-Profil',function (){return view('Veteriner/Vet_profil');})->name('Vet_profil');
 Route::middleware([Veteriner::class])->get('/Veteriner-Calisma-Saat',[VeterinerController::class,'calisma_form'])->name('Vet_calisma_form');

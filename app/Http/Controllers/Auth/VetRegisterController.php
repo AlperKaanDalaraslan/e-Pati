@@ -76,10 +76,11 @@ class VetRegisterController extends Controller
         $data2->il_id = $request->il_id;
         $data2->ilce = $request->ilce;
         $data2->adres = $request->adres;
+        $data2->onay = 0;
 
 
         $data2->save();
 
-        return redirect(route('Veteriner_anasayfa'));
+        return redirect(route('sertifika'));
     }
 }
