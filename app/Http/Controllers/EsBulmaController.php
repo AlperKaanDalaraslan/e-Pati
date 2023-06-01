@@ -60,4 +60,23 @@ class EsBulmaController extends Controller
 
         return redirect()->route('es_ilan_form');
     }
+    public function esbulma_kriter_fonksiyonu(Request $request)
+    {
+        $request->validate([
+            'tur' => 'required',
+            'cinsiyet' => 'required',
+            'il_id' => 'required',
+            ]);
+
+        $kriter1=$request->input('il_id');
+        $kriter2=$request->input('cinsiyet');
+        $kriter3=$request->input('tur');
+
+        $veritabanindan_gelen = Es_bul::where('il_id', $kriter1)
+                                        ->where('cinsiyet', $kriter2)
+                                        ->where('tur', $kriter3)
+                                        ->get();
+
+        return view('esbulma_siralama' , compact('veritabanindan_gelen'));
+    }
 }

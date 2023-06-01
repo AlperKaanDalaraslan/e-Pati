@@ -39,6 +39,7 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
     Route::get('/sahiplenme_ilan_ver' , function (){
         return view('sahiplendirme_ilan_form');
     })->name('sahiplendirme_ilan_form');
+   Route::get('/sahiplenme_post', [SahiplendirmeController::class, 'sahiplenme_kriter_fonksiyonu'])->name('sahiplenme_post');
 
 });
 
@@ -73,6 +74,7 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
     Route::get('/es_ilan_ver', function (){ return view('es_ilan_form'); })->name('es_ilan_form');
 
     Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
+    Route::get('/esbulma_post' , [EsBulmaController::class, 'esbulma_kriter_fonksiyonu'])->name('esbulma_post');
 });
 
 

@@ -78,4 +78,20 @@ class SahiplendirmeController extends Controller
         return view('sahiplenilecek_hayvan',compact('data'));
     }
 
+    public function sahiplenme_kriter_fonksiyonu(Request $request){
+        $request->validate([
+            'tur' => 'required',
+            'cinsiyet' => 'required',
+            'il_id' => 'required',
+        ]);
+        $kriter1=$request->input('il_id');
+        $kriter2=$request->input('cinsiyet');
+        $kriter3=$request->input('tur');
+
+        $veritabanindan_gelen = Sahiplen::where('il_id', $kriter1)
+                                            ->where('cinsiyet', $kriter2)
+                                            ->where('tur', $kriter3)
+                                            ->get();
+        return view('sahiplen_siralama', compact('veritabanindan_gelen'));
+    }
 }
