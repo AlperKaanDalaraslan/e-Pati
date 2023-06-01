@@ -103,7 +103,8 @@
                                     </span>
             @enderror
             <button class="blue-button" type="submit">Giriş Yap</button>
-            <div class="sign_up_kismi"> Hesabınız yok mu? <a href="{{'register'}}"> Hesap Oluştur</a></div>
+            <div class="sign_up_kismi"> Hesabınız yok mu? <a href="{{'register'}}"> Hesap Oluştur</a> </div>
+            <div class="sign_up_kismi"><a >Şifremi unuttum</a></div>
         </form>
 
         <form method="POST" action="{{route('vet_login')}}" class="vet-login">
