@@ -5,12 +5,12 @@
 @section('content')
     <br><h2 style="text-align: center">Kayıp İlanları</h2><br>
     @if( session('basarili') )
-        <div class="alert alert-success" id="success alert">
+        <div class="alert alert-success" id="success-alert">
             {{ session('basarili') }}
         </div>
         <script>
             setTimeout(function(){
-                document.getElementById('success-alert').style.display = 'none'
+                document.getElementById('success-alert').style.display = 'none';
             }, 1500);
         </script>
     @endif
@@ -59,7 +59,7 @@
                     <td>
                         <form action="{{ route('delete_kayip_ilan', $dat->id) }}" method="post">
                             @csrf
-                            <button type="submit" onclick="return confirm('Bu ilanı silmek istediğinizden emin misiniz?')" class="btn btn-danger">
+                            <button type="submit" onclick="return confirm('BU İLANI SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?')" class="btn btn-danger">
                                 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font>
                             </button>
                         </form>

@@ -59,7 +59,7 @@
                     <td>
                         <form action="{{ route('delete_sahiplen_ilan', $dat->id) }}" method="post">
                             @csrf
-                            <button type="submit" onclick="return confirm('Bu ilanı silmek istediğinizden emin misiniz?')" class="btn btn-danger">
+                            <button type="submit" onclick="return confirm('BU İLANI SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?')" class="btn btn-danger">
                                 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font></button>
                         </form>
                     </td>

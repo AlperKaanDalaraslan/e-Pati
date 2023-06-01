@@ -47,7 +47,7 @@
                     <td>
                         <form action="{{ route('delete_user', $dat->id) }}" method="post">
                             @csrf
-                            <button type="submit" onclick="return confirm('Bu kullanıcıyı silmek istediğinizden emin misiniz?')" class="btn btn-danger">
+                            <button type="submit" onclick="return confirm('BU KULLANICIYI SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?')" class="btn btn-danger">
                                 <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font></button>
                         </form>
                     </td>

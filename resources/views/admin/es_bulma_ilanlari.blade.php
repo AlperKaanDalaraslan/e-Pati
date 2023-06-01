@@ -4,6 +4,16 @@
 @endsection
 @section('content')
     <br><h2 style="text-align: center">Eş Bulma İlanları</h2><br>
+    @if( session('basarili') )
+        <div class="alert alert-success" id="success-alert">
+            {{ session('basarili') }}
+        </div>
+        <script>
+            setTimeout(function(){
+                document.getElementById('success-alert').style.display = 'none';
+            }, 1500);
+        </script>
+    @endif
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
@@ -46,7 +56,14 @@
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
                     <td><a href="{{ route('ilan_detay', $dat->id) }}"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
-                    <td><button type="button" class="btn btn-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font></button></td>
+                    <td>
+                        <form action="{{ route('delete_es_bulma_ilan', $dat->id) }}" method="post">
+                            @csrf
+                            <button type="submit" onclick="return confirm('BU İLANI SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?')" class="btn btn-danger">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font>
+                            </button>
+                        </form>
+                    </td>
                 </tr>
                 </tbody>
             @endforeach

@@ -36,7 +36,7 @@ class AdminController extends Controller
 
     public function delete_sahiplen_ilan($id){
         Sahiplen::destroy($id);
-        return redirect()->back()->with('basarili', 'İlan başarıyla silindi.');
+        return redirect()->back()->with('basarili', 'İLAN BAŞARIYLA SİLİNDİ.');
     }
 
     public function kayip_ilanlari(){
@@ -46,11 +46,16 @@ class AdminController extends Controller
 
     public function delete_kayip_ilan($id){
         Kayip::destroy($id);
-        return redirect()->back()->with('basarili', 'İlan başarıyla silindi.');
+        return redirect()->back()->with('basarili', 'İLAN BAŞARIYLA SİLİNDİ.');
     }
 
     public function es_bulma_ilanlari(){
         $data = Es_bul::paginate(10);
         return view('admin.es_bulma_ilanlari', compact('data'));
+    }
+
+    public function delete_es_bulma_ilan($id){
+        Es_bul::destroy($id);
+        return redirect()->back()->with('basarili', 'İLAN BAŞARIYLA SİLİNDİ.');
     }
 }
