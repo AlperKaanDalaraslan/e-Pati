@@ -44,14 +44,14 @@
                     <td>{{ $dat->baslik }}</td>
                     <td><img src="/{{ $dat->hayvan_image }}" width="100" height="100"></td>
                     <td>{{ $dat->hayvan_ad }}</td>
-                    <td>{{ $dat->tur }}</td>
+                    <td>{{ $dat->getTur->tur_ad }}</td>
                     <td>{{ $dat->cins }}</td>
-                    <td>{{ $dat->cinsiyet==1 ? 'Erkek' : 'Dişi' }}</td>
+                    <td>{{ $dat->cinsiyet==0 ? 'Erkek' : 'Dişi' }}</td>
                     <td>{{ $dat->yas }}</td>
                     <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır Değil' }}</td>
                     <td>{{ $dat->kuduz==1 ? 'Kuduz': '' }}, {{ $dat->karma==1 ? 'Karma' :'' }}, {{ $dat->parazit==1 ? 'Parazit' : '' }}, {{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
                     <td>{{ $dat->cip_no }}</td>
-                    <td>{{ $dat->il_id }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
+                    <td>{{ $dat->getIL->title }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>

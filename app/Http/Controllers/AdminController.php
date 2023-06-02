@@ -72,26 +72,34 @@ class AdminController extends Controller
         if( $request->cins ){
             $data->cins = $request->cins;
         }
-        if( $request->cinsiyet ){
+        if( $request->has('cinsiyet') ){
             $data->cinsiyet = $request->cinsiyet;
         }
         if( $request->yas ){
             $data->yas = $request->yas;
         }
-        if( $request->kisirlik_durumu ){
+        if( $request->has('kisirlik_durumu') ){
             $data->kisir = $request->kisirlik_durumu;
         }
         if( $request->kuduz ){
             $data->kuduz = $request->kuduz;
+        }else{
+            $data->kuduz = 0;
         }
         if( $request->karma ){
-            $data->kuduz = $request->karma;
+            $data->karma = $request->karma;
+        }else{
+            $data->karma = 0;
         }
         if( $request->parazit ){
-            $data->kuduz = $request->parazit;
+            $data->parazit = $request->parazit;
+        }else{
+            $data->parazit = 0;
         }
         if( $request->kalp_kurtlari ){
-            $data->kuduz = $request->kalp_kurtlari;
+            $data->kalp_kurtlari = $request->kalp_kurtlari;
+        }else{
+            $data->kalp_kurtlari = 0;
         }
         if( $request->cip ){
             $data->cip_no = $request->cip;
