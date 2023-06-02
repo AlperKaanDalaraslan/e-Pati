@@ -18,7 +18,10 @@ class VeterinerController extends Controller
     public function sertifika_kontrol(){
         $vet_id = Auth::id();
         $kontrol = Sertifika::where('vet_id',$vet_id)->first();
+        if($kontrol){
         return view('Veteriner/sertifika',compact('kontrol'));
+        }
+        return redirect()->route('Veteriner_anasayfa');
 
     }
     public function sertifika(Request $request){

@@ -15,26 +15,56 @@ class EsBulmaSeeder extends Seeder
      */
     public function run(): void
     {
-        $hayvan_ad = ['animal_1','animal_2','animal_3','animal_4'];
-        $cins = ['tur_1', 'tur_2','tur_3','tur_4'];
-        $ilce = ['ilce_1', 'ilce_2','ilce_3', 'ilce_4'];
-        $faker = Faker::create();
+        $cinsler= [
+            ['id'=>1 , 'cins'=>'Ankara Kedis '],
+            ['id'=>1 , 'cins'=>'Scottish Fold'],
+            ['id'=>1 , 'cins'=>'Van kedisi'],
+            ['id'=>1 , 'cins'=>'Birman'],
+            ['id'=>2 , 'cins'=>'Akbaş'],
+            ['id'=>2 , 'cins'=>'Alman Kurdu'],
+            ['id'=>2 , 'cins'=>'Bernese Dağ Köpeğ'],
+            ['id'=>2 , 'cins'=>'Pitbull'],
+            ['id'=>3 , 'cins'=>'Çalıkuşu'],
+            ['id'=>3 , 'cins'=>'Guguk Kuşu'],
+            ['id'=>3 , 'cins'=>'Kırlangıç'],
+            ['id'=>3 , 'cins'=>'Turna'],
+            ['id'=>4 , 'cins'=>'Altın Hamster'],
+            ['id'=>4 , 'cins'=>'Kafkas Hamsteri'],
+            ['id'=>4 , 'cins'=>'Roborovski Hamsteri'],
+            ['id'=>5 , 'cins'=>'Beta Balığı (Kampiyon)'],
+            ['id'=>5 , 'cins'=>'Kılıç Balığı'],
+            ['id'=>5 , 'cins'=>'Prenses Balığı'],
 
+
+
+        ];
+        $hayvan_ad = ['animal_1','animal_2','animal_3','animal_4'];
+        $faker = Faker::create();
+        $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
         for ($i = 0; $i< 100; $i++){
+            $tarih = $faker->dateTimeBetween('2022-01-01', '2023-06-02');
+            $randomcins= $cinsler[array_rand($cinsler)];
+            $cins=$randomcins['cins'];
+            $rand_il = rand(1,81);
+            $filteredArray = array_filter($districts, function ($item) use ($rand_il){
+                return $item['il_id'] == $rand_il;
+            });
+            $randomItem = array_rand($filteredArray);
+            $randomilce = $filteredArray[$randomItem]['ilce_ad'];
             DB::table('es_bulma')->insert([
                 'user_id' => 2,
                 'hayvan_image' => 'animal.jpg',
                 'hayvan_ad' => $hayvan_ad[rand(0,3)],
-                'tur' => rand(1,5),
-                'cins' => $cins[rand(0,3)],
+                'tur' => $randomcins['id'] ,
+                'cins' => $cins,
                 'cinsiyet' => rand(0,1),
                 'yas' => rand(1,30),
                 'kisirlik_durumu' => rand(0,1),
-                'il_id' => rand(1, 81),
-                'ilce' => $ilce[rand(0,3)],
-                'adres' => rand(100, 1000).'sokak',
-                'aciklama' => 'Açıklama mesajı'.rand(100, 1000),
-                'created_at' => $faker->DateTime('2007-05-29 22:30:48', 'Europe/Paris'),
+                'il_id' => $rand_il,
+                'ilce' => $randomilce,
+                'adres' => $faker->address,
+                'aciklama' => $faker->sentence(20),
+                'created_at' => $tarih->format('d/m/y'),
             ]);
         }
     }

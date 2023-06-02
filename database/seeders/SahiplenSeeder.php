@@ -15,11 +15,6 @@ class SahiplenSeeder extends Seeder
      */
     public function run(): void
     {
-
-    //  DB::table('sahiplen')->truncate();  hata veriyor
-
-
-        $hayvan_ad = ['minnoş','muhtar','karamel','bıyık','boncuk'];
         $cinsler= [
             ['id'=>1 , 'cins'=>'Ankara Kedis '],
             ['id'=>1 , 'cins'=>'Scottish Fold'],
@@ -39,20 +34,23 @@ class SahiplenSeeder extends Seeder
             ['id'=>5 , 'cins'=>'Beta Balığı (Kampiyon)'],
             ['id'=>5 , 'cins'=>'Kılıç Balığı'],
             ['id'=>5 , 'cins'=>'Prenses Balığı'],
-
-
-
         ];
-        $ilce = ['Karatay', 'Selçuklu','Meram'];
         $faker = Faker::create();
-
+        $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
         for ($i = 0; $i< 100; $i++){
+            $tarih = $faker->dateTimeBetween('2022-01-01', '2023-06-02');
             $randomcins=$cinsler[array_rand($cinsler)];
             $cins=$randomcins['cins'];
+            $rand_il = rand(1,81);
+            $filteredArray = array_filter($districts, function ($item) use ($rand_il){
+                return $item['il_id'] == $rand_il;
+            });
+            $randomItem = array_rand($filteredArray);
+            $randomilce = $filteredArray[$randomItem]['ilce_ad'];
            DB::table('sahiplen')->insert([
-               'user_id' => 1,
-               'hayvan_image' => 'asdasd.png',
-               'hayvan_ad' => $hayvan_ad[rand(0,4)],
+               'user_id' => rand(4,103),
+               'hayvan_image' => $faker->imageUrl($width = 640, $height = 480),
+               'hayvan_ad' => $faker->word,
                'tur' => $randomcins['id'] ,
                'yas' => rand(1,30),
                'cins' => $cins,
@@ -63,12 +61,12 @@ class SahiplenSeeder extends Seeder
                'parazit' => rand(0,1),
                'kalp_kurtlari' => rand(0,1),
                'cip_no' => rand(100000000000000,999999999999999),
-               'il_id' => rand(1,81),
-               'ilce' => $ilce[rand(0,2)],
-               'adres' => rand(1000,1500).'sokak',
-               'baslik' => 'Baslik'.rand(1000,1500),
-               'aciklama' => 'Bu bir acıklama mesajıdır'.rand(1000,1500),
-               'created_at' =>$faker->DateTime('2007-05-29 22:30:48', 'Europe/Paris'),
+               'il_id' =>$rand_il ,
+               'ilce' => $randomilce,
+               'adres' => $faker->address,
+               'baslik' => $faker->sentence(2),
+               'aciklama' => $faker->sentence(20),
+               'created_at' => $tarih->format('d/m/y'),
 
 
            ]);

@@ -59,7 +59,7 @@
                                 <td>{{$randevu->randevu_tarih}}/{{$randevu->randevu_saat}}</td>
 
                                 <td>{{$randevu->getVeteriner->getIL->title}}/{{$randevu->getVeteriner->ilce}}</td>
-                                <td>Onay durumu: @if($randevu->onay == 0) <span style="color: red; font-weight: bold">Onay Bekliyor</span> @else <span style="color: greenyellow; font-weight: bold">Onaylandı</span> @endif</td>
+                                <td>Onay durumu: @if($randevu->onay == 0) <span style="color: red; font-weight: bold">Onay Bekleniyor</span> @else <span style="color: greenyellow; font-weight: bold">Onaylandı</span> @endif</td>
                                 <td></td>
                                 <td class="islem-buttons">
 

@@ -105,7 +105,7 @@
                                 <h1 class="title">İlan Başlık</h1>
                                 <div class="yan-yana-birleştirme">
                                     <div class="kısa-bilgi-divi">
-                                        <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur"> {{ $dat->tur }} </span><br>
+                                        <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur"> {{ $dt->getTur->tur_ad }} </span><br>
                                         <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{ $dat->getIl->title }},{{ $dat->ilce }}</span><br>
                                         <img src="/images/clock.png" class="kart-resimleri"><span class="date"> {{ $dat->created_at }} </span><br>
                                     </div>

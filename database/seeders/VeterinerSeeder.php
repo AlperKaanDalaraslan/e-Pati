@@ -15,9 +15,10 @@ class VeterinerSeeder extends Seeder
      */
     public function run(): void
     {
+
         $faker = Faker::create();
-        $ilce = ['Karatay', 'Selçuklu','Meram'];
         $rand_bas = ['06', '07','08','09'];
+        $rand_randevu = ['10','11','12','13','14'];
         $rand_bit = ['16', '17','18','19'];
         $rand_aralik = ['15','20','30'];
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
@@ -31,23 +32,31 @@ class VeterinerSeeder extends Seeder
             $randomilce = $filteredArray[$randomItem]['ilce_ad'];
             $userID = DB::table('users')->insertGetId([
                 'status' => 2,
-                'email'=>$faker->email,
-                'user_image' => '/images/user_2.png',
-                'tel' => '0533 333 3333',
+                'email'=>$faker->unique()->email,
+                'user_image' => $faker->imageUrl($width = 640, $height = 480),
+                'tel' => rand_tel(),
                 'password' => Hash::make('123456789'),
             ]);
+            $onay = rand(0,1);
+            if($onay == 0){
+                DB::table('sertifika')->insert([
+                    'vet_id' => $userID,
+                    'sertifika_img' => $faker->imageUrl($width = 640, $height = 640),
+                ]);
+            }
             DB::table('veteriner')->insert([
                 'vet_id' => $userID,
-                'klinik_ad' => 'Veterinerad'.rand(1,1000),
+                'klinik_ad' => $faker->word.' Veteriner Kliniği',
                 'il_id' => $rand_il,
                 'ilce' => $randomilce,
-                'adres' => 'adres'.rand(1000,10000),
-                'onay' => rand(0,1),
+                'adres' => $faker->address,
+                'onay' => $onay,
 
 
 
             ]);
-            DB::table('vet_uzmanlik')->insert([
+            if($onay != 0){
+                DB::table('vet_uzmanlik')->insert([
                 'vet_id' => $userID,
                 'cerrahi' => 1,
                 'muayene' => rand(0,1),
@@ -59,6 +68,7 @@ class VeterinerSeeder extends Seeder
                 'rontgen' => rand(0,1),
                 'dahiliye' => rand(0,1),
             ]);
+            $r_aralik = $rand_aralik[rand(0,2)];
             for($j=0; $j < 5 ; $j++ ){
                 DB::table('vet_calisma')->insert([
                     'vet_id' => $userID,
@@ -69,13 +79,19 @@ class VeterinerSeeder extends Seeder
                 ]);
 
             }
-            DB::table('randevu')->insert([
-                'user_id' => 1,
-                'vet_id' => $userID,
-                'randevu_saat' => "09:00",
-                'randevu_tarih' => Carbon::tomorrow(),
-                'onay' => 0,
-            ]);
+
+            for($x = 0; $x < 20 ; $x++ ){
+                $tarih = $faker->unique()->dateTimeBetween('2023-05-15', '2023-06-13');
+                $tarih->format('Y-m-d');
+                DB::table('randevu')->insert([
+                    'user_id' => rand(4,104),
+                    'vet_id' => $userID,
+                    'randevu_saat' => $rand_randevu[rand(0,4)].':'.$r_aralik,
+                    'randevu_tarih' => $tarih,
+                    'onay' => rand(0,1),
+                ]);
+            }
+            }
         }
 
     }
