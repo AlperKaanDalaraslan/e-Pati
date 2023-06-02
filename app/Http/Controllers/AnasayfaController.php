@@ -15,11 +15,12 @@ class AnasayfaController extends Controller
                 return redirect()->route('Veteriner_anasayfa');
                 }
                 else{
+
                     return redirect()->route('sertifika');
                 }
             }
             else if (Auth::user()->status == 0){
-                return redirect()->route('anasayfa'); // admin paneli olunca değiştirilecek
+                return redirect()->route('admin_panel'); // admin paneli olunca değiştirilecek
             }
         }
         return view('anasayfa');

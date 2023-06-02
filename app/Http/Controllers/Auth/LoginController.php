@@ -61,17 +61,22 @@ class LoginController extends Controller
                 return redirect()->route('Veteriner_anasayfa');
             }
 
-            else if($user->status === 2 and $user->getVeteriner->onay === 0){
+            else if($user->status === 2 and $user->getVeteriner->onay !=1){
                 return redirect()->route('sertifika');
 
             }
-            else if($user->status === 1 or $user->status === 1 ) {
+            else if($user->status === 1 ) {
                 // Kullanıcı veteriner değil
                 Auth::logout();
                 return redirect()->route('login')->withErrors([
                     'email' => 'Lütfen kullanıcı bölümünden giriş yapınız',
                 ]);
             }
+            else if($user->status === 0){
+                    return redirect()->route('admin_panel');
+
+                }
+
         }
         else {
             // Giriş başarısız

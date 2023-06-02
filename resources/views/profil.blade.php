@@ -6,6 +6,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="/js/sahiplendirme_ilan_form.js"></script>
     <link href="/css/profil.css" rel="stylesheet" >
+    <link href="/css/veteriner_anasayfa.css" rel="stylesheet" >
+<style>
+    table{
+        border: 0px;
+    }
+    .scrollable{
+        width: 99%;
+    }
+    .tekrar-randevu {
+        background-color: DodgerBlue;
+        color: white;
+    }
+</style>
 @endsection
 @section('content')
 <body>
@@ -34,6 +47,59 @@
 
             <div class="profili_düzenle_button_border">Profili Düzenle</div>
         </a>
+        <div class="randevu-listesi">
+            <h1 style="color: dodgerblue">Alınan Randevularım</h1>
+            @if($randevular && count($randevular) > 0)
+                <div class="scrollable">
+                    <table>
+                        <tbody>
+                        @foreach($randevular as $randevu)
+                            <tr>
+                                <td>{{$randevu->getVeteriner->klinik_ad}}</td>
+                                <td>{{$randevu->randevu_tarih}}/{{$randevu->randevu_saat}}</td>
+
+                                <td>{{$randevu->getVeteriner->getIL->title}}/{{$randevu->getVeteriner->ilce}}</td>
+                                <td>Onay durumu: @if($randevu->onay == 0) <span style="color: red; font-weight: bold">Onay Bekliyor</span> @else <span style="color: greenyellow; font-weight: bold">Onaylandı</span> @endif</td>
+                                <td></td>
+                                <td class="islem-buttons">
+
+                                    <button class="sil" type="button" onclick="window.location.href = '{{ route('profil_show_randevu', ['id' => $randevu->randevu_id]) }}';">Randevu Detay</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <h1>Randevunuz Bulunmamaktadır!!</h1>
+                    @endif
+                </div>
+        </div>
+        <div class="randevu-listesi">
+            <h1 style="color: red">Geçmiş Randevularım</h1>
+            @if($gecmis_randevular && count($gecmis_randevular) > 0)
+                    <?php $tarih = \Carbon\Carbon::tomorrow(); ?>
+                <div class="scrollable">
+                    <table>
+                        <tbody>
+
+                        @foreach($gecmis_randevular as $randevu)
+                            <tr>
+                                <td>{{$randevu->getVeteriner->klinik_ad}}</td>
+                                <td>{{$randevu->randevu_tarih}}/{{$randevu->randevu_saat}}</td>
+
+                                <td>{{$randevu->getVeteriner->getIL->title}}/{{$randevu->getVeteriner->ilce}}</td>
+                                <td class="islem-buttons">
+                                    <button class="tekrar-randevu" type="button" onclick="window.location.href = '{{ route('randevu_alma', ['id' => $randevu->getVeteriner->vet_id, 'tarih' => $tarih]) }}';">Tekrar Randevu Al</button>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    @else
+                        <h1>Geçmiş Randevunuz Bulunmamaktadır!!</h1>
+                    @endif
+                </div>
+        </div>
 <!--
     </div>
     <div class="kullanici_veteriner_randevu_baslik">
