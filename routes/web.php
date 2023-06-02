@@ -79,6 +79,7 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
     Route::get('/esbulma_post' , [EsBulmaController::class, 'esbulma_kriter_fonksiyonu'])->name('esbulma_post');
 });
 
+
 Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
     Route::get('/', [AdminController::class, 'home'])->name('admin_panel');
@@ -94,7 +95,9 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
         Route::get('/', [AdminController::class, 'sahiplenme_ilanlari'])->name('sahiplenme_ilanlari');
 
-        Route::get('/ilan_detay/{id}', [AdminController::class, 'sahiplenme_ilan_detay'])->name('ilan_detay');
+        Route::get('/update_sahiplen_ilan/{id}', [AdminController::class, 'update_sahiplen_ilan'])->name('update_sahiplen_ilan');
+
+        Route::post('/update_sahiplen_ilan_post/{id}', [AdminController::class, 'update_sahiplen_ilan_post'])->name('update_sahiplen_ilan_post');
 
         Route::post('/delete_sahiplen_ilan/{id}', [AdminController::class, 'delete_sahiplen_ilan'])->name('delete_sahiplen_ilan');
     });
@@ -113,6 +116,7 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::post('/delete_es_bulma_ilan/{id}', [AdminController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
     });
 });
+
 
 
 Route::middleware('auth')->get('/profil', function (){

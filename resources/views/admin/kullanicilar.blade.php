@@ -35,7 +35,7 @@
                         @endif
                     </td>
                     <td>{{ $dat->username }}</td>
-                    <td><img src="/{{ $dat->user_image }}"></td>
+                    <td><img src="/{{ $dat->user_image }}" width="100" height="100"></td>
                     <td>{{ $dat->name }}</td>
                     <td>{{ $dat->surname }}</td>
                     <td>{{ $dat->email }}</td>

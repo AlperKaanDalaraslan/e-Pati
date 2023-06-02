@@ -5,7 +5,7 @@
 @section('content')
     <br><h2 style="text-align: center">Eş Bulma İlanları</h2><br>
     @if( session('basarili') )
-        <div class="alert alert-success" id="success-alert">
+        <div class="alert alert-success" id="success-alert" style="text-align: center">
             {{ session('basarili') }}
         </div>
         <script>
@@ -42,7 +42,7 @@
                     <td>{{ $dat->id }}</td>
                     <td>{{ $dat->user_id }}</td>
                     <td>{{ $dat->baslik }}</td>
-                    <td><img src="/{{ $dat->hayvan_image }}"></td>
+                    <td><img src="/{{ $dat->hayvan_image }}" width="100" height="100"></td>
                     <td>{{ $dat->hayvan_ad }}</td>
                     <td>{{ $dat->tur }}</td>
                     <td>{{ $dat->cins }}</td>
@@ -55,7 +55,7 @@
                     <td>{{ $dat->aciklama }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td><a href="{{ route('ilan_detay', $dat->id) }}"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
+                    <td><a href="#"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
                     <td>
                         <form action="{{ route('delete_es_bulma_ilan', $dat->id) }}" method="post">
                             @csrf

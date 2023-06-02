@@ -5,7 +5,7 @@
 @section('content')
     <br><h2 style="text-align: center">Sahiplenme İlanları</h2><br>
     @if(session('basarili'))
-        <div class="alert alert-success" id="success-alert">
+        <div class="alert alert-success" id="success-alert" style="text-align: center">
             {{ session('basarili') }}
         </div>
         <script>
@@ -42,25 +42,33 @@
                     <td>{{ $dat->id }}</td>
                     <td>{{ $dat->user_id }}</td>
                     <td>{{ $dat->baslik }}</td>
-                    <td><img src="/{{ $dat->hayvan_image }}"></td>
+                    <td><img src="/{{ $dat->hayvan_image }}" width="100" height="100"></td>
                     <td>{{ $dat->hayvan_ad }}</td>
                     <td>{{ $dat->tur }}</td>
                     <td>{{ $dat->cins }}</td>
                     <td>{{ $dat->cinsiyet==1 ? 'Erkek' : 'Dişi' }}</td>
                     <td>{{ $dat->yas }}</td>
-                    <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır değil' }}</td>
+                    <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır Değil' }}</td>
                     <td>{{ $dat->kuduz==1 ? 'Kuduz': '' }}, {{ $dat->karma==1 ? 'Karma' :'' }}, {{ $dat->parazit==1 ? 'Parazit' : '' }}, {{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
                     <td>{{ $dat->cip_no }}</td>
                     <td>{{ $dat->il_id }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td><a href="{{ route('ilan_detay', $dat->id) }}"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
+                    <td>
+                        <form action="{{ route('update_sahiplen_ilan', $dat->id) }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font>
+                            </button>
+                        </form>
+                    </td>
                     <td>
                         <form action="{{ route('delete_sahiplen_ilan', $dat->id) }}" method="post">
                             @csrf
                             <button type="submit" onclick="return confirm('BU İLANI SİLMEK İSTEDİĞİNİZDEN EMİN MİSİNİZ?')" class="btn btn-danger">
-                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font></button>
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sil</font></font>
+                            </button>
                         </form>
                     </td>
                 </tr>
