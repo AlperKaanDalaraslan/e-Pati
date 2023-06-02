@@ -13,4 +13,13 @@ class Sertifika extends Model
         'vet_id',
     ];
     use HasFactory;
+
+    public function getUser(){
+        return $this->hasOne(User::class,'vet_id','id');
+    }
+    public function getVeteriner(){
+        return $this->hasOne(Veteriner::class,'vet_id','vet_id')->with('getUser');
+    }
+
+
 }

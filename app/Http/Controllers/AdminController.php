@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Veteriner;
+use App\Models\Sertifika;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Sahiplen;
@@ -10,8 +12,11 @@ use App\Models\Es_bul;
 
 class AdminController extends Controller
 {
+
     public function home(){
-        return view('admin.home');
+
+        $onay_veteriner = Sertifika::all();
+        return view('admin.home' , compact('onay_veteriner'));
     }
 
     public function kullanicilar(){
@@ -58,4 +63,22 @@ class AdminController extends Controller
         Es_bul::destroy($id);
         return redirect()->back()->with('basarili', 'İLAN BAŞARIYLA SİLİNDİ.');
     }
+
+    public function VeterinerOnay($id){
+        $vet = \App\Models\Veteriner::where('vet_id', $id)->first();
+
+        if ($vet) {
+            $vet->onay = true;
+            $vet->save();
+        }
+
+        $sertifika_silme=Sertifika::where('vet_id', $id)->first();
+        $sertifika_silme->sertifika_img=0;
+        $sertifika_silme->save();
+
+
+        return redirect()->back();
+    }
+
 }
+

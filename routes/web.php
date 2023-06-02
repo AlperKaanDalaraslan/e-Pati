@@ -88,6 +88,7 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::get('/', [AdminController::class, 'kullanicilar'])->name('kullanicilar');
 
         Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
+        Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
     });
 
     Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){
