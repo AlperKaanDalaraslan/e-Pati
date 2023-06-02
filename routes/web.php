@@ -85,15 +85,22 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
     Route::get('/', [AdminController::class, 'home'])->name('admin_panel');
 
+    Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
+    Route::get('/VetRed/{id}', [AdminController::class, 'VeterinerRed' ])->name('VetRed');
+
+    Route::prefix('/yoneticiler')->middleware('auth')->group(function(){
+        Route::get('/', [AdminController::class, 'yoneticiler'])->name('yoneticiler');
+    });
+
     Route::prefix('/kullanicilar')->middleware('auth')->group(function(){
 
         Route::get('/', [AdminController::class, 'kullanicilar'])->name('kullanicilar');
 
         Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
-        Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
-        Route::get('/VetRed/{id}', [AdminController::class, 'VeterinerRed' ])->name('VetRed');
+    });
 
-
+    Route::prefix('/veterinerler')->middleware('auth')->group(function(){
+       Route::get('/', [AdminController::class, 'veterinerler'])->name('veterinerler');
     });
 
     Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){

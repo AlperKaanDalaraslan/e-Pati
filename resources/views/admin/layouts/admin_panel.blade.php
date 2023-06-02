@@ -19,8 +19,18 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
+                    <a href="{{ route('yoneticiler') }}" class="nav-link text-white">
+                        Yöneticiler
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('kullanicilar') }}" class="nav-link text-white">
                         Kullanıcılar
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('veterinerler') }}" class="nav-link text-white">
+                        Veterinerler
                     </a>
                 </li>
                 <li>

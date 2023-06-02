@@ -20,9 +20,19 @@ class AdminController extends Controller
         return view('admin.home' , compact('onay_veteriner'));
     }
 
+    public function yoneticiler(){
+        $data = User::where('status', 0)->paginate(10);
+        return view('admin.yoneticiler', compact('data'));
+    }
+
     public function kullanicilar(){
-        $data = User::paginate(10);
+        $data = User::where('status', 1)->paginate(10);
         return view('admin.kullanicilar', compact('data'));
+    }
+
+    public function veterinerler(){
+        $data = User::where('status', 2)->paginate(10);
+        return view('admin.veterinerler', compact('data'));
     }
 
     public function delete_user($id){
