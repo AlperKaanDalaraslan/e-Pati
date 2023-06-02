@@ -31,18 +31,10 @@
             color: rgb(81, 83, 85);
             line-height: 0.5 ;
         }
-        .veteriner-bold {
-            font-weight: bold;
+        .header {
+            font-family: "Nunito Sans";
         }
 
-        .veteriner-bold::after {
-            content: "";
-            display: block;
-            width: 100%;
-            height: 1px;
-            background-color: blue;
-            margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
-        }
     </style>
 
     @yield('css_js')
@@ -51,7 +43,7 @@
 </head>
 <body>
 <section class="main">
-    <nav class="header">
+    <nav class="header" >
         <a href={{route('Veteriner_anasayfa')}} class="logo">
             <img src="/images/logo.png">
         </a>
@@ -60,12 +52,18 @@
 
 
             <li>
-                <a href="#">
-                    <p class="menuyazisi"><span class="veteriner-bold">  VETERİNER PANEL</span>  </p>
+                <a href="{{route('Veteriner_anasayfa')}}">
+                    <p class="menuyazisi"><span class="veteriner-bold">  VETERİNER ANASAYFA</span>  </p>
                 </a>
             </li>
-
-
+            <li>
+                <p class="menucizgisi"></p>
+            </li >
+            <li>
+                <a href="{{route('Randevularim')}}">
+                    <p class="menuyazisi"><span class="randevu-bold"> GELECEK RANDEVULARIM</span>  </p>
+                </a>
+            </li>
 
 
         </ul>

@@ -42,6 +42,7 @@ class VeterinerSeeder extends Seeder
                 'il_id' => $rand_il,
                 'ilce' => $randomilce,
                 'adres' => 'adres'.rand(1000,10000),
+                'onay' => rand(0,1),
 
 
 

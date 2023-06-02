@@ -15,6 +15,7 @@ class Veteriner extends Model
         'il_id',
         'ilce',
         'adres',
+        'onay',
     ];
 
 

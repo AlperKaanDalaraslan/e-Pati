@@ -4,6 +4,20 @@
 @endsection
 @section('css_js')
     <link href="/css/calisma_form.css" rel="stylesheet" >
+    <style>
+        .veteriner-bold {
+            font-weight: bold;
+        }
+
+        .veteriner-bold::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: blue;
+            margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
+        }
+    </style>
 @endsection
 @section('content')
 

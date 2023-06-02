@@ -8,155 +8,31 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
-                <th scope="col">Header</th>
+                <th scope="col">Sertifikalar</th>
+                <th scope="col">Klinik Ad</th>
+                <th scope="col">Telefon</th>
+                <th scope="col">Gmail</th>
+                <th scope="col">Onayla</th>
             </tr>
             </thead>
             <tbody>
+            @foreach($onay_veteriner as $vet)
             <tr>
-                <td><a href="#" style="text-decoration: #1a1e21">adfadfadfadf</a></td>
-                <td>random</td>
-                <td>data</td>
-                <td>placeholder</td>
-                <td>text</td>
-                <td><a href="#"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">İncele</font></font></button></a></td>
+                <td><a href="@if($vet->sertifika_imq != 0 ){{$vet->sertifika_img}} @else {{asset('sertifika/sertifika_yoktur_img.png')}} @endif" style="text-decoration: #1a1e21">sertifakayı goruntule</a></td>
+                <td>{{$vet->getVeteriner->klinik_ad}}</td>
+                <td>{{$vet->getVeteriner->getUser->tel}}</td>
+                <td>{{$vet->getVeteriner->getUser->email}}</td>
+                @if($vet->getVeteriner->onay===0)
+                    <td><a href="{{route('VetOnay',[$vet->vet_id])}}"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Onayla</font></font></button></a></td>
+
+                @else
+                    <td><a href="{{route('VetOnay',[$vet->vet_id])}}"><button type="button" class="btn btn-success"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Onayla</font></font></button></a></td>
+
+                @endif
+
             </tr>
-            <tr>
-                <td>1,002</td>
-                <td>placeholder</td>
-                <td>irrelevant</td>
-                <td>visual</td>
-                <td>layout</td>
-            </tr>
-            <tr>
-                <td>1,003</td>
-                <td>data</td>
-                <td>rich</td>
-                <td>dashboard</td>
-                <td>tabular</td>
-            </tr>
-            <tr>
-                <td>1,003</td>
-                <td>information</td>
-                <td>placeholder</td>
-                <td>illustrative</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,004</td>
-                <td>text</td>
-                <td>random</td>
-                <td>layout</td>
-                <td>dashboard</td>
-            </tr>
-            <tr>
-                <td>1,005</td>
-                <td>dashboard</td>
-                <td>irrelevant</td>
-                <td>text</td>
-                <td>placeholder</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,007</td>
-                <td>placeholder</td>
-                <td>tabular</td>
-                <td>information</td>
-                <td>irrelevant</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
-            <tr>
-                <td>1,006</td>
-                <td>dashboard</td>
-                <td>illustrative</td>
-                <td>rich</td>
-                <td>data</td>
-            </tr>
+            @endforeach
+
             </tbody>
         </table>
     </div>

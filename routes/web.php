@@ -89,6 +89,7 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::get('/', [AdminController::class, 'kullanicilar'])->name('kullanicilar');
 
         Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
+        Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
     });
 
     Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){
@@ -134,16 +135,22 @@ Route::middleware('auth')->get('/Veteriner-randevu',[VeterinerRandevuController:
 Route::middleware('auth')->get('/Veteriner-randevu-1',[VeterinerRandevuController::class, 'elequenormindex'])->name('vet_index_orm');
 Route::middleware('auth')->get('/Veteriner-randevu-alma/{id}/{tarih}',[VeterinerRandevuController::class,'show_vet'])->name('randevu_alma');
 Route::middleware('auth')->get('/Veteriner-randevu-alma/{id}/{saat}/{tarih}/',[VeterinerRandevuController::class,'createRandevu'])->name('randevu_olustur');
+Route::middleware('auth')->get('/Veteriner-randevu-success', function (){return view('/Veteriner_randevu/alinan_randevu');})->name('alinan_randev');
+Route::middleware('auth')->get('/Randevu-iptal/{id}',[VeterinerRandevuController::class,'randevu_sil'])->name('randevu_sil_user');
+
+Route::middleware([Veteriner::class])->get('/Veteriner-Dogrulama',[VeterinerController::class,'sertifika_kontrol'])->name('sertifika');
+Route::middleware([Veteriner::class])->post('/Veteriner-Dogrulama_post',[VeterinerController::class,'sertifika'])->name('sertifika_post');
 
 Route::middleware([Veteriner::class])->get('/Veteriner-Panel',[VeterinerController::class,'vet_anasayfa'])->name('Veteriner_anasayfa');
 Route::middleware([Veteriner::class])->get('/Veteriner-Profil',function (){return view('Veteriner/Vet_profil');})->name('Vet_profil');
 Route::middleware([Veteriner::class])->get('/Veteriner-Calisma-Saat',[VeterinerController::class,'calisma_form'])->name('Vet_calisma_form');
 Route::middleware([Veteriner::class])->get('/Veteriner-uzmanlik',[VeterinerController::class,'uzmanlik_form'])->name('Vet_uzmanlik_form');
+Route::middleware([Veteriner::class])->get('/Veteriner-Panel-randevu',[VeterinerController::class,'vet_randevular'])->name('Randevularim');
 
 Route::middleware([Veteriner::class])->get('/Vet_calisma_form_post',[VeterinerController::class,'createCalisma'])->name('Vet_calisma_form_post');
 Route::middleware([Veteriner::class])->get('/Vet_uzmanlik_form_post',[VeterinerController::class,'createUzmanlik'])->name('Vet_uzmanlik_form_post');
 Route::middleware([Veteriner::class])->get("/Vet_randevu_onay/{id}",[VeterinerController::class,'randevu_onayla'])->name('randevu_onayla');
-Route::middleware([Veteriner::class])->get("/Vet_randevu_sil/{id}",[VeterinerController::class,'randevu_sil'])->name('randevu_sil');
+Route::middleware([Veteriner::class])->get("/Vet_randevu_sil/{id}",[VeterinerController::class,'randevu_sil'])->name('randevu_sil_vet');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

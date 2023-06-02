@@ -122,15 +122,40 @@ public function show_vet($vet_id,$tarih){
     }
 
 
-        public function createRandevu($vet_id,$saat,$tarih){
-                $data = new Randevu();
-                $data->user_id = Auth::id();
-                $data->vet_id = $vet_id;
-                $data->randevu_saat = $saat;
-                $data->randevu_tarih = $tarih;
-                $data->onay = 0;
-                $data->save();
-                return redirect()->route('anasayfa');
+    public function createRandevu($vet_id, $saat, $tarih)
+    {
 
+        $randevu = Randevu::where('user_id', Auth::id())
+            ->where('vet_id', $vet_id)
+            ->where('randevu_saat', $saat)
+            ->where('randevu_tarih', $tarih)
+            ->first();
+
+        if ($randevu) {
+
+            // İlgili randevu zaten kaydedilmiş, ek bir kayıt yapmayın.
+            return view('Veteriner_randevu/alinan_randevu', compact('randevu'));
         }
+
+        $data = new Randevu();
+        $data->user_id = Auth::id();
+        $data->vet_id = $vet_id;
+        $data->randevu_saat = $saat;
+        $data->randevu_tarih = $tarih;
+        $data->onay = 0;
+        $data->save();
+
+        $randevu = $data;
+        return view('Veteriner_randevu/alinan_randevu', compact('randevu'));
+    }
+    public function randevu_sil($id){
+        $randevu = Randevu::where('randevu_id', $id)->first();
+
+        if ($randevu) {
+            $randevu->delete();
+            return redirect()->route('anasayfa')->with('success', 'Randevu başarıyla silindi.');
+        } else {
+            return redirect()->route('anasayfa')->with('error', 'Randevu bulunamadı.');
+        }
+    }
 }

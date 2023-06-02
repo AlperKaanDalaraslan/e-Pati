@@ -14,8 +14,9 @@ return new class extends Migration
         $table->string('klinik_ad');
         $table->unsignedBigInteger('il_id');
         $table->string('ilce');
-        $table->string('adres');$table->timestamps();
-
+        $table->string('adres');
+        $table->boolean('onay');
+        $table->timestamps();
 
         $table->foreign('vet_id')->references('id')->on('users');
         $table->foreign('il_id')->references('id')->on('iller');

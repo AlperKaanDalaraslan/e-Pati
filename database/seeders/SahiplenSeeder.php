@@ -20,18 +20,42 @@ class SahiplenSeeder extends Seeder
 
 
         $hayvan_ad = ['minnoş','muhtar','karamel','bıyık','boncuk'];
-        $cins = ['Tekir(sokak kedisi)', 'Ankara Kedisi','Amerikan Kılı','Birman'];
+        $cinsler= [
+            ['id'=>1 , 'cins'=>'Ankara Kedis '],
+            ['id'=>1 , 'cins'=>'Scottish Fold'],
+            ['id'=>1 , 'cins'=>'Van kedisi'],
+            ['id'=>1 , 'cins'=>'Birman'],
+            ['id'=>2 , 'cins'=>'Akbaş'],
+            ['id'=>2 , 'cins'=>'Alman Kurdu'],
+            ['id'=>2 , 'cins'=>'Bernese Dağ Köpeğ'],
+            ['id'=>2 , 'cins'=>'Pitbull'],
+            ['id'=>3 , 'cins'=>'Çalıkuşu'],
+            ['id'=>3 , 'cins'=>'Guguk Kuşu'],
+            ['id'=>3 , 'cins'=>'Kırlangıç'],
+            ['id'=>3 , 'cins'=>'Turna'],
+            ['id'=>4 , 'cins'=>'Altın Hamster'],
+            ['id'=>4 , 'cins'=>'Kafkas Hamsteri'],
+            ['id'=>4 , 'cins'=>'Roborovski Hamsteri'],
+            ['id'=>5 , 'cins'=>'Beta Balığı (Kampiyon)'],
+            ['id'=>5 , 'cins'=>'Kılıç Balığı'],
+            ['id'=>5 , 'cins'=>'Prenses Balığı'],
+
+
+
+        ];
         $ilce = ['Karatay', 'Selçuklu','Meram'];
         $faker = Faker::create();
 
         for ($i = 0; $i< 100; $i++){
+            $randomcins=$cinsler[array_rand($cinsler)];
+            $cins=$randomcins['cins'];
            DB::table('sahiplen')->insert([
                'user_id' => 1,
                'hayvan_image' => 'asdasd.png',
                'hayvan_ad' => $hayvan_ad[rand(0,4)],
-               'tur' => rand(1,5),
+               'tur' => $randomcins['id'] ,
                'yas' => rand(1,30),
-               'cins' => $cins[rand(0,3)],
+               'cins' => $cins,
                'cinsiyet' => rand(0,1),
                'kisir' => rand(0,1),
                'kuduz' => rand(0,1),

@@ -32,7 +32,7 @@ Hayvan İlan Formu
         <label for="foto">Hayvanın Fotoğrafı:</label>
         <input type="file" id="hayvan_foto" name="hayvan_foto" accept="image/*" required>
         <br>
-		<label for="hayvan-ad">Hayvanın Adı:</label>
+            <label for="hayvan-ad">Hayvanın Adı:</label>
 		<input type="text" id="hayvan_ad" name="hayvan_ad" required>
 
         <label for="Tur">Hayvanın Türü:</label>
