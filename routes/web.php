@@ -11,6 +11,7 @@ use App\Http\Controllers\EsBulmaController;
 use App\Http\Controllers\VeterinerController;
 use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\VeterinerRandevuController;
+use App\Http\Controllers\ProfilController;
 
 
 use App\Http\Controllers\AdminController;
@@ -90,6 +91,9 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
         Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
         Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
+        Route::get('/VetRed/{id}', [AdminController::class, 'VeterinerRed' ])->name('VetRed');
+
+
     });
 
     Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){
@@ -120,9 +124,12 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
 
 
-Route::middleware('auth')->get('/profil', function (){
-    return view('profil');
-})->name('profil');
+
+
+Route::middleware('auth')->get('/profil',[ProfilController::class,'show_profil'])->name('profil');
+Route::middleware('auth')->get('/profil/{id}',[ProfilController::class,'show_randevu'])->name('profil_show_randevu');
+
+
 
 Route::get('/vet_register',function (){return view('auth/vet_register');})->name('vet_register');
 Route::post('/vet_register_post',[VetRegisterController::class,'create'])->name('vet_register_post');

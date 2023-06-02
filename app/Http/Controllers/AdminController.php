@@ -148,9 +148,19 @@ class AdminController extends Controller
         }
 
         $sertifika_silme=Sertifika::where('vet_id', $id)->first();
-        $sertifika_silme->sertifika_img=0;
-        $sertifika_silme->save();
+        $sertifika_silme->delete();
 
+        return redirect()->back();
+    }
+    public function VeterinerRed($id){
+        $vet = \App\Models\Veteriner::where('vet_id', $id)->first();
+
+        if ($vet) {
+            $vet->onay = -1;
+            $vet->save();
+        }
+        $sertifika_silme=Sertifika::where('vet_id', $id)->first();
+        $sertifika_silme->delete();
 
         return redirect()->back();
     }

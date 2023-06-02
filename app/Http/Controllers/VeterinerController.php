@@ -103,7 +103,7 @@ class VeterinerController extends Controller
     public function vet_anasayfa(){
         $data = Vet_calisma::where('vet_id', Auth::id())->get();
         $bugununrendevular = Randevu::where('vet_id',Auth::id())
-            ->where('randevu_tarih', '>=',Carbon::today()->format('Y-m-d'))
+            ->where('randevu_tarih', '=',Carbon::today()->format('Y-m-d'))
             ->where('onay', '=', 1)
             ->get();
 
