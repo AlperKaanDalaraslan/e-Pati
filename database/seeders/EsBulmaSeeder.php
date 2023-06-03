@@ -64,7 +64,7 @@ class EsBulmaSeeder extends Seeder
                 'ilce' => $randomilce,
                 'adres' => $faker->address,
                 'aciklama' => $faker->sentence(20),
-                'created_at' => $tarih->format('d/m/y'),
+                'created_date' => $tarih,
             ]);
         }
     }

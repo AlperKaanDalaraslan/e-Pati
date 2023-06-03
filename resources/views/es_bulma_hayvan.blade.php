@@ -42,7 +42,7 @@
                             <img src="sahiplenme_images/pin.png" alt="" class="kart-resimleri"><p class="location">{{ $data->getIl->title }}, {{ $data->ilce }}</p>
                         </div>
                         <div class="yan-yana-birleştirme">
-                            <img src="sahiplenme_images/clock.png" alt="" class="kart-resimleri"><p class="date">{{ $data->created_at }}</p>
+                            <img src="sahiplenme_images/clock.png" alt="" class="kart-resimleri"><p class="date">{{ $data->created_date }}</p>
                         </div>
                     </div>
 

@@ -26,6 +26,11 @@ class Sahiplen extends Model
         'ilce',
         'adres',
         'aciklama',
+        'created_date',
+    ];
+    protected $dates = [
+        'created_date',
+        'updated_date',
     ];
 
 

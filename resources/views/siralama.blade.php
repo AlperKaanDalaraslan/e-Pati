@@ -73,7 +73,7 @@
                         <div class="ic-kutular">
                             <button type="submit">Arama Yap</button>
                         </div>
-                        
+
                     </div>
 
                 </div>
@@ -108,7 +108,7 @@
                                         <div class="kısa-bilgi-divi">
                                             <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$veri->tur}}</span><br>
                                             <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{$veri->ilce}},{{$veri->getIl->title}}</span><br>
-                                            <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_at}} </span><br>
+                                            <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_date}} </span><br>
                                         </div>
                                         <div class="aciklama-div">
                                             <div class="description">{{$veri->aciklama}}</div>

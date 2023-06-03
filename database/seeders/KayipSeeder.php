@@ -37,7 +37,7 @@ class KayipSeeder extends Seeder
                 'adres' => $faker->address,
                 'baslik' => $faker->sentence(3),
                 'aciklama' => $faker->sentence(20),
-                'created_at' => $tarih->format('d/m/y'),
+                'created_date' => $tarih,
             ]);
         }
     }

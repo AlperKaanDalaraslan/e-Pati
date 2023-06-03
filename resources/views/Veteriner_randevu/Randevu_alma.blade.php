@@ -7,6 +7,11 @@
     <script src="/js/sahiplendirme_ilan_form.js"></script>
     <link href="/css/randevu.css" rel="stylesheet" >
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .kullanici_profil_kart{
+            margin-bottom: 5px;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="kullanici_profil_kart" >
@@ -94,6 +99,24 @@
         </div>
 
     </div>
+    <div style="margin: 0 auto; width: 70%; margin-bottom: 50px; padding: 2px">
+    <span style="display: flex; align-items: center; font-weight: bold; font-style: italic; font-size: 25px; color: #41464b; margin-bottom: 5px; letter-spacing: 1px;">
+        <a href="mailto:{{$vet->getUser->email}}" style="color: #41464b; text-decoration: none;">
+            <img src="/images/vet_mail.png" alt="" style="width: 17px; height: 17px; margin-right: 5px; filter: invert(31%) sepia(6%) saturate(3880%) hue-rotate(201deg) brightness(94%) contrast(95%);">
+            {{$vet->getUser->email}}
+        </a>
+    </span>
+        <span style="display: flex; align-items: center; font-weight: bold; font-style: italic; font-size: 25px; color: #41464b; margin-top: 5px; letter-spacing: 1px;">
+        <a href="tel:{{$vet->getUser->tel}}" style="color: #41464b; text-decoration: none;">
+            <img src="/images/vet_call.png" alt="" style="width: 17px; height: 17px; margin-right: 5px; filter: invert(31%) sepia(6%) saturate(3880%) hue-rotate(201deg) brightness(94%) contrast(95%);">
+            {{$vet->getUser->tel}}
+        </a>
+    </span>
+    </div>
+
+
+
+
 
     <script>
         function toggleDropdown(button) {
