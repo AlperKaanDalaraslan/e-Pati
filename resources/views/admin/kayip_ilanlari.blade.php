@@ -20,6 +20,7 @@
             <tr>
                 <th scope="col">Hayvan id</th>
                 <th scope="col">Kullanıcı id</th>
+                <th scope="col">Kayıp Durumu</th>
                 <th scope="col">İlan başlık</th>
                 <th scope="col">Hayvan image</th>
                 <th scope="col">Hayvan ad</th>
@@ -27,8 +28,6 @@
                 <th scope="col">Hayvan cins</th>
                 <th scope="col">Hayvan cinsiyet</th>
                 <th scope="col">Hayvan yaş</th>
-                <th scope="col">Kısırlık Durumu</th>
-                <th scope="col">Aşı durumu</th>
                 <th scope="col">Hayvan cip no</th>
                 <th scope="col">Hayvan Adres</th>
                 <th scope="col">İlan açıklama</th>
@@ -41,6 +40,7 @@
                 <tr>
                     <td>{{ $dat->id }}</td>
                     <td>{{ $dat->user_id }}</td>
+                    <td>{{ $dat->kayip_durumu==1 ? 'Kayıp' : 'Bulundu' }}</td>
                     <td>{{ $dat->baslik }}</td>
                     <td><img src="/{{ $dat->hayvan_image }}" width="100" height="100"></td>
                     <td>{{ $dat->hayvan_ad }}</td>
@@ -48,14 +48,19 @@
                     <td>{{ $dat->cins }}</td>
                     <td>{{ $dat->cinsiyet==1 ? 'Erkek' : 'Dişi' }}</td>
                     <td>{{ $dat->yas }}</td>
-                    <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır değil' }}</td>
-                    <td>{{ $dat->kuduz==1 ? 'Kuduz': '' }}, {{ $dat->karma==1 ? 'Karma' :'' }}, {{ $dat->parazit==1 ? 'Parazit' : '' }}, {{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
                     <td>{{ $dat->cip_no }}</td>
                     <td>{{ $dat->getIL->title }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td><a href="#"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
+                    <td>
+                        <form action="{{ route('update_kayip_ilan', $dat->id) }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-warning"><font style="vertical-align: inherit;">
+                                    <font style="vertical-align: inherit;">Düzenle</font></font>
+                            </button>
+                        </form>
+                    </td>
                     <td>
                         <form action="{{ route('delete_kayip_ilan', $dat->id) }}" method="post">
                             @csrf

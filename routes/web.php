@@ -118,6 +118,10 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
         Route::get('/', [AdminController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
 
+        Route::get('/update_kayip_ilan/{id}', [Admincontroller::class, 'update_kayip_ilan'])->name('update_kayip_ilan');
+
+        Route::post('/update_kayip_ilan_post/{id}', [AdminController::class, 'update_kayip_ilan_post'])->name('update_kayip_ilan_post');
+
         Route::post('/delete_kayip_ilan/{id}', [AdminController::class, 'delete_kayip_ilan'])->name('delete_kayip_ilan');
     });
 

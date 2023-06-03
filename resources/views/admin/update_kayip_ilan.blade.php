@@ -8,7 +8,7 @@
 
 @endsection
 @section('content')
-    <br><h2 style="text-align: center">Sahiplenme İlanları</h2><br>
+    <br><h2 style="text-align: center">Kayıp İlanları</h2><br>
     @if(session('basarili'))
         <div class="alert alert-success" id="success-alert" style="text-align: center">
             {{ session('basarili') }}
@@ -20,7 +20,7 @@
         </script>
     @endif
     <br>
-    <a href="{{ route('sahiplenme_ilanlari') }}">
+    <a href="{{ route('kayip_ilanlari') }}">
         <button type="submit" class="btn btn-primary">
             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Geri Dön</font></font>
         </button>
@@ -28,8 +28,25 @@
     <h4 style="text-align: center">İlan id: {{ $data->id }}</h4><hr>
 
 
-    <form action="{{ route('update_sahiplen_ilan_post', $data->id) }}" method="post">
+    <form action="{{ route('update_kayip_ilan_post', $data->id) }}" method="post">
         @csrf
+        <div style="display: flex; justify-content: center;">
+            <div style="width: 50%;">
+                <p>Hayvanın Varsayılan Kayıp Durumu: <h5>{{ $data->kayip_durumu==1 ? 'Kayıp' : 'Bulundu' }}</h5></p>
+            </div>
+            <div style="width: 50%;">
+                <label for="kayip_durumu">Hayvanın Kayıp Durumu: </label>
+                <div>
+                    <label>
+                        <input type="radio" name="kayip_durumu" value="1">Kayıp
+                    </label><br>
+                    <label>
+                        <input type="radio" name="kayip_durumu" value="0">Bulundu
+                    </label>
+                </div>
+            </div>
+        </div>
+        <hr>
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;" >
                 <p>İlanın Varsayılan Başlığı: <h5>{{ $data->baslik }}</h5></p>
@@ -53,34 +70,12 @@
         <hr>
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Adı: <h5>{{ $data->hayvan_ad }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="hayvan_ad">Hayvanın Adı: </label><br>
-                <input type="text" id="hayvan_ad" name="hayvan_ad">
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
                 <p>Hayvanın Varsayılan Türü: <h5>{{ $data->getTur->tur_ad }}</h5></p>
             </div>
             <div style="width: 50%;">
                 <label for="tur">Hayvanın Türü: </label><br>
                 <select class="custom-select" id="Tur" name="tur">
                     <option value="">Lütfen Hayvanın Türünü Seçiniz</option>
-                </select>
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Cinsi: <h5>{{ $data->cins }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="cins">Hayvanın Cinsi: </label><br>
-                <select class="custom-select" id="Cins" name="cins" disabled="disabled">
-                    <option value="">Lütfen Hayvanın Cinsini Seçiniz</option>
                 </select>
             </div>
         </div>
@@ -100,52 +95,6 @@
                     </label>
                 </div>
 
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Yaşı: <h5>{{ $data->yas }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="yas">Hayvanın Yaşı: </label><br>
-                <input type="number" id="yas" name="yas" min="0" max="30">
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Kısırlık Durumu: <h5>{{ $data->kisir==1 ? 'Kısır' : 'Kısır Değil' }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="kisirlik_durumu">Hayvanın Kısırlık Durumu: </label>
-                <div>
-                    <label>
-                        <input type="radio" name="kisirlik_durumu" value="1">Kısırlaştırılmış
-                    </label><br>
-                    <label>
-                        <input type="radio" name="kisirlik_durumu" value="0">Kısırlaştırılmamış
-                    </label>
-                </div>
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Aşıları: <h5>{{ $data->kuduz==1 ? 'Kuduz': '' }}, {{ $data->karma==1 ? 'Karma' :'' }}, {{ $data->parazit==1 ? 'Parazit' : '' }}, {{ $data->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="asi_durumu">Aşı Durumu: </label>
-                <div>
-                    <input type="checkbox" id="kuduz" name="kuduz" value="1" {{ $data->kuduz ? 'checked' : '' }}>
-                    <label for="asi1">Kuduz</label><br>
-                    <input type="checkbox" id="karma" name="karma" value="1" {{ $data->karma ? 'checked' : '' }}>
-                    <label for="asi2">Karma</label><br>
-                    <input type="checkbox" id="parazit" name="parazit" value="1" {{ $data->parazit ? 'checked' : '' }}>
-                    <label for="asi3">Parazit</label><br>
-                    <input type="checkbox" id="kalp_kurtlari" name="kalp_kurtlari" value="1" {{ $data->kalp_kurtlari ? 'checked' : '' }}>
-                    <label for="asi3">Kalp Kurtları</label>
-                </div>
             </div>
         </div>
         <hr>

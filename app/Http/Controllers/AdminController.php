@@ -142,6 +142,64 @@ class AdminController extends Controller
         return view('admin.kayip_ilanlari', compact('data'));
     }
 
+    public function update_kayip_ilan($id){
+        $data = Kayip::find($id);
+        return view('admin.update_kayip_ilan', compact('data'));
+    }
+
+    public function update_kayip_ilan_post(Request $request, $id){
+        $data = Kayip::find($id);
+
+        if( $request->has('kayip_durumu') ){
+            $data->kayip_durumu = $request->kayip_durumu;
+        }
+        if( $request->ilan_baslik ){
+            $data->baslik = $request->ilan_baslik;
+        }
+
+        if( $request->hasFile('hayvan_image') ){
+
+            Storage::delete($data->hayvan_image);
+
+            $imageName=Str::slug($request->hayvan_ad).'.'.$request->hayvan_image->getClientOriginalExtension();//uploadlanan resmin uzantısını tutar
+            $request->hayvan_image->move(public_path('sahiplen_images'),$imageName);
+            $data->hayvan_image = 'sahiplen_images/'.$imageName;
+
+            //$new_image = $request->hasFile('hayvan_image');
+            //$new_image_yol = $new_image->store('public/sahiplen_images');
+            //$data->hayvan_image = $new_image_yol;
+
+        }elseif($data->hayvan_image){
+            $data->hayvan_image = $data->hayvan_image;
+        }
+
+        if( $request->tur ){
+            $data->tur = $request->tur;
+        }
+        if( $request->has('cinsiyet') ){
+            $data->cinsiyet = $request->cinsiyet;
+        }
+        if( $request->cip ){
+            $data->cip_no = $request->cip;
+        }
+        if( $request->il_id ){
+            $data->il_id = $request->il_id;
+        }
+        if( $request->ilce ){
+            $data->ilce = $request->ilce;
+        }
+        if( $request->adres ){
+            $data->adres = $request->adres;
+        }
+        if( $request->aciklama ){
+            $data->aciklama = $request->aciklama;
+        }
+
+        $data->save();
+
+        return redirect()->back()->with('basarili', 'İLAN GÜNCELLENDİ.');
+    }
+
     public function delete_kayip_ilan($id){
         Kayip::destroy($id);
         return redirect()->back()->with('basarili', 'İLAN BAŞARIYLA SİLİNDİ.');
