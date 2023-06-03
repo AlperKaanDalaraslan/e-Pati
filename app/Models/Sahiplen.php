@@ -9,6 +9,7 @@ class Sahiplen extends Model
 {
     use HasFactory;
     protected $table = 'sahiplen';
+    public $timestamps = false;
     protected $fillable = [
         'hayvan_image',
         'hayvan_ad',
@@ -27,6 +28,7 @@ class Sahiplen extends Model
         'adres',
         'aciklama',
         'created_date',
+        'update_at',
     ];
     protected $dates = [
         'created_date',

@@ -27,17 +27,17 @@ class KayipSeeder extends Seeder
             $randomilce = $filteredArray[$randomItem]['ilce_ad'];
             DB::table('kayip')->insert([
                 'user_id' => rand(4,103),
+                'hayvan_ad' => $faker->word,
                 'hayvan_image' => $faker->imageUrl($width = 640, $height = 480),
                 'tur' => rand(1, 5),
                 'cinsiyet' => rand(0, 1),
                 'kayip_durumu' => rand(0, 1),
-                'cip_no' => rand(111111111111111, 999999999999999),
                 'il_id' => $rand_il,
                 'ilce' => $randomilce,
                 'adres' => $faker->address,
                 'baslik' => $faker->sentence(3),
                 'aciklama' => $faker->sentence(20),
-                'created_at' => $tarih,
+                'created_date' => $tarih,
             ]);
         }
     }

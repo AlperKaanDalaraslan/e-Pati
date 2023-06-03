@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Es_bul;
 use Illuminate\Support\Facades\Auth;
@@ -57,6 +58,8 @@ class EsBulmaController extends Controller
         $data->baslik = $request->baslik;
         $data->adres = $request->adres;
         $data->aciklama = $request->aciklama;
+        $data->created_date = Carbon::today()->format('Y-m-d');
+
 
         $data->save();
 

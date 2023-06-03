@@ -33,6 +33,9 @@
         <input type="file" id="hayvan_foto" name="hayvan_foto" accept="image/*" required>
         <br>
         <br>
+        <br>
+        <label for="hayvan-ad">Hayvanın Adı:</label>
+        <input type="text" id="hayvan_ad" name="hayvan_ad">
 
 
         <label for="Tur">Hayvanın Türü:</label>
@@ -66,10 +69,6 @@
         </div>
         <br>
         <br>
-
-        <label for="chip">Çip Numarası:</label>
-        <input type="text" id="cip_no" name="cip" required>
-        <br><br>
 
         <label for="sehir">Şehir:</label>
         <select class="custom-select" id="Iller" name="il_id" required>

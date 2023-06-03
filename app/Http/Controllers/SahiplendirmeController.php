@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Sahiplen;
 use Illuminate\Support\Facades\Auth;
@@ -47,6 +48,7 @@ class SahiplendirmeController extends Controller
         $data->adres = $request->adres;
         $data->baslik = $request->baslik;
         $data->aciklama = $request->aciklama;
+        $data->created_date = Carbon::today()->format('Y-m-d');
 
         if($request->hasFile('hayvan_foto')) {
 

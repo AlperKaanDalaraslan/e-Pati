@@ -9,17 +9,20 @@ class Kayip extends Model
 {
     use HasFactory;
     protected $table = 'kayip';
+    public $timestamps = false;
 
     protected $fillable = [
         'hayvan_image',
+        'hayvan_ad',
         'tur',
         'cinsiyet',
         'kayip_durumu',
-        'cip_no',
         'il_id',
         'ilce',
         'adres',
         'aciklama',
+        'created_date',
+        'update_at',
     ];
 
 

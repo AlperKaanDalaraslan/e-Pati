@@ -14,17 +14,18 @@ return new class extends Migration
         Schema::create('kayip', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->string('hayvan_ad')->nullable();
             $table->string('hayvan_image');
             $table->integer('tur');
             $table->boolean('cinsiyet');
             $table->boolean('kayip_durumu')->nullable();
-            $table->string('cip_no');
             $table->unsignedBigInteger('il_id');
             $table->string('ilce');
             $table->longText('adres');
             $table->text('baslik');
             $table->longText('aciklama');
-            $table->timestamps();
+            $table->date('created_date');
+            $table->timestamp('updated_date')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('il_id')->references('id')->on('iller');

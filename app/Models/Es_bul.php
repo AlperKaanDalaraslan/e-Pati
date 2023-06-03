@@ -9,6 +9,7 @@ class Es_bul extends Model
 {
     use HasFactory;
     protected $table = 'es_bulma';
+    public $timestamps = false;
 
     Protected $fillable = [
         'hayvan_image',
@@ -23,6 +24,8 @@ class Es_bul extends Model
         'adres',
         'baslik',
         'aciklama',
+        'created_date',
+        'update_at',
     ];
 
     public function getUser(){

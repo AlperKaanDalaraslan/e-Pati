@@ -7,7 +7,7 @@ Hayvan İlan Formu
     <script src="/js/sahiplendirme_ilan_form.js"></script>
     <link href="/css/sahiplendir_ilan_form.css" rel="stylesheet" >
     <style>
-        .sahiplenme-bold-bold {
+        .sahiplenme-bold {
             font-weight: bold;
         }
 

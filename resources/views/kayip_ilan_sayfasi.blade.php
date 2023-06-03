@@ -123,6 +123,7 @@
             </a>
          @endforeach
 
+             {{$data->links('pagination::bootstrap-4')}}
 
 
 

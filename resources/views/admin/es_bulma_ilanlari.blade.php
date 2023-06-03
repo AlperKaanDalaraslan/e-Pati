@@ -49,8 +49,8 @@
                     <td>{{ $dat->kisirlik_durumu==1 ? 'Kısır' : 'Kısır değil' }}</td>
                     <td>{{ $dat->il_id }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
-                    <td>{{ $dat->created_at }}</td>
-                    <td>{{ $dat->updated_at }}</td>
+                    <td>{{ $dat->created_date }}</td>
+                    <td>{{ $dat->updated_date }}</td>
                     <td>
                         <form action="{{ route('update_es_bulma_ilan', $dat->id) }}" method="get">
                             @csrf

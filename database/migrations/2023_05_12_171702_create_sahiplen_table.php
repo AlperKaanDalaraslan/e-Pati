@@ -32,7 +32,7 @@ return new class extends Migration
             $table->text('baslik');
             $table->longText('aciklama');
             $table->date('created_date');
-            $table->date('updated_date')->nullable();
+            $table->timestamp('updated_date')->nullable();
 
            $table->foreign('user_id')->references('id')->on('users');
            $table->foreign('il_id')->references('id')->on('iller');

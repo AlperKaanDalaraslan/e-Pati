@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Kayip;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -19,27 +20,27 @@ class KayipController extends Controller
             'baslik' => 'required',
             'tur' => 'required',
             'cinsiyet' => 'required',
-            'kayip' => 'required',
-            'bulunan' => 'required',
+            'kayip_durumu' =>'required',
             'il_id' => 'required',
             'ilce' => 'required',
             'adres' => 'required',
             'aciklama' => 'required',
-
         ]);
 
 
         $data = new Kayip();
         $data->user_id = Auth::id();
+        $data->hayvan_ad = $request->hayvan_ad;
         $data->tur = $request->tur;
         $data->cinsiyet = $request->cinsiyet;
         $data->kayip_durumu = $request->kayip_durumu;
-        $data->cip_no = $request->cip;
         $data->il_id = $request->il_id;
         $data->ilce = $request->ilce;
         $data->adres = $request->adres;
         $data->baslik = $request->baslik;
         $data->aciklama = $request->aciklama;
+        $data->created_date = Carbon::today()->format('Y-m-d');
+
 
         if ($request->hasFile('hayvan_foto')) {
 
@@ -50,7 +51,6 @@ class KayipController extends Controller
             $data->hayvan_image = 'kayip_images/' . $imageName;
 
         }
-
 
         $data->save();
 

@@ -31,6 +31,16 @@
     <form action="{{ route('update_kayip_ilan_post', $data->id) }}" method="post">
         @csrf
         <div style="display: flex; justify-content: center;">
+            <div style="width: 50%;" >
+                <p>İlanın Varsayılan Hayvan Adı: <h5>{{ $data->hayvan_ad }}</h5></p>
+            </div>
+            <div style="width: 50%;">
+                <label for="ilan_baslik">Hayvan Ad: </label><br>
+                <textarea id="hayvan_ad" name="hayvan_ad" rows="2" cols="50"></textarea>
+            </div>
+        </div>
+        <hr>
+        <div style="display: flex; justify-content: center;">
             <div style="width: 50%;">
                 <p>Hayvanın Varsayılan Kayıp Durumu: <h5>{{ $data->kayip_durumu==1 ? 'Kayıp' : 'Bulundu' }}</h5></p>
             </div>
@@ -95,16 +105,6 @@
                     </label>
                 </div>
 
-            </div>
-        </div>
-        <hr>
-        <div style="display: flex; justify-content: center;">
-            <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Çip Nosu: <h5>{{ $data->cip_no }}</h5></p>
-            </div>
-            <div style="width: 50%;">
-                <label for="cip">Çip Numarası: </label><br>
-                <input type="text" id="cip" name="cip">
             </div>
         </div>
         <hr>

@@ -26,7 +26,8 @@ return new class extends Migration
             $table->longText('adres');
             $table->longText('baslik');
             $table->longText('aciklama');
-            $table->timestamps();
+            $table->date('created_date');
+            $table->timestamp('updated_date')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('il_id')->references('id')->on('iller');

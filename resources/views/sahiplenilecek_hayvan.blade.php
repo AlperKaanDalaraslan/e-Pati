@@ -7,7 +7,7 @@
 @section('css_js')
     <link rel="stylesheet" href="/css/sahiplenilecek_hayvan.css">
     <style>
-        .sahiplenme-bold-bold {
+        .sahiplenme-bold {
             font-weight: bold;
         }
 
@@ -19,72 +19,82 @@
             background-color: blue;
             margin-top: 10px; /* İsteğe bağlı olarak çizginin üst boşluğunu ayarlayabilirsiniz */
         }
-
     </style>
 @endsection
     @section('content')
     <h1 style="text-align: center;">HAYVAN SAHİPLENME</h1>
-
+    <style>
+    </style>
     <div class="container">
-        <div class="hayvan_kart">
-            <nav>
-                <div class="resim_bilgi_birleştirme">
-
-                    <div class="resim_divi">
-                        <img src="/{{$data->hayvan_image}}" class="hayvan_kart_resim" >
-                    </div>
-
-                    <div class="right">
-                        <div class="yan-yana-birleştirme">
-                            <img src="sahiplenme_images/options-lines.png" alt="" class="kart-resimleri" ><p class="title">{{$data->getTur->tur_ad}}</p>
-                        </div>
-                        <div class="yan-yana-birleştirme">
-                            <img src="sahiplenme_images/pin.png" alt="" class="kart-resimleri"><p class="location">
-                            {{$data->ilce}}, {{$data->getIl->title}}</p>
-                        </div>
-                        <div class="yan-yana-birleştirme">
-                            <img src="sahiplenme_images/clock.png" alt="" class="kart-resimleri"><p class="date">{{$data->created_date}}</p>
-                        </div>
-                    </div>
-
+        <div class="image-wrapper">
+            <img class="ilan_img" src="/{{$data->hayvan_img}}" alt="Resim">
+            <div class="info-wrapper">
+                <div class="info">
+                    <img class="icon" src="/images/kategori.png">
+                    <span>{{$data->getTur->tur_ad}}</span>
                 </div>
-            </nav>
-
-
-            <nav class="duzenleme">
-                <div>
-                    <h3 class="bilgi_basligi">{{$data->baslik}}</h3>
-                    <pre class="bilgi_yazisi"> {{$data->aciklama}}
-                        </pre>
+                <div class="info">
+                    <img class="icon" src="/images/location.png">
+                    <span>{{$data->ilce}}, {{$data->getIl->title}}</span>
                 </div>
-
-
-
-                <div>
-                    <table>
-                        <tr><td class="ilkyazi">İsim :</td><td class="ikinciyazi">{{$data->hayvan_ad}}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="ilkyazi">İsim :</td><td class="ikinciyazi">{{$data->getUser->name}}</td></tr>
-                        <tr><td class="ilkyazi">Cins :</td><td class="ikinciyazi">{{$data->cins}}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="ilkyazi">Soyisim :</td><td class="ikinciyazi">{{$data->getUser->surname}}</td></tr>
-                        <tr><td class="ilkyazi">Cinsiyet :</td><td class="ikinciyazi">{{$data->cinsiyet == 1 ? 'Erkek':'Dişi'}}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="ilkyazi">Telefon :</td><td class="ikinciyazi">{{$data->getUser->tel}}</td></tr>
-                        <tr><td class="ilkyazi">Kısırlık Durumu :</td><td class="ikinciyazi">
-                                @if($data->kisir == 0 || $data->kisir == NULL)
-                                    Kısır değil
-                                @else
-                                    Kısır
-                                @endif
-
-
-
-                            </td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="ilkyazi">email :</td><td class="ikinciyazi">{{$data->getUser->email}}</td></tr>
-                        <tr><td class="ilkyazi">Yaş :</td><td class="ikinciyazi">{{$data->yas}}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td class="ilkyazi">Adres :</td><td class="ikinciyazi"><div class = "adres-yazi">{{$data->adres}}</div></td></tr>
-                        <tr><td class="ilkyazi">Aşı Durumu :</td><td class="ikinciyazi">{{$data->parazit == 1 ? 'Parazit,': ''}} {{$data->kuduz == 1 ? 'Kuduz,': ''}} {{$data->karma == 1 ? 'Karma,': ''}} {{$data->kalp_kurtlari == 1 ? 'Kalp Kurtları': ''}}</td><td></td><td></td><td><td></td><td></td><td></td></td><td></td>
-                        <tr><td class="ilkyazi">Çip No :</td><td class="ikinciyazi">{{$data->cip_no}}</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-                    </table>
+                <div class="info">
+                    <img class="icon" src="/images/time.png">
+                    <span>{{$data->created_date}}</span>
                 </div>
-
-            </nav>
-
+            </div>
+        </div>
+        <div class="title">{{$data->baslik}}</div>
+        <div class="description">{{$data->aciklama}}</div>
+        <div class="u_info">
+        <div class="user-info">
+            <div class="item">
+                <span><span style="color: #41464b">İsim@php echo str_repeat('&nbsp;', 23);@endphp:</span> {{$data->hayvan_ad}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Cins@php echo str_repeat('&nbsp;', 23);@endphp:</span> {{$data->cins}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Erkek':'Dişi'}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Kısırlık Durumu :</span>  @if($data->kisir == 0 || $data->kisir == NULL)
+                        Kısır değil
+                    @else
+                        Kısır
+                    @endif</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Yaş@php echo str_repeat('&nbsp;', 24);@endphp:</span> {{$data->yas}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Aşı Durumu@php echo str_repeat('&nbsp;', 9);@endphp:</span> {{$data->parazit == 1 ? 'Parazit ': ''}} {{$data->kuduz == 1 ? 'Kuduz ': ''}}  {{$data->karma == 1 ? 'Karma,': ''}} {{$data->kalp_kurtlari == 1 ? 'Kalp Kurtları': ''}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Çip no@php echo str_repeat('&nbsp;', 19);@endphp:</span> {{$data->cip_no}}</span>
+            </div>
+        </div>
+        <div  style="" class="user-info2">
+            <div class="item">
+                <span><span style="color: #41464b">İsim@php echo str_repeat('&nbsp;', 8);@endphp:</span> {{$data->getUser->name}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Soyisim@php echo str_repeat('&nbsp;', 2);@endphp:</span> {{$data->getUser->surname}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Email@php echo str_repeat('&nbsp;', 5);@endphp:</span> {{$data->getUser->email}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Telefon@php echo str_repeat('&nbsp;', 3);@endphp:</span> {{$data->getUser->tel}}</span>
+            </div>
+            <div class="item">
+                <span><span style="color: #41464b">Adres@php echo str_repeat('&nbsp;', 5);@endphp:</span> {{$data->adres}}</span>
+            </div>
 
         </div>
+        </div>
+        @if(Auth::user()->id === $data->getUser->id)
+        <a href="#" class="edit-button">İlanı Düzenle</a>
+        @endif
     </div>
 
 @endsection

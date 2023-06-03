@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Veteriner;
 use App\Models\Sertifika;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Sahiplen;
 use App\Models\Kayip;
 use App\Models\Es_bul;
 use App\Models\Haber;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 
@@ -127,6 +129,7 @@ class AdminController extends Controller
         if( $request->aciklama ){
             $data->aciklama = $request->aciklama;
         }
+        $data->updated_date = Carbon::today()->format('Y-m-d');
 
         $data->save();
 
@@ -150,7 +153,6 @@ class AdminController extends Controller
 
     public function update_kayip_ilan_post(Request $request, $id){
         $data = Kayip::find($id);
-
         if( $request->has('kayip_durumu') ){
             $data->kayip_durumu = $request->kayip_durumu;
         }
@@ -175,6 +177,9 @@ class AdminController extends Controller
         if( $request->tur ){
             $data->tur = $request->tur;
         }
+        if( $request->hayvan_ad ){
+            $data->hayvan_ad = $request->hayvan_ad;
+        }
         if( $request->has('cinsiyet') ){
             $data->cinsiyet = $request->cinsiyet;
         }
@@ -193,6 +198,7 @@ class AdminController extends Controller
         if( $request->aciklama ){
             $data->aciklama = $request->aciklama;
         }
+        $data->updated_date = Carbon::today()->format('Y-m-d');
 
         $data->save();
 
@@ -265,7 +271,7 @@ class AdminController extends Controller
         if( $request->aciklama ){
             $data->aciklama = $request->aciklama;
         }
-
+        $data->updated_date = Carbon::today()->format('Y-m-d');
         $data->save();
 
         return redirect()->back()->with('basarili', 'İLAN GÜNCELLENDİ.');
