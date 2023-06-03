@@ -17,9 +17,14 @@ class VeterinerController extends Controller
 {
     public function sertifika_kontrol(){
         $vet_id = Auth::id();
-        $kontrol = Sertifika::where('vet_id',$vet_id)->first();
-        if($kontrol){
-        return view('Veteriner/sertifika',compact('kontrol'));
+        $kontrol = Veteriner::where('vet_id',$vet_id)->first();
+        if($kontrol->onay === 0 ){
+            $kontrol = Sertifika::where('vet_id',$vet_id)->first();
+            return view('Veteriner/sertifika',compact('kontrol'));
+        }
+        elseif ( $kontrol->onay === -1){
+            $kontrol = Sertifika::where('vet_id',$vet_id)->first();
+            return view('Veteriner/sertifika',compact('kontrol'));
         }
         return redirect()->route('Veteriner_anasayfa');
 
@@ -27,7 +32,7 @@ class VeterinerController extends Controller
     public function sertifika(Request $request){
         $data = new Sertifika();
         $data->vet_id = Auth::id();
-
+        
         if($request->hasFile('image')) {
 
             $imageName=Str::slug(Auth::user()->email).'.'.$request->image->getClientOriginalExtension();
