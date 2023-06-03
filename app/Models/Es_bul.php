@@ -21,6 +21,7 @@ class Es_bul extends Model
         'il_id',
         'ilce',
         'adres',
+        'baslik',
         'aciklama',
     ];
 

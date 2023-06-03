@@ -32,6 +32,7 @@ class EsBulmaController extends Controller
             'il_id'=>'required',
             'ilce'=>'required',
             'adres'=>'required',
+            'baslik'=>'required',
             'aciklama'=>'required',
         ]);
 
@@ -53,6 +54,7 @@ class EsBulmaController extends Controller
         $data->kisirlik_durumu = $request->kisirlik_durumu;
         $data->il_id = $request->il_id;
         $data->ilce = $request->ilce;
+        $data->baslik = $request->baslik;
         $data->adres = $request->adres;
         $data->aciklama = $request->aciklama;
 

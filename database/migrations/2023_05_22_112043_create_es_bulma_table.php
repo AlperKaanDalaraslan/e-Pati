@@ -24,6 +24,7 @@ return new class extends Migration
             $table->unsignedBigInteger('il_id');
             $table->string('ilce');
             $table->longText('adres');
+            $table->longText('baslik');
             $table->longText('aciklama');
             $table->timestamps();
 
