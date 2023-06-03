@@ -31,8 +31,8 @@
                 <td><a href="{{route('VetRed',[$vet->vet_id])}}"><button type="button" class="btn btn-danger"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Reddet</font></font></button></a></td>
             </tr>
             @endforeach
-
             </tbody>
+                {{ $onay_veteriner->links('pagination::bootstrap-4') }}
         </table>
             @else
                 <h3 style="margin-top: 90px; color: #41464b; position: absolute;text-align: center;"> Başvuru Bulunmamaktadır</h3>

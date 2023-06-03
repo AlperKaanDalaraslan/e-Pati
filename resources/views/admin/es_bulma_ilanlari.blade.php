@@ -28,8 +28,6 @@
                 <th scope="col">Hayvan cinsiyet</th>
                 <th scope="col">Hayvan yaş</th>
                 <th scope="col">Kısırlık Durumu</th>
-                <th scope="col">Aşı durumu</th>
-                <th scope="col">Hayvan cip no</th>
                 <th scope="col">Hayvan Adres</th>
                 <th scope="col">İlan açıklama</th>
                 <th scope="col">Oluşturma tarihi</th>
@@ -48,14 +46,19 @@
                     <td>{{ $dat->cins }}</td>
                     <td>{{ $dat->cinsiyet==1 ? 'Erkek' : 'Dişi' }}</td>
                     <td>{{ $dat->yas }}</td>
-                    <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır değil' }}</td>
-                    <td>{{ $dat->kuduz==1 ? 'Kuduz': '' }}, {{ $dat->karma==1 ? 'Karma' :'' }}, {{ $dat->parazit==1 ? 'Parazit' : '' }}, {{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
-                    <td>{{ $dat->cip_no }}</td>
+                    <td>{{ $dat->kisirlik_durumu==1 ? 'Kısır' : 'Kısır değil' }}</td>
                     <td>{{ $dat->il_id }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td><a href="#"><button type="button" class="btn btn-warning"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font></button></a></td>
+                    <td>
+                        <form action="{{ route('update_es_bulma_ilan', $dat->id) }}" method="get">
+                            @csrf
+                            <button type="submit" class="btn btn-warning">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font>
+                            </button>
+                        </form>
+                    </td>
                     <td>
                         <form action="{{ route('delete_es_bulma_ilan', $dat->id) }}" method="post">
                             @csrf

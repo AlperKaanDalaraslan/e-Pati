@@ -53,8 +53,8 @@
                     <td>{{ $dat->cip_no }}</td>
                     <td>{{ $dat->getIL->title }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>
-                    <td>{{ $dat->created_at }}</td>
-                    <td>{{ $dat->updated_at }}</td>
+                    <td>{{ $dat->created_date }}</td>
+                    <td>{{ $dat->updated_date }}</td>
                     <td>
                         <form action="{{ route('update_sahiplen_ilan', $dat->id) }}" method="get">
                             @csrf

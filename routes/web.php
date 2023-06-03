@@ -129,6 +129,10 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
         Route::get('/', [AdminController::class, 'es_bulma_ilanlari'])->name('es_bulma_ilanlari');
 
+        Route::get('/update_es_bulma_ilan/{id}', [AdminController::class, 'update_es_bulma_ilan'])->name('update_es_bulma_ilan');
+
+        Route::post('/update_es_bulma_ilan_post/{id}', [AdminController::class, 'update_es_bulma_ilan_post'])->name('update_es_bulma_ilan_post');
+
         Route::post('/delete_es_bulma_ilan/{id}', [AdminController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
     });
 });
