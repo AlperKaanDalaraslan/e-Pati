@@ -49,8 +49,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link text-white">
+                    <a href="{{ route('haberler') }}" class="nav-link text-white">
                         Haberler
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('raporlar') }}" class="nav-link text-white">
+                        Raporlar
                     </a>
                 </li>
                 <hr>

@@ -135,6 +135,23 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
         Route::post('/delete_es_bulma_ilan/{id}', [AdminController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
     });
+
+    Route::prefix('/haberler')->middleware('auth')->group(function(){
+
+        Route::get('/', [AdminController::class, 'haberler'])->name('haberler');
+
+        Route::get('/create_haber', function(){ return view('admin.create_haber'); })->name('create_haber');
+
+        Route::post('/create_haber_post', [AdminController::class, 'create_haber_post'])->name('create_haber_post');
+
+        Route::get('/update_haber/{id}', [AdminController::class, 'update_haber'])->name('update_haber');
+
+        Route::post('/update_haber_post/{id}', [AdminController::class, 'update_haber_post'])->name('update_haber_post');
+
+        Route::post('/delete_haber/{id}', [AdminController::class, 'delete_haber'])->name('delete_haber');
+    });
+
+    Route::get('/raporlar', [AdminController::class, 'raporlar'])->name('raporlar');
 });
 
 

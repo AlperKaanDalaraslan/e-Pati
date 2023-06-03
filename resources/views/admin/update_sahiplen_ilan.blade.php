@@ -8,7 +8,7 @@
 
 @endsection
 @section('content')
-    <br><h2 style="text-align: center">Sahiplenme İlanları</h2><br>
+    <br><h2 style="text-align: center">Sahiplenme İlan Güncelleme</h2><br>
     @if(session('basarili'))
         <div class="alert alert-success" id="success-alert" style="text-align: center">
             {{ session('basarili') }}

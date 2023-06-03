@@ -111,10 +111,11 @@ class DatabaseSeeder extends Seeder
             ];
         DB::table('iller')->insert($cities);
         $this->call(IlceSeeder::class);
-       $this->call(SahiplenSeeder::class);
-       $this->call(KayipSeeder::class);
-       $this->call(EsBulmaSeeder::class);
-       $this->call(VeterinerSeeder::class);
-       $this->call((TurSeeder::class));
+        $this->call(SahiplenSeeder::class);
+        $this->call(KayipSeeder::class);
+        $this->call(EsBulmaSeeder::class);
+        $this->call(VeterinerSeeder::class);
+        $this->call((TurSeeder::class));
+        $this->call(HaberSeeder::class);
     }
 }
