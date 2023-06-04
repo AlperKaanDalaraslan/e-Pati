@@ -30,6 +30,7 @@
                         <th>İsim</th>
                         <th>Soyisim</th>
                         <th>Email</th>
+                        <th>Tel</th>
                         <th>Randevu Tarihi</th>
                         <th>Randevu Saati</th>
                         <th>İşlemler</th>
@@ -44,6 +45,7 @@
                             <td>{{$randevu->getUser->surname}}</td>
 
                             <td>{{$randevu->getUser->email}}</td>
+                            <td>{{$randevu->getUser->tel}}</td>
                             <td>{{$randevu->randevu_tarih}}</td>
                             <td>{{$randevu->randevu_saat}}</td>
                             <td class="islem-buttons">
@@ -69,6 +71,7 @@
                         <th>İsim</th>
                         <th>Soyisim</th>
                         <th>Email</th>
+                        <th>Tel</th>
                         <th>Randevu Tarihi</th>
                         <th>Randevu Saati</th>
                         <th>İşlemler</th>
@@ -83,6 +86,7 @@
                             <td>{{$randevu->getUser->surname}}</td>
 
                             <td>{{$randevu->getUser->email}}</td>
+                            <td>{{$randevu->getUser->tel}}</td>
                             <td>{{$randevu->randevu_tarih}}</td>
                             <td>{{$randevu->randevu_saat}}</td>
                             <td class="islem-buttons">

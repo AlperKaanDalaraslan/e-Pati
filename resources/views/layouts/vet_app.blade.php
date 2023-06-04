@@ -64,6 +64,14 @@
                     <p class="menuyazisi"><span class="randevu-bold"> GELECEK RANDEVULARIM</span>  </p>
                 </a>
             </li>
+            <li>
+                <p class="menucizgisi"></p>
+            </li >
+            <li>
+                <a href="{{route('Gecmis_Randevularim')}}">
+                    <p class="menuyazisi"><span class="gecmis-randevu-bold"> GEÇMİŞ RANDEVULARIM</span>  </p>
+                </a>
+            </li>
 
 
         </ul>

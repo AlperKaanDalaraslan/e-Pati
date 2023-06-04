@@ -39,6 +39,8 @@
 
         <h1>Çalışma Saatleri</h1>
 
+        <h3 style="color: red">Dikkat Çalışma Saatlerinin Değiştirilmesi Durumunda Gelecek Randevularınız Silinir</h3>
+
         <form method="GET" action="{{route('Vet_calisma_form_post')}}">
             <ul>
                 <li>

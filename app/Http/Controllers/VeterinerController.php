@@ -32,7 +32,7 @@ class VeterinerController extends Controller
     public function sertifika(Request $request){
         $data = new Sertifika();
         $data->vet_id = Auth::id();
-        
+
         if($request->hasFile('image')) {
 
             $imageName=Str::slug(Auth::user()->email).'.'.$request->image->getClientOriginalExtension();
@@ -48,7 +48,9 @@ class VeterinerController extends Controller
 
         if(!empty($request->day)){
             $vetId = Auth::id();
-
+            Randevu::where('vet_id',$vetId)
+                ->where('randevu_tarih', '>=', Carbon::today()->format('Y-m-d'))
+                ->delete();
             Vet_calisma::where('vet_id', $vetId)->delete();
             foreach ($request->day as $item) {
                 $data = new Vet_calisma();
@@ -107,6 +109,13 @@ class VeterinerController extends Controller
         if($onaylananrandevular === null){ $onaylananrandevular = false;}
         return view('Veteriner/Randevularim',compact('onaylanacakrandevular','onaylananrandevular'));
 
+    }
+    public function vet_gecmis_randevular(){
+        $gecmisRandevu = Randevu::where('vet_id',Auth::id())
+            ->where('randevu_tarih', '<=',Carbon::yesterday()->format('Y-m-d'))
+            ->where('onay', '=', 1)
+            ->get();
+        return view('Veteriner/Gecmis_randevularim',compact('gecmisRandevu'));
     }
     public function vet_anasayfa(){
         $data = Vet_calisma::where('vet_id', Auth::id())->get();
