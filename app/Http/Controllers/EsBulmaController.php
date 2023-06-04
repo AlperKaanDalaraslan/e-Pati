@@ -84,4 +84,8 @@ class EsBulmaController extends Controller
 
         return view('esbulma_siralama' , compact('veritabanindan_gelen'));
     }
+    public function del_esbul_ilan($id){
+        Es_bul::destroy($id);
+        return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
+    }
 }

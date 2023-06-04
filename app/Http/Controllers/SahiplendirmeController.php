@@ -96,4 +96,9 @@ class SahiplendirmeController extends Controller
                                             ->get();
         return view('sahiplen_siralama', compact('veritabanindan_gelen'));
     }
+    public function del_sahiplen_ilan($id){
+        Sahiplen::destroy($id);
+        return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
+    }
+
 }

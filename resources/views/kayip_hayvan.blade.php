@@ -50,7 +50,7 @@
                     <span><span style="color: #41464b">İsim@php echo str_repeat('&nbsp;', 23);@endphp:</span> {{$data->hayvan_ad}}</span>
                 </div>
                 <div class="item">
-                    <span><span style="color: #41464b">Durumu@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Kayıp':'Bulunan'}}</span>
+                    <span><span style="color: #41464b">Durumu@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->kayip_durumu == 1 ? 'Kayıp':'Bulunan'}}</span>
                 </div>
                 <div class="item">
                     <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Erkek':'Dişi'}}</span>

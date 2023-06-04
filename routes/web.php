@@ -43,6 +43,7 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
         return view('sahiplendirme_ilan_form');
     })->name('sahiplendirme_ilan_form');
    Route::get('/sahiplenme_post', [SahiplendirmeController::class, 'sahiplenme_kriter_fonksiyonu'])->name('sahiplenme_post');
+   Route::get('/sahiplenme-sil/{id}',[SahiplendirmeController::class,'del_sahiplen_ilan'])->name('s_ilan_sil');
 
 });
 
@@ -62,6 +63,7 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
     })->name('kayip_ilan_form');
 
     Route::get('kayip/arama_post' , [KayipController::class, 'kriter_fonksiyonu'])->name('arama_post');
+    Route::get('/kayip-sil/{id}',[KayipController::class,'del_kayip_ilan'])->name('k_ilan_sil');
 
 });
 
@@ -78,6 +80,8 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
 
     Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
     Route::get('/esbulma_post' , [EsBulmaController::class, 'esbulma_kriter_fonksiyonu'])->name('esbulma_post');
+    Route::get('/esbulma-sil/{id}',[EsBulmaController::class,'del_esbul_ilan'])->name('e_ilan_sil');
+
 });
 
 

@@ -12,7 +12,8 @@
         border: 0px;
     }
     .scrollable{
-        width: 99%;
+        width: 97%;
+        margin-left: 10px;
     }
     .tekrar-randevu {
         background-color: DodgerBlue;
@@ -22,8 +23,15 @@
 @endsection
 @section('content')
 <body>
+@if(session('success'))
+    <div class="alert alert-success" role="alert" style="width: 1000px; margin: 0 auto;">
+        <i class="fas fa-check-circle"></i> {{ session('success') }}
+    </div>
+@endif
+
 
 <div class="kullanici_profil_kart" >
+
     <div class="kullanici_profil_baslik" style="display: flex; justify-content: center; align-items: center; ">
         <b class="username_baslik">{{Auth::user()->username}}</b>
     </div>
@@ -78,7 +86,7 @@
             <h1 style="color: red">Geçmiş Randevularım</h1>
             @if($gecmis_randevular && count($gecmis_randevular) > 0)
                     <?php $tarih = \Carbon\Carbon::tomorrow(); ?>
-                <div class="scrollable">
+                <div class="scrollable" >
                     <table>
                         <tbody>
 
@@ -99,177 +107,75 @@
                         <h1>Geçmiş Randevunuz Bulunmamaktadır!!</h1>
                     @endif
                 </div>
+                <div class="randevu-listesi">
+                    <h1 style="color: dodgerblue">Verdiğim ilanlarım</h1>
+
+                        <div class="scrollable" >
+                            <table>
+                                <tbody>
+                                <?php $kontrol = 0?>
+                                @foreach($sahiplen_ilanlarim as $ilan_s)
+                                    <tr>
+                                        <td style="font-weight: bold">Sahiplendirme ilanı</td>
+                                        <td>{{$ilan_s->hayvan_ad}}</td>
+                                        <td>{{$ilan_s->created_date}}</td>
+                                        <td>
+                                            <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('sahiplenilecek_hayvan',$ilan_s->id)}}';">İlanı İncele</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('s_ilan_sil',$ilan_s->id)}}';">İlanı Sil</button>
+                                        </td>
+                                            <?php $kontrol = 1?>
+                                    </tr>
+                                @endforeach
+                                @foreach($kayip_ilanrim as $ilan_k)
+                                    <tr>
+                                        <td style="font-weight: bold">Kayıp ilanı</td>
+                                        <td>{{$ilan_k->kayip_durumu == 1 ? 'Kayıp':'Bulunan'}}</td>
+                                        <td>{{$ilan_k->created_date}}</td>
+                                        <td>
+                                            <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('kayip_hayvan',$ilan_k->id)}}';">İlanı İncele</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('k_ilan_sil',$ilan_k->id)}}';">İlanı Sil</button>
+                                        </td>
+                                            <?php $kontrol = 1?>
+                                    </tr>
+                                @endforeach
+                                @foreach($es_bul_ilanrim as $ilan_e)
+                                    <tr>
+                                        <td style="font-weight: bold">Eş Bulma ilanı</td>
+                                        <td>{{$ilan_e->hayvan_ad}}</td>
+                                        <td>{{$ilan_e->created_date}}</td>
+                                        <td>
+                                            <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('es_bulma_hayvan',$ilan_e->id)}}';">İlanı İncele</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                        </td>
+                                        <td>
+                                            <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('e_ilan_sil',$ilan_e->id)}}';">İlanı Sil</button>
+                                        </td>
+                                            <?php $kontrol = 1?>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                            @if($kontrol === 0)
+                                <h1>İlanınız Bulunmamaktadır</h1>
+                            @endif
+                        </div>
+                </div>
+
         </div>
-<!--
-    </div>
-    <div class="kullanici_veteriner_randevu_baslik">
-        <h1 >Veteriner Randevularım</h1>
-    </div>
-    <div class="kullanici_randevu_liste">
-        <ul>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>,
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Konya Pet</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_turu">Kısırlık</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p><p>16.30</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İptal Et</div></a></div>
-                </div></li>
-
-        </ul>
-    </div>
 
 
-
-
-
-    <div class="kullanici_veteriner_randevu_baslik">
-        <h1 >Verdiğim İlanlar</h1>
-    </div>
-    <div class="kullanici_randevu_liste">
-        <ul>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Sahiplendirme</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_onayla">İlanı Onayla</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-            <li><div class="kullanici_veteriner_randevu_kart">
-                    <div class="kullanici_veteriner_randevu_kart_klinik_adi">Kayıp İlan</div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_tarihi"><p >18.04.2023</p></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="ilan_button_düzenle">İlanı Düzenle</div></a></div>
-                    <div class="kullanici_veteriner_randevu_kart_randevu_iptal"><a href="" style="text-decoration: none;"> <div class="randevu_button">İlanı Sil</div></a></div>
-                </div></li>
-
-
-
-        </ul>
-        -->
     </div>
 
 </div>

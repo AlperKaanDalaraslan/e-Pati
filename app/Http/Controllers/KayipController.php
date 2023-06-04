@@ -96,4 +96,8 @@ class KayipController extends Controller
 
 
     }
+    public function del_kayip_ilan($id){
+        Kayip::destroy($id);
+        return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
+    }
 }

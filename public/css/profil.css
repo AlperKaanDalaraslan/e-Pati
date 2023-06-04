@@ -102,6 +102,60 @@ width: 90%;
     background-color: rgb(49, 153, 219);
     color: #fff;
 }
+/* İlanı İncele düğmesi */
+button.ilan-incele-button {
+    background-color: #1e90ff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button.ilan-incele-button:hover {
+    background-color: #005cbf;
+}
+
+/* İlanı Onayla düğmesi */
+button.ilan-onayla-button {
+    background-color: #32cd32;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button.ilan-onayla-button:hover {
+    background-color: #228b22;
+}
+
+/* İlanı Sil düğmesi */
+button.ilan-sil-button {
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+button.ilan-sil-button:hover {
+    background-color: #cc3700;
+}
+.alert {
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    background-color: #f2f9f2;
+    color: #2ecc71;
+    padding: 10px;
+}
+.alert i {
+    margin-right: 5px;
+}
 
 
 
