@@ -1,20 +1,29 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminHaberController;
+use App\Http\Controllers\Admin\AdminVeterinerSertifikaOnayController;
+use App\Http\Controllers\Admin\AdminSahiplenIlanController;
+use App\Http\Controllers\Admin\AdminKayipIlanController;
+use App\Http\Controllers\Admin\AdminEsBulmaIlanController;
+use App\Http\Controllers\Admin\AdminRaporController;
+use App\Http\Controllers\Admin\AdminKullanicilarController;
+use App\Http\Controllers\Admin\AdminVeterinerlerController;
+use App\Http\Controllers\Admin\AdminYoneticilerController;
+
+use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\VetRegisterController;
+use App\Http\Controllers\EsBulmaController;
 use App\Http\Controllers\KayipController;
+use App\Http\Controllers\ProfilController;
+use App\Http\Controllers\SahiplendirmeController;
+use App\Http\Controllers\VeterinerController;
+use App\Http\Controllers\VeterinerRandevuController;
 use App\Http\Middleware\Veteriner;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SahiplendirmeController;
-use App\Http\Controllers\EsBulmaController;
-use App\Http\Controllers\VeterinerController;
-use App\Http\Controllers\AnasayfaController;
-use App\Http\Controllers\VeterinerRandevuController;
-use App\Http\Controllers\ProfilController;
 
-
-use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,13 +80,9 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
 
 
 Route::prefix('es_bulma')->middleware('auth')->group(function (){
-
     Route::get('/', [EsBulmaController::class, 'index'])->name('es_bulma_sayfasi');
-
     Route::get('/es_bulma_hayvan/{id}', [EsBulmaController::class, 'show'])->name('es_bulma_hayvan');
-
     Route::get('/es_ilan_ver', function (){ return view('es_ilan_form'); })->name('es_ilan_form');
-
     Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
     Route::get('/esbulma_post' , [EsBulmaController::class, 'esbulma_kriter_fonksiyonu'])->name('esbulma_post');
     Route::get('/esbulma-sil/{id}',[EsBulmaController::class,'del_esbul_ilan'])->name('e_ilan_sil');
@@ -86,76 +91,60 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
 
 
 Route::prefix('/admin_panel')->middleware('auth')->group(function(){
-
     Route::get('/', [AdminController::class, 'home'])->name('admin_panel');
 
-    Route::get('/VetOnay/{id}', [AdminController::class, 'VeterinerOnay' ])->name('VetOnay');
-    Route::get('/VetRed/{id}', [AdminController::class, 'VeterinerRed' ])->name('VetRed');
-
-    Route::prefix('/yoneticiler')->middleware('auth')->group(function(){
-        Route::get('/', [AdminController::class, 'yoneticiler'])->name('yoneticiler');
+    Route::prefix('/haberler')->middleware('auth')->group(function(){
+        Route::get('/', [AdminHaberController::class, 'haberler'])->name('haberler');
+        Route::get('/create_haber', function(){ return view('admin.create_haber'); })->name('create_haber');
+        Route::post('/create_haber_post', [AdminHaberController::class, 'create_haber_post'])->name('create_haber_post');
+        Route::get('/update_haber/{id}', [AdminHaberController::class, 'update_haber'])->name('update_haber');
+        Route::post('/update_haber_post/{id}', [AdminHaberController::class, 'update_haber_post'])->name('update_haber_post');
+        Route::post('/delete_haber/{id}', [AdminHaberController::class, 'delete_haber'])->name('delete_haber');
     });
 
-    Route::prefix('/kullanicilar')->middleware('auth')->group(function(){
-
-        Route::get('/', [AdminController::class, 'kullanicilar'])->name('kullanicilar');
-
-        Route::post('/delete_user/{id}', [AdminController::class, 'delete_user'])->name('delete_user');
-    });
-
-    Route::prefix('/veterinerler')->middleware('auth')->group(function(){
-       Route::get('/', [AdminController::class, 'veterinerler'])->name('veterinerler');
+    Route::prefix('/veteriner_sertifika_onay')->middleware('auth')->group(function (){
+        Route::get('/', [AdminVeterinerSertifikaOnayController::class, 'veteriner_sertifika_onay'])->name('veteriner_sertifika_onay');
+        Route::get('/VetOnay/{id}', [AdminVeterinerSertifikaOnayController::class, 'VeterinerOnay' ])->name('VetOnay');
+        Route::get('/VetRed/{id}', [AdminVeterinerSertifikaOnayController::class, 'VeterinerRed' ])->name('VetRed');
     });
 
     Route::prefix('/sahiplenme_ilanlari')->middleware('auth')->group(function(){
-
-        Route::get('/', [AdminController::class, 'sahiplenme_ilanlari'])->name('sahiplenme_ilanlari');
-
-        Route::get('/update_sahiplen_ilan/{id}', [AdminController::class, 'update_sahiplen_ilan'])->name('update_sahiplen_ilan');
-
-        Route::post('/update_sahiplen_ilan_post/{id}', [AdminController::class, 'update_sahiplen_ilan_post'])->name('update_sahiplen_ilan_post');
-
-        Route::post('/delete_sahiplen_ilan/{id}', [AdminController::class, 'delete_sahiplen_ilan'])->name('delete_sahiplen_ilan');
+        Route::get('/', [AdminSahiplenIlanController::class, 'sahiplenme_ilanlari'])->name('sahiplenme_ilanlari');
+        Route::get('/update_sahiplen_ilan/{id}', [AdminSahiplenIlanController::class, 'update_sahiplen_ilan'])->name('update_sahiplen_ilan');
+        Route::post('/update_sahiplen_ilan_post/{id}', [AdminSahiplenIlanController::class, 'update_sahiplen_ilan_post'])->name('update_sahiplen_ilan_post');
+        Route::post('/delete_sahiplen_ilan/{id}', [AdminSahiplenIlanController::class, 'delete_sahiplen_ilan'])->name('delete_sahiplen_ilan');
     });
 
     Route::prefix('/kayip_ilanlari')->middleware('auth')->group(function(){
-
-        Route::get('/', [AdminController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
-
-        Route::get('/update_kayip_ilan/{id}', [Admincontroller::class, 'update_kayip_ilan'])->name('update_kayip_ilan');
-
-        Route::post('/update_kayip_ilan_post/{id}', [AdminController::class, 'update_kayip_ilan_post'])->name('update_kayip_ilan_post');
-
-        Route::post('/delete_kayip_ilan/{id}', [AdminController::class, 'delete_kayip_ilan'])->name('delete_kayip_ilan');
+        Route::get('/', [AdminKayipIlanController::class, 'kayip_ilanlari'])->name('kayip_ilanlari');
+        Route::get('/update_kayip_ilan/{id}', [AdminKayipIlanController::class, 'update_kayip_ilan'])->name('update_kayip_ilan');
+        Route::post('/update_kayip_ilan_post/{id}', [AdminKayipIlanController::class, 'update_kayip_ilan_post'])->name('update_kayip_ilan_post');
+        Route::post('/delete_kayip_ilan/{id}', [AdminKayipIlanController::class, 'delete_kayip_ilan'])->name('delete_kayip_ilan');
     });
 
     Route::prefix('/es_bulma_ilanlari')->middleware('auth')->group(function(){
-
-        Route::get('/', [AdminController::class, 'es_bulma_ilanlari'])->name('es_bulma_ilanlari');
-
-        Route::get('/update_es_bulma_ilan/{id}', [AdminController::class, 'update_es_bulma_ilan'])->name('update_es_bulma_ilan');
-
-        Route::post('/update_es_bulma_ilan_post/{id}', [AdminController::class, 'update_es_bulma_ilan_post'])->name('update_es_bulma_ilan_post');
-
-        Route::post('/delete_es_bulma_ilan/{id}', [AdminController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
+        Route::get('/', [AdminEsBulmaIlanController::class, 'es_bulma_ilanlari'])->name('es_bulma_ilanlari');
+        Route::get('/update_es_bulma_ilan/{id}', [AdminEsBulmaIlanController::class, 'update_es_bulma_ilan'])->name('update_es_bulma_ilan');
+        Route::post('/update_es_bulma_ilan_post/{id}', [AdminEsBulmaIlanController::class, 'update_es_bulma_ilan_post'])->name('update_es_bulma_ilan_post');
+        Route::post('/delete_es_bulma_ilan/{id}', [AdminEsBulmaIlanController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
     });
 
-    Route::prefix('/haberler')->middleware('auth')->group(function(){
+    Route::get('/raporlar', [AdminRaporController::class, 'raporlar'])->name('raporlar');
 
-        Route::get('/', [AdminController::class, 'haberler'])->name('haberler');
-
-        Route::get('/create_haber', function(){ return view('admin.create_haber'); })->name('create_haber');
-
-        Route::post('/create_haber_post', [AdminController::class, 'create_haber_post'])->name('create_haber_post');
-
-        Route::get('/update_haber/{id}', [AdminController::class, 'update_haber'])->name('update_haber');
-
-        Route::post('/update_haber_post/{id}', [AdminController::class, 'update_haber_post'])->name('update_haber_post');
-
-        Route::post('/delete_haber/{id}', [AdminController::class, 'delete_haber'])->name('delete_haber');
+    Route::prefix('/kullanicilar')->middleware('auth')->group(function(){
+        Route::get('/', [AdminKullanicilarController::class, 'kullanicilar'])->name('kullanicilar');
+        Route::post('/delete_kullanici/{id}', [AdminKullanicilarController::class, 'delete_kullanici'])->name('delete_kullanici');
     });
 
-    Route::get('/raporlar', [AdminController::class, 'raporlar'])->name('raporlar');
+    Route::prefix('/veterinerler')->middleware('auth')->group(function(){
+       Route::get('/', [AdminVeterinerlerController::class, 'veterinerler'])->name('veterinerler');
+       Route::post('/delete_veteriner/{id}', [AdminVeterinerlerController::class, 'delete_veteriner'])->name('delete_veteriner');
+    });
+
+    Route::prefix('/yoneticiler')->middleware('auth')->group(function(){
+        Route::get('/', [AdminYoneticilerController::class, 'yoneticiler'])->name('yoneticiler');
+        Route::post('/delete_yonetici/{id}', [AdminYoneticilerController::class, 'delete_yonetici'])->name('delete_yonetici');
+    });
 });
 
 

@@ -15,6 +15,7 @@ class Haber extends Model
         'haber_image',
         'haber_baslik',
         'haber_icerik',
+        'update_at'
     ];
 
     public function getUser(){

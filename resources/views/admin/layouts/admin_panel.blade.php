@@ -19,18 +19,13 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="{{ route('yoneticiler') }}" class="nav-link text-white">
-                        Yöneticiler
+                    <a href="{{ route('haberler') }}" class="nav-link text-white">
+                        Haberler
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('kullanicilar') }}" class="nav-link text-white">
-                        Kullanıcılar
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('veterinerler') }}" class="nav-link text-white">
-                        Veterinerler
+                    <a href="{{ route('veteriner_sertifika_onay') }}" class="nav-link text-white">
+                        Veteriner Sertifika Onay
                     </a>
                 </li>
                 <li>
@@ -49,13 +44,23 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('haberler') }}" class="nav-link text-white">
-                        Haberler
+                    <a href="{{ route('raporlar') }}" class="nav-link text-white">
+                        Raporlar
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('raporlar') }}" class="nav-link text-white">
-                        Raporlar
+                    <a href="{{ route('kullanicilar') }}" class="nav-link text-white">
+                        Kullanıcılar
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('veterinerler') }}" class="nav-link text-white">
+                        Veterinerler
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('yoneticiler') }}" class="nav-link text-white">
+                        Yöneticiler
                     </a>
                 </li>
                 <hr>

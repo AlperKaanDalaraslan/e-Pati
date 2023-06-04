@@ -22,6 +22,7 @@
         </script>
     @endif
     <div class="table-responsive">
+        {{ $data->links('pagination::bootstrap-4') }}
         <table class="table table-striped table-sm">
             <thead>
             <tr>
@@ -32,6 +33,8 @@
                 <th scope="col">Haber içerik</th>
                 <th scope="col">Oluşturma tarihi</th>
                 <th scope="col">Güncelleme tarihi</th>
+                <th scope="col">Haberi Güncelle</th>
+                <th scope="col">Haberi Sil</th>
             </tr>
             </thead>
             @foreach($data as $dat)
@@ -48,7 +51,7 @@
                         <form action="{{ route('update_haber', $dat->id) }}" method="get">
                             @csrf
                             <button type="submit" class="btn btn-warning">
-                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Düzenle</font></font>
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Güncelle</font></font>
                             </button>
                         </form>
                     </td>
@@ -64,6 +67,5 @@
                 </tbody>
             @endforeach
         </table>
-        {{ $data->links('pagination::bootstrap-4') }}
     </div>
 @endsection
