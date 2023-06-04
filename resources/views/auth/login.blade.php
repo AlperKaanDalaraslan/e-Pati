@@ -29,6 +29,8 @@
         align-items: center;
         height: 100%;
         margin-bottom: 50px;
+        margin-top: 50px;
+
     }
     .sign_up_kismi {
         font-family: "Nunito Sans";
@@ -104,7 +106,7 @@
             @enderror
             <button class="blue-button" type="submit">Giriş Yap</button>
             <div class="sign_up_kismi"> Hesabınız yok mu? <a href="{{'register'}}"> Hesap Oluştur</a> </div>
-            <div class="sign_up_kismi"><a >Şifremi unuttum</a></div>
+            <div class="sign_up_kismi"><a href="{{route('password.request')}}">Şifremi unuttum</a></div>
         </form>
 
         <form method="POST" action="{{route('vet_login')}}" class="vet-login">
@@ -126,6 +128,7 @@
             @enderror
             <button class="blue-button" type="submit">Giriş Yap</button>
             <div class="sign_up_kismi">Yeni veteriner misiniz? <a href="{{route('vet_register')}}">Veteriner hesabı Oluştur</a></div>
+            <div class="sign_up_kismi"><a href="{{route('password.request')}}">Şifremi unuttum</a></div>
         </form>
     </div>
 

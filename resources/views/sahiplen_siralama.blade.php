@@ -108,7 +108,7 @@
                                 <div class="yan-yana-birleştirme">
                                     <div class="kısa-bilgi-divi">
                                         <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$dt->tur}}</span><br>
-                                        <img src="/images/pin.png" class="kart-resimleri"><span class="location" style="text-transform: capitalize;">{{$dt->ilce}},{{$dt->getIl->title}}</span><br>
+                                        <img src="/images/location.png" class="kart-resimleri"><span class="location" style="text-transform: capitalize;">{{$dt->ilce}},{{$dt->getIl->title}}</span><br>
                                         <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$dt->created_date}}  </span><br>
                                     </div>
                                     <div class="aciklama-div">
@@ -121,6 +121,7 @@
                 </a>
             @endforeach
 
+                {{$veritabanindan_gelen->links('pagination::bootstrap-4')}}
 
         </div>
     </nav>

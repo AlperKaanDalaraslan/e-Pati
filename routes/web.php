@@ -186,5 +186,6 @@ Route::middleware([Veteriner::class])->get("/Vet_randevu_sil/{id}",[VeterinerCon
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
 
 

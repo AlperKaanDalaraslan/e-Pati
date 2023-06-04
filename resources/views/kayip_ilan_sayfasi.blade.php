@@ -110,7 +110,7 @@
                             <div class="yan-yana-birleştirme">
                                 <div class="kısa-bilgi-divi">
                                     <img src="/images/options-lines.png" class="kart-resimleri"><span class="tur">{{$veri->getTur->tur_ad}}</span><br>
-                                    <img src="/images/pin.png" class="kart-resimleri"><span class="location">{{$veri->ilce}},{{$veri->getIl->title}}</span><br>
+                                    <img src="/images/location.png" class="kart-resimleri"><span class="location">{{$veri->ilce}},{{$veri->getIl->title}}</span><br>
                                     <img src="/images/clock.png" class="kart-resimleri"><span class="date">{{$veri->created_date}} </span><br>
                                 </div>
                                 <div class="aciklama-div">

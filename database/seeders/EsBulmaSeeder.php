@@ -41,7 +41,7 @@ class EsBulmaSeeder extends Seeder
         $hayvan_ad = ['animal_1','animal_2','animal_3','animal_4'];
         $faker = Faker::create();
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
-        for ($i = 0; $i< 100; $i++){
+        for ($i = 0; $i< 5000; $i++){
             $tarih = $faker->dateTimeBetween('2022-01-01', '2023-06-02');
             $randomcins= $cinsler[array_rand($cinsler)];
             $cins=$randomcins['cins'];

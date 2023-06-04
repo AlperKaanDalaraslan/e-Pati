@@ -17,7 +17,7 @@ class KayipSeeder extends Seeder
     {
         $faker = Faker::create();
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
-        for ($i = 0; $i< 100; $i++) {
+        for ($i = 0; $i< 5000; $i++) {
             $tarih = $faker->dateTimeBetween('2022-01-01', '2023-06-02');
             $rand_il = rand(1,81);
             $filteredArray = array_filter($districts, function ($item) use ($rand_il){
