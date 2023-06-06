@@ -123,7 +123,7 @@
                                             <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('sahiplenilecek_hayvan',$ilan_s->id)}}';">İlanı İncele</button>
                                         </td>
                                         <td>
-                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '{{route('S_ilanı_onayla',$ilan_s->id)}}';">İlanı Onayla</button>
                                         </td>
                                         <td>
                                             <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('s_ilan_sil',$ilan_s->id)}}';">İlanı Sil</button>
@@ -140,7 +140,7 @@
                                             <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('kayip_hayvan',$ilan_k->id)}}';">İlanı İncele</button>
                                         </td>
                                         <td>
-                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '{{route('K_ilanı_onayla',$ilan_k->id)}}';">İlanı Onayla</button>
                                         </td>
                                         <td>
                                             <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('k_ilan_sil',$ilan_k->id)}}';">İlanı Sil</button>
@@ -157,7 +157,7 @@
                                             <button class="ilan-incele-button" type="button" onclick="window.location.href = '{{route('es_bulma_hayvan',$ilan_e->id)}}';">İlanı İncele</button>
                                         </td>
                                         <td>
-                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '';">İlanı Onayla</button>
+                                            <button class="ilan-onayla-button" type="button" onclick="window.location.href = '{{route('E_ilanı_onayla',$ilan_e->id)}}';">İlanı Onayla</button>
                                         </td>
                                         <td>
                                             <button class="ilan-sil-button" type="button" onclick="window.location.href = '{{route('e_ilan_sil',$ilan_e->id)}}';">İlanı Sil</button>

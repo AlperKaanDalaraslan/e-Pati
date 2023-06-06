@@ -61,7 +61,7 @@ Onlara umut ol.</pre>
             <img src="/images/randevu_foto.png" class="hizmetimage" >
 
             <div class="card-body">
-                <h2 class="hizmet_yazisi2">-</h2>
+                <h2 class="hizmet_yazisi2">{{$sayac->randevu}}</h2>
                 <h2 class="hizmet_yazisi2">Gerçekleştirilen</h2>
                 <h2 class="hizmet_yazisi2" >Randevu</h2>
             </div>
@@ -71,7 +71,7 @@ Onlara umut ol.</pre>
             <img src="/images/sahiplenme_foto.png" class="hizmetimage" >
 
             <div class="card-body">
-                <h2 class="hizmet_yazisi2">-</h2>
+                <h2 class="hizmet_yazisi2">{{$sayac->sahiplen}}</h2>
                 <h2 class="hizmet_yazisi2">Sahiplenilen</h2>
                 <h2 class="hizmet_yazisi2" >Hayvan</h2>
             </div>
@@ -81,7 +81,7 @@ Onlara umut ol.</pre>
             <img src="/images/kayipfoto.png" class="hizmetimage" >
 
             <div class="card-body">
-                <h2 class="hizmet_yazisi2">-</h2>
+                <h2 class="hizmet_yazisi2">{{$sayac->kayip}}</h2>
                 <h2 class="hizmet_yazisi2">Bulunan</h2>
                 <h2 class="hizmet_yazisi2" >Kayıplar</h2>
             </div>
@@ -91,7 +91,7 @@ Onlara umut ol.</pre>
             <img src="/images/esfoto.png" class="hizmetimage" >
 
             <div class="card-body">
-                <h2 class="hizmet_yazisi2">-</h2>
+                <h2 class="hizmet_yazisi2">{{$sayac->es_bul}}</h2>
                 <h2 class="hizmet_yazisi2">Bulunan eş</h2>
                 <h2 class="hizmet_yazisi2" >Adayları</h2>
             </div>

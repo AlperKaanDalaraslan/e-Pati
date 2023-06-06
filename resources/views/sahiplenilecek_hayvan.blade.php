@@ -27,7 +27,7 @@
     </style>
     <div class="container">
         <div class="image-wrapper">
-            <img class="ilan_img" src="/{{$data->hayvan_img}}" alt="Resim">
+            <img class="ilan_img" src="/{{$data->hayvan_image}}" alt="Resim">
             <div class="info-wrapper">
                 <div class="info">
                     <img class="icon" src="/images/kategori.png">

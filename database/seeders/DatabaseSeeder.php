@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(Userseeder::class);
+        $this->call(SayacSeeder::class);
 //        DB::table('iller')->truncate();
 //        Db::table('ilce')->truncate();
 

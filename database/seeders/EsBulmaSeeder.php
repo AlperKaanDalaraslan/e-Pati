@@ -38,7 +38,6 @@ class EsBulmaSeeder extends Seeder
 
 
         ];
-        $hayvan_ad = ['animal_1','animal_2','animal_3','animal_4'];
         $faker = Faker::create();
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
         for ($i = 0; $i< 5000; $i++){
@@ -53,8 +52,8 @@ class EsBulmaSeeder extends Seeder
             $randomilce = $filteredArray[$randomItem]['ilce_ad'];
             DB::table('es_bulma')->insert([
                 'user_id' => 2,
-                'hayvan_image' => 'animal.jpg',
-                'hayvan_ad' => $hayvan_ad[rand(0,3)],
+                'hayvan_image' => $faker->imageUrl($width = 640, $height = 480),
+                'hayvan_ad' => $faker->word,
                 'tur' => $randomcins['id'] ,
                 'cins' => $cins,
                 'cinsiyet' => rand(0,1),

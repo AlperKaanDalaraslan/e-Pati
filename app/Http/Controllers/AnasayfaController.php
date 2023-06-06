@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Sayac;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,6 +24,7 @@ class AnasayfaController extends Controller
                 return redirect()->route('admin_panel'); // admin paneli olunca değiştirilecek
             }
         }
-        return view('anasayfa');
+        $sayac = Sayac::find(1);
+        return view('anasayfa',compact('sayac'));
     }
 }
