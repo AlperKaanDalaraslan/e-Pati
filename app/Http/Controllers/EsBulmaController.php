@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Kayip;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Es_bul;
@@ -90,5 +91,57 @@ class EsBulmaController extends Controller
         File::delete(public_path($data->hayvan_image));
         Es_bul::destroy($id);
         return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
+    }
+    public function show_update($id){
+        $data =Es_bul::find($id);
+        return view('es_bul_ilan_düzenle',compact('data'));
+    }
+    public function update_es_bul_ilan_post(Request $request, $id){
+        $data = Es_bul::find($id);
+
+        if( $request->baslik ){
+            $data->baslik = $request->baslik;
+        }
+
+        if( $request->hayvan_ad ){
+            $data->hayvan_ad = $request->hayvan_ad;
+        }
+
+        if( $request->tur ){
+            $data->tur = $request->tur;
+        }
+        if( $request->cins ){
+            $data->cins = $request->cins;
+        }
+        if( $request->cinsiyet !=null ){
+            $data->cinsiyet = $request->cinsiyet;
+        }
+        if( $request->yas ){
+            $data->yas = $request->yas;
+        }
+        if( $request->kisir != null) {
+            $data->kisirlik_durumu = $request->kisir;
+        }
+        if( $request->il_id ){
+            $data->il_id = $request->il_id;
+        }
+        if( $request->ilce ){
+            $data->ilce = $request->ilce;
+        }
+        if( $request->adres ){
+            $data->adres = $request->adres;
+        }
+        if( $request->aciklama ){
+            $data->aciklama = $request->aciklama;
+        }
+        $data->updated_date = Carbon::today();
+        if( $request->hasFile('hayvan_foto') ){
+            File::delete(public_path($data->hayvan_image));
+            $imageName=Str::slug( $data->id).'.'.$request->hayvan_foto->getClientOriginalExtension();
+            $request->hayvan_foto->move(public_path('es_bulma_images'),$imageName);
+            $data->hayvan_image = '/es_bulma_images/'.$imageName;
+        }
+        $data->save();
+        return redirect()->route('es_bulma_hayvan',$data->id)->with('success', 'İlan başarıyla güncellendi.');
     }
 }

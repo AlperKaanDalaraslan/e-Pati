@@ -25,7 +25,7 @@ class Es_bul extends Model
         'baslik',
         'aciklama',
         'created_date',
-        'update_at',
+        'update_date',
     ];
 
     public function getUser(){

@@ -94,6 +94,8 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
     Route::post('/es_bulma_ilan_post', [EsBulmaController::class, 'create'])->name('es_bulma_ilan_post');
     Route::get('/esbulma_post' , [EsBulmaController::class, 'esbulma_kriter_fonksiyonu'])->name('esbulma_post');
     Route::get('/esbulma-sil/{id}',[EsBulmaController::class,'del_esbul_ilan'])->name('e_ilan_sil');
+    Route::get('/es_bul-update/{id}',[EsBulmaController::class,'show_update'])->name('es_bul_duzenle');
+    Route::post('/es_bul_update_post/{id}',[EsBulmaController::class,'update_es_bul_ilan_post'])->name('update_es_bul');
 
 });
 
