@@ -121,8 +121,6 @@
                 </a>
             @endforeach
 
-                {{$veritabanindan_gelen->links('pagination::bootstrap-4')}}
-
         </div>
     </nav>
 

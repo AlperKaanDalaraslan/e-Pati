@@ -48,12 +48,15 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
 
 
     Route::get('/sahiplenilecek_hayvan/{id}',[SahiplendirmeController::class,'show'])->name('sahiplenilecek_hayvan');
+    Route::get('/sahiplenilecek_hayvan-update/{id}',[SahiplendirmeController::class,'show_update'])->name('sahiplenilecek_hayvan_duzenle');
+
 
     Route::get('/sahiplenme_ilan_ver' , function (){
         return view('sahiplendirme_ilan_form');
     })->name('sahiplendirme_ilan_form');
    Route::get('/sahiplenme_post', [SahiplendirmeController::class, 'sahiplenme_kriter_fonksiyonu'])->name('sahiplenme_post');
    Route::get('/sahiplenme-sil/{id}',[SahiplendirmeController::class,'del_sahiplen_ilan'])->name('s_ilan_sil');
+    Route::post('/sahiplenilecek_hayvan_update_post/{id}',[SahiplendirmeController::class,'update_sahiplen_ilan_post'])->name('update_sahiplen');
 
 });
 

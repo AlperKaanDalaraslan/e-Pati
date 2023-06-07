@@ -36,7 +36,7 @@ class AdminKayipIlanController extends Controller
 
             $imageName=Str::slug($request->hayvan_ad).'.'.$request->hayvan_image->getClientOriginalExtension();
             $request->hayvan_image->move(public_path('kayip_images'),$imageName);
-            $data->hayvan_image = 'kayip_images/'.$imageName;
+            $data->hayvan_image = '/kayip_images/'.$imageName;
 
             //$new_image = $request->hasFile('hayvan_image');
             //$new_image_yol = $new_image->store('public/sahiplen_images');

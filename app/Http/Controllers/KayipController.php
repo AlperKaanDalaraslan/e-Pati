@@ -48,20 +48,18 @@ class KayipController extends Controller
             $imageName = Str::slug($request->cip) . '.' . $request->hayvan_foto->getClientOriginalExtension();
 
             $request->hayvan_foto->move(public_path('kayip_images'), $imageName);
-            $data->hayvan_image = 'kayip_images/' . $imageName;
+            $data->hayvan_image = '/kayip_images/' . $imageName;
 
         }
 
         $data->save();
-
-        return redirect()->route('kayip_ilan_form');
-
+        return redirect()->route('kayip_hayvan',$data->id);
     }
 
     public function index()
     {
         $data = Kayip::paginate(5);
-        return view(' kayip_ilan_sayfasi ', compact('data'));
+        return view(' kayip_ilan_sayfasi ', compact('data'))->with('success', 'İlan başarıyla oluşturuldu.');
 
     }
 

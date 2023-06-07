@@ -24,9 +24,14 @@
 @endsection
 @section('content')
     <h1 style="text-align: center;">Kayıp Hayvan</h1>
+    @if(session('success'))
+        <div class="alert alert-success" role="alert" style="width: 1000px; margin: 0 auto;">
+            <i class="fas fa-check-circle"></i> {{ session('success') }}
+        </div>
+    @endif
     <div class="container">
         <div class="image-wrapper">
-            <img class="ilan_img" src="/{{$data->hayvan_image}}" alt="Resim">
+            <img class="ilan_img" src="{{$data->hayvan_image}}" alt="Resim">
             <div class="info-wrapper">
                 <div class="info">
                     <img class="icon" src="/images/kategori.png">
@@ -53,7 +58,7 @@
                     <span><span style="color: #41464b">Durumu@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->kayip_durumu == 1 ? 'Kayıp':'Bulunan'}}</span>
                 </div>
                 <div class="item">
-                    <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Erkek':'Dişi'}}</span>
+                    <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span>  {{$data->cinsiyet == 1 ? 'Dişi':'Erkek'}}</span>
                 </div>
 
 
@@ -81,6 +86,8 @@
         </div>
         @if(Auth::user()->id === $data->getUser->id)
         <a href="#" class="edit-button">İlanı Düzenle</a>
+        @else
+            <a href="#" class="rapor-button">İlanı Raporla</a>
         @endif
     </div>
 

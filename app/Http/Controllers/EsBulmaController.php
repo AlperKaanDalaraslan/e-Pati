@@ -43,7 +43,7 @@ class EsBulmaController extends Controller
         if($request->hasFile('hayvan_image')){
             $imageName=str::slug($request->hayvan_ad).'.'.$request->hayvan_image->getClientOriginalExtension();
             $request->hayvan_image->move(public_path('es_bulma_images'), $imageName);
-            $data->hayvan_image = 'es_bulma_images/'.$imageName;
+            $data->hayvan_image = '/es_bulma_images/'.$imageName;
         }
 
         $data->user_id = Auth::id();
@@ -63,7 +63,7 @@ class EsBulmaController extends Controller
 
         $data->save();
 
-        return redirect()->route('es_ilan_form');
+        return redirect()->route('es_bulma_hayvan',$data->id)->with('success', 'İlan başarıyla oluşturuldu.');
     }
     public function esbulma_kriter_fonksiyonu(Request $request)
     {

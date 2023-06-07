@@ -128,3 +128,28 @@
 .edit-button:hover {
     background-color: gold;
 }
+.rapor-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #d33434;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.rapor-button:hover {
+    background-color: red;
+}
+.alert {
+    border: 1px solid #2ecc71;
+    border-radius: 4px;
+    background-color: #f2f9f2;
+    color: #2ecc71;
+    padding: 10px;
+}
+.alert i {
+    margin-right: 5px;
+}

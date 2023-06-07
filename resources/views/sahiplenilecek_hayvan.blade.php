@@ -23,11 +23,16 @@
 @endsection
     @section('content')
     <h1 style="text-align: center;">HAYVAN SAHİPLENME</h1>
+    @if(session('success'))
+        <div class="alert alert-success" role="alert" style="width: 1000px; margin: 0 auto;">
+            <i class="fas fa-check-circle"></i> {{ session('success') }}
+        </div>
+    @endif
     <style>
     </style>
     <div class="container">
         <div class="image-wrapper">
-            <img class="ilan_img" src="/{{$data->hayvan_image}}" alt="Resim">
+            <img class="ilan_img" src="{{$data->hayvan_image}}" alt="Resim">
             <div class="info-wrapper">
                 <div class="info">
                     <img class="icon" src="/images/kategori.png">
@@ -54,10 +59,10 @@
                 <span><span style="color: #41464b">Cins@php echo str_repeat('&nbsp;', 23);@endphp:</span> {{$data->cins}}</span>
             </div>
             <div class="item">
-                <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Erkek':'Dişi'}}</span>
+                <span><span style="color: #41464b">Cinsiyet@php echo str_repeat('&nbsp;', 16);@endphp:</span> {{$data->cinsiyet == 1 ? 'Dişi':'Erkek'}}</span>
             </div>
             <div class="item">
-                <span><span style="color: #41464b">Kısırlık Durumu :</span>  @if($data->kisir == 0 || $data->kisir == NULL)
+                <span><span style="color: #41464b">Kısırlık Durumu :</span> @if($data->kisir  == 0 || $data->kisir == NULL)
                         Kısır değil
                     @else
                         Kısır
@@ -93,7 +98,9 @@
         </div>
         </div>
         @if(Auth::user()->id === $data->getUser->id)
-        <a href="#" class="edit-button">İlanı Düzenle</a>
+            <a href="{{route('sahiplenilecek_hayvan_duzenle',$data->id)}}" class="edit-button">İlanı Düzenle</a>
+        @else
+            <a href="" class="rapor-button">İlanı Raporla</a>
         @endif
     </div>
 
