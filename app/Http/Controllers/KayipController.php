@@ -8,6 +8,7 @@ use App\Models\Kayip;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 
 class KayipController extends Controller
@@ -43,10 +44,7 @@ class KayipController extends Controller
 
 
         if ($request->hasFile('hayvan_foto')) {
-
-
-            $imageName = Str::slug($request->cip) . '.' . $request->hayvan_foto->getClientOriginalExtension();
-
+            $imageName = Str::slug($data->id) .rand(100000,99999999).'kayip'.Auth::id(). '.' . $request->hayvan_foto->getClientOriginalExtension();
             $request->hayvan_foto->move(public_path('kayip_images'), $imageName);
             $data->hayvan_image = '/kayip_images/' . $imageName;
 
@@ -97,5 +95,52 @@ class KayipController extends Controller
     public function del_kayip_ilan($id){
         Kayip::destroy($id);
         return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
+    }
+    public function show_update($id){
+        $data = Kayip::find($id);
+        File::delete(public_path($data->hayvan_image));
+        return view('kayip_ilan_düzenle',compact('data'));
+    }
+    public function update_kayip_ilan_post(Request $request, $id){
+        $data = Kayip::find($id);
+
+        if( $request->baslik ){
+            $data->baslik = $request->baslik;
+        }
+
+        if( $request->hayvan_ad ){
+            $data->hayvan_ad = $request->hayvan_ad;
+        }
+
+        if( $request->tur ){
+            $data->tur = $request->tur;
+        }
+        if( $request->kayip_durumu != null ){
+            $data->kayip_durumu = $request->kayip_durumu;
+        }
+        if( $request->cinsiyet != null ){
+            $data->cinsiyet = $request->cinsiyet;
+        }
+        if( $request->il_id ){
+            $data->il_id = $request->il_id;
+        }
+        if( $request->ilce ){
+            $data->ilce = $request->ilce;
+        }
+        if( $request->adres ){
+            $data->adres = $request->adres;
+        }
+        if( $request->aciklama ){
+            $data->aciklama = $request->aciklama;
+        }
+        $data->updated_date = Carbon::today();
+        if( $request->hasFile('hayvan_foto') ){
+            File::delete(public_path($data->hayvan_image));
+            $imageName=Str::slug( $data->id).'.'.$request->hayvan_foto->getClientOriginalExtension();
+            $request->hayvan_foto->move(public_path('kayip_images'),$imageName);
+            $data->hayvan_image = '/kayip_images/'.$imageName;
+        }
+        $data->save();
+        return redirect()->route('kayip_hayvan',$data->id)->with('success', 'İlan başarıyla güncellendi.');
     }
 }

@@ -85,7 +85,7 @@
             </div>
         </div>
         @if(Auth::user()->id === $data->getUser->id)
-        <a href="#" class="edit-button">İlanı Düzenle</a>
+        <a href="{{route('kayip_hayvan_duzenle',$data->id)}}" class="edit-button">İlanı Düzenle</a>
         @else
             <a href="#" class="rapor-button">İlanı Raporla</a>
         @endif

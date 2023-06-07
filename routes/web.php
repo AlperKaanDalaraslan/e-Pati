@@ -77,6 +77,10 @@ Route::prefix('kayip')->middleware('auth')->group(function (){
 
     Route::get('kayip/arama_post' , [KayipController::class, 'kriter_fonksiyonu'])->name('arama_post');
     Route::get('/kayip-sil/{id}',[KayipController::class,'del_kayip_ilan'])->name('k_ilan_sil');
+    Route::get('/kayip_hayvan-update/{id}',[KayipController::class,'show_update'])->name('kayip_hayvan_duzenle');
+    Route::post('/kayip_hayvan_update_post/{id}',[KayipController::class,'update_kayip_ilan_post'])->name('update_kayip');
+
+
 
 });
 

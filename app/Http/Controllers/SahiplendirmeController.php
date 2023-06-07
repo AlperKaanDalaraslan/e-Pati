@@ -120,7 +120,7 @@ class SahiplendirmeController extends Controller
         if( $request->cins ){
             $data->cins = $request->cins;
         }
-        if( $request->cinsiyet ){
+        if( $request->cinsiyet !=null ){
             $data->cinsiyet = $request->cinsiyet;
         }
         if( $request->yas ){

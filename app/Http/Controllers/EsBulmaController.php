@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Models\Es_bul;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
 class EsBulmaController extends Controller
@@ -85,6 +86,8 @@ class EsBulmaController extends Controller
         return view('esbulma_siralama' , compact('veritabanindan_gelen'));
     }
     public function del_esbul_ilan($id){
+        $data = Es_bul::find($id);
+        File::delete(public_path($data->hayvan_image));
         Es_bul::destroy($id);
         return redirect()->route('profil')->with('success', 'İlan başarıyla silindi.');
     }
