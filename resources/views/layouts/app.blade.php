@@ -42,7 +42,7 @@
 </head>
 <body>
 <section class="main">
-    <nav class="header">
+    <nav class="header2">
         <a href={{route('anasayfa')}} class="logo">
             <img src="/images/logo.png">
         </a>
@@ -99,7 +99,7 @@
                                 <div ><a href="{{route('profil')}}"> <img src="/images/user.png" class="user_resmi" ></a></div>
                                 <div > <a href="{{route('profil')}}"> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <div class="" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
