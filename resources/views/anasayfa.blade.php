@@ -33,6 +33,39 @@
         .footer{
             font-size: 20px !important;
         }
+        .header2{
+
+        }
+        .kullanici_siralama {
+            display: flex;
+            align-items: center;
+        }
+
+        .kullanici_siralama a {
+            text-decoration: none;
+        }
+
+        .user_resmi {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .kullanici_adi {
+            margin: 0;
+        }
+
+        .cikis-yap {
+            margin-left: 20px;
+        }
+.header-yazı{
+    font-size: 17px;
+padding-top: 17px;
+
+}
+        /* Diğer stil ayarlarını buraya ekleyebilirsiniz */
+
     </style>
 
     <nav class="reklam">
@@ -74,86 +107,34 @@
     </nav>
     <div class="haber-div" style="width: 100%; height: auto">
 
-
         <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="card-wrapper container-sm d-flex  justify-content-around">
-                        <a href="">
-                        <div class="card  " style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
+                <?php
+                $haberlerArray = $haberler->toArray();
+                $haberlerChunks = array_chunk($haberlerArray, 3);
+                $active = true;
+                ?>
+                <?php foreach ($haberlerChunks as $chunk): ?>
+                <div class="carousel-item <?php echo $active ? 'active' : ''; ?>">
+                    <div class="card-wrapper container-sm d-flex justify-content-around">
+                            <?php foreach ($chunk as $haber): ?>
+                        <a href="{{route('show_haber', $haber['id'])}}" style="text-decoration: none; color: #41464b">
+                        <div class="card" style="width: 18rem; height: 300px">
+                            <img src="<?php echo $haber['haber_image']; ?>" class="card-img-top" style="height: 220px" alt="...">
                             <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-
-                        </div>
-                        </a><div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
+                                <h5 class="card-title"><?php echo $haber['haber_baslik']; ?></h5>
                             </div>
                         </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
+                        </a>
+                        <?php endforeach; ?>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-flex   justify-content-around">
-                        <div class="card  " style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
+                    <?php $active = false; ?>
+                <?php endforeach; ?>
+            </div>
 
-                            </div>
-                        </div><div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
 
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="card-wrapper container-sm d-flex  justify-content-around">
-                        <div class="card " style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://source.unsplash.com/collection/190727/1600x900" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
@@ -166,10 +147,11 @@
 
 
 
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
         </div>
-    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+
     <nav class="hizmet" style="position: relative; top: 0px;">
 
         <span class="hizmet_yazisi"><h1 style="font-weight: bold">e-Pati Yapılan Hizmetler</h1></span>

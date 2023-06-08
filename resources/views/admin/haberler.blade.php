@@ -42,7 +42,7 @@
                 <tr>
                     <td>{{ $dat->id }}</td>
                     <td>{{ $dat->user_id }}</td>
-                    <td><img src="/{{ $dat->haber_image }}" width="100" height="100"></td>
+                    <td><img src="{{ $dat->haber_image }}" width="100" height="100"></td>
                     <td>{{ $dat->haber_baslik }}</td>
                     <td>{{ $dat->haber_icerik }}</td>
                     <td>{{ $dat->created_at }}</td>

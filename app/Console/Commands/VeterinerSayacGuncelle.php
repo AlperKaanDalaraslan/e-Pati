@@ -19,16 +19,18 @@ class VeterinerSayacGuncelle extends Command
     {
         $today = Carbon::today();
         $now = Carbon::now()->format('H:i');
-        $randevular = Randevu::where('onay',1)
-            ->where('randevu_tarih', '<=',$today)
-            ->where('randevu_saat','<=',$now)
-            ->get();
-        $sayac = $randevular->count();
-
+        $randevuSayisi = Randevu::where('onay', 1)
+            ->whereDate('randevu_tarih', $today)
+            ->whereTime('randevu_saat', '<', $now)
+            ->orWhere(function ($query) use ($today, $now) {
+                $query->whereDate('randevu_tarih', '<', $today);
+            })
+            ->where('onay', 1)
+            ->count();
         $sayac_guncelle = Sayac::find(1);
-        $sayac_guncelle->randevu = $sayac;
+        $sayac_guncelle->randevu = $randevuSayisi;
         $sayac_guncelle->save();
 
-        $this->info('Veteriner sayaç başarıyla güncellendi: ' . $sayac);
+        $this->info('Veteriner sayaç başarıyla güncellendi: ' . $randevuSayisi);
     }
 }

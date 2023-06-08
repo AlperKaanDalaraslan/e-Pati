@@ -24,6 +24,7 @@ use App\Http\Middleware\Veteriner;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayacController;
+use App\Http\Controllers\HaberController;
 
 
 /*
@@ -38,7 +39,7 @@ use App\Http\Controllers\SayacController;
 */
 
 Route::get('/',[AnasayfaController::class,'kontrol'])->name('anasayfa');
-
+Route::get('/haber/{id}',[HaberController::class, 'show'])->name('show_haber');
 Route::post('sahiplenme/sahiplendirme_ilan_post',[SahiplendirmeController::class,'create'])->name('sahiplendirme_ilan_post');
 
 

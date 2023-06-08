@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Haber;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class AdminHaberController extends Controller
 {
@@ -24,13 +27,15 @@ class AdminHaberController extends Controller
         $data = new Haber();
 
         $data->user_id = Auth::id();
+        if($request->hasFile('haber_image')) {
 
-        if( $request->hasFile('haber_image') ){
-            $new_image = $request->hasFile('haber_image');
-            $new_image_yol = $new_image->store('public/haber_images');
-            $data->haber_image = $new_image_yol;
-        } else {
-            // Varsayılan bir resim yolunu atayabilirsiniz
+
+            $imageName=Str::slug($request->haber_baslik).'.'.$request->haber_image->getClientOriginalExtension();
+            $request->haber_image->move(public_path('haber_images'),$imageName);
+            $data->haber_image = '/haber_images/'.$imageName;
+
+        }
+         else {
             $data->haber_image = 'public/haber_images/animal-2.jpg';
         }
 
@@ -49,24 +54,20 @@ class AdminHaberController extends Controller
 
     public function update_haber_post(Request $request, $id){
         $data = Haber::find($id);
-
-        if( $request->hasFile('haber_image') ){
-            $new_image = $request->hasFile('haber_image');
-            $new_image_yol = $new_image->store('public/haber_images');
-            $data->haber_image = $new_image_yol;
-        } else {
-            // Varsayılan bir resim yolunu atayabilirsiniz
-            $data->haber_image = 'public/haber_images/animal-2.jpg';
-        }
         if( $request->haber_baslik ){
             $data->haber_baslik = $request->haber_baslik;
         }
         if( $request->haber_icerik ){
             $data->haber_icerik = $request->haber_icerik;
         }
-
+        if( $request->hasFile('haber_image') ) {
+            File::delete(public_path($data->hayvan_image));
+            $imageName = Str::slug($data->haber_baslik) . '.' . $request->haber_image->getClientOriginalExtension();
+            $request->haber_image->move(public_path('haber_images'), $imageName);
+            $data->haber_image = '/haber_images/' . $imageName;
+            $data->save();
+        }
         $data->save();
-
         return redirect()->back()->with('basarili', 'HABER GÜNCELLENDİ.');
     }
 

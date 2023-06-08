@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Haber;
 use App\Models\Sayac;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -25,6 +26,7 @@ class AnasayfaController extends Controller
             }
         }
         $sayac = Sayac::find(1);
-        return view('anasayfa',compact('sayac'));
+        $haberler = Haber::all();
+        return view('anasayfa',compact('sayac','haberler'));
     }
 }

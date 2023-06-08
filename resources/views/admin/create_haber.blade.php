@@ -9,7 +9,7 @@
             <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Geri Dön</font></font>
         </button>
     </a><br>
-    <form action="{{ route('create_haber_post') }}" method="post">
+    <form action="{{ route('create_haber_post') }}" method="post" enctype="multipart/form-data">
         @csrf
         <br>
         <div style="display: flex; flex-direction: column; align-items: center;">

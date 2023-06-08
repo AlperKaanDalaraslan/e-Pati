@@ -24,7 +24,7 @@ class HaberSeeder extends Seeder
                 'user_id' => 2,
                 'haber_image' => $faker->imageUrl($width = 640, $height = 480),
                 'haber_baslik' => $faker->sentence(2),
-                'haber_icerik' => $faker->sentence(20),
+                'haber_icerik' => $faker->sentence(2000),
                 'created_at' => $tarih,
             ]);
         }

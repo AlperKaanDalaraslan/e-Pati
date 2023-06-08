@@ -47,7 +47,7 @@
             <img src="/images/logo.png">
         </a>
 
-        <ul>
+        <ul class="header-yazı">
             <li>
                 <a href="{{route('veteriner_randevu_anasayfa')}}">
                     <p class="menuyazisi"><span class="vet-bold">VETERİNER RANDEVU</span>  </p>
@@ -99,8 +99,8 @@
                                 <div ><a href="{{route('profil')}}"> <img src="/images/user.png" class="user_resmi" ></a></div>
                                 <div > <a href="{{route('profil')}}"> <p class="kullanici_adi" > {{Auth::user()->username}} </p></a> </div>
 
-                                <div class="" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div class="" aria-labelledby="">
+                                    <a class="cikis-yap" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('çıkış yap') }}
