@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\AdminRaporController;
 use App\Http\Controllers\Admin\AdminKullanicilarController;
 use App\Http\Controllers\Admin\AdminVeterinerlerController;
 use App\Http\Controllers\Admin\AdminYoneticilerController;
+use App\Http\Controllers\Admin\AdminUpdateStatus;
 
 use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Auth\LoginController;
@@ -156,6 +157,8 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::get('/', [AdminYoneticilerController::class, 'yoneticiler'])->name('yoneticiler');
         Route::post('/delete_yonetici/{id}', [AdminYoneticilerController::class, 'delete_yonetici'])->name('delete_yonetici');
     });
+
+    Route::get('/update_status/{id}/{status}', [AdminUpdateStatus::class, 'update_status'])->name('update_status');
 
     Route::get('/admin_profil', function(){ return view('admin.admin_profil'); })->name('admin_profil');
 });

@@ -39,13 +39,38 @@
                 <tr>
                     <td>{{ $dat->id }}</td>
                     <td>
-                        @if( $dat->status==0 )
-                            Yönetici
-                        @elseif( $dat->status==2 )
-                            Veteriner
-                        @else
-                            Kullanıcı
-                        @endif
+                        <button type="button" onclick="showOptions('{{ $dat->id }}')" class="btn btn-warning">
+                            <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Yönetici</font></font>
+                        </button>
+
+                        <div id="options-{{ $dat->id }}" style="display: none;">
+                            <ul>
+                                <li><a href="{{ route('update_status', ['id' => $dat->id, 'status' => 1]) }}" style="text-decoration: none; color: black;">Kullanıcı</a></li>
+                                <li><a href="{{ route('update_status', ['id' => $dat->id, 'status' => 2]) }}" style="text-decoration: none; color: black;">Veteriner</a></li>
+                            </ul>
+                        </div>
+
+                        <script>
+                            function showOptions(id) {
+                                var optionsDiv = document.getElementById('options-' + id);
+                                var button = event.target;
+
+                                if (optionsDiv.style.display === 'none') {
+                                    optionsDiv.style.display = 'block';
+                                    document.addEventListener('click', outsideClickHandler);
+                                } else {
+                                    optionsDiv.style.display = 'none';
+                                    document.removeEventListener('click', outsideClickHandler);
+                                }
+
+                                function outsideClickHandler(event) {
+                                    if (!optionsDiv.contains(event.target) && event.target !== button) {
+                                        optionsDiv.style.display = 'none';
+                                        document.removeEventListener('click', outsideClickHandler);
+                                    }
+                                }
+                            }
+                        </script>
                     </td>
                     <td>{{ $dat->username }}</td>
                     <td><img src="{{ $dat->user_image }}" width="100" height="100"></td>
