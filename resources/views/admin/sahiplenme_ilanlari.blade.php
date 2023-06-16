@@ -45,7 +45,7 @@
                     <td>{{ $dat->id }}</td>
                     <td>{{ $dat->user_id }}</td>
                     <td>{{ $dat->baslik }}</td>
-                    <td><img src="/{{ $dat->hayvan_image }}" width="100" height="100"></td>
+                    <td><img src="{{ $dat->hayvan_image }}" width="100" height="100"></td>
                     <td>{{ $dat->hayvan_ad }}</td>
                     <td>{{ $dat->getTur->tur_ad }}</td>
                     <td>{{ $dat->cins }}</td>

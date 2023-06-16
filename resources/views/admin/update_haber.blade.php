@@ -22,12 +22,12 @@
     <h4 style="text-align: center">Haber id: {{ $data->id }}</h4><hr>
 
 
-    <form action="{{ route('update_haber_post', $data->id) }}" method="post">
+    <form action="{{ route('update_haber_post', $data->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;" >
                 <p>Haberin Varsayılan Fotoğrafı: </p>
-                <img src="/{{ $data->haber_image }}" width="150" height="150">
+                <img src="{{ $data->haber_image }}" width="150" height="150">
             </div>
             <div style="width: 50%;">
                 <label for="haber_image">Haberin Fotoğrafı: </label><br>

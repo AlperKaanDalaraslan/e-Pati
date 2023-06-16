@@ -3,13 +3,20 @@
     Haberler
 @endsection
 @section('content')
-    <br><h2 style="text-align: center">Haberler</h2>
+    <br><h1 style="text-align: center">Haberler</h1>
     <div style="text-align: center;">
-        <a href="{{ route('create_haber') }}">
-            <button type="submit" class="btn btn-success" style="font-size: 20px; display: inline-block;">
-                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Haber Oluştur</font></font>
-            </button>
-        </a>
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                {{ $data->links('pagination::bootstrap-4') }}
+            </div>
+            <div>
+                <a href="{{ route('create_haber') }}">
+                    <button type="submit" class="btn btn-success" style="font-size: 20px;">
+                        <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Haber Oluştur</font></font>
+                    </button>
+                </a>
+            </div>
+        </div>
     </div><br>
     @if(session('basarili'))
         <div class="alert alert-success" id="success-alert" style="text-align: center">
@@ -22,7 +29,6 @@
         </script>
     @endif
     <div class="table-responsive">
-        {{ $data->links('pagination::bootstrap-4') }}
         <table class="table table-striped table-sm">
             <thead>
             <tr>

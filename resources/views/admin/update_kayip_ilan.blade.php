@@ -28,7 +28,7 @@
     <h4 style="text-align: center">İlan id: {{ $data->id }}</h4><hr>
 
 
-    <form action="{{ route('update_kayip_ilan_post', $data->id) }}" method="post">
+    <form action="{{ route('update_kayip_ilan_post', $data->id) }}" method="post" enctype="multipart/form-data">
         @csrf
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;" >
@@ -70,7 +70,7 @@
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;" >
                 <p>Hayvanın Varsayılan Fotoğrafı: </p>
-                <img src="/{{ $data->hayvan_image }}" width="150" height="150">
+                <img src="{{ $data->hayvan_image }}" width="150" height="150">
             </div>
             <div style="width: 50%;">
                 <label for="hayvan_image">Hayvanın Fotoğrafı: </label><br>

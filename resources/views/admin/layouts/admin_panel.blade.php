@@ -14,7 +14,9 @@
     <div class="row">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
             <a href="{{ route('admin_panel') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">e-pati</font></font></span>
+                <img src="/images/logo.png" alt="" width="32" height="32">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">e-Pati</font></font></span>
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -62,13 +64,37 @@
                     <a href="{{ route('yoneticiler') }}" class="nav-link text-white">
                         Yöneticiler
                     </a>
-                </li>
-                <hr>
+                </li><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
                 <div class="dropdown">
+                    <a href="{{ route('admin_profil') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <img src="{{ asset(Auth::user()->user_image ?: "/images/user.png") }}" class="user_resmi" alt="" width="32" height="32" class="rounded-circle me-2">
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ Auth::user()->username }}</font></font></span>
+                    </a>
+                    <hr>
+                    <ul class="nav nav-pills flex-column mb-auto">
+                        <li class="nav-item">
+                            <a href="{{ route('admin_profil') }}" class="nav-link text-white">
+                                Profil
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" class="nav-link text-white">
+                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit; color: red;">{{ __('Oturumu Kapat') }}</font></font>
+                            </a>
+                            <form class="log-out" style="" id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </li>
+                    </ul>
+                    <!--
                     <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="/images/user.png" class="user_resmi" alt="" width="32" height="32" class="rounded-circle me-2">
                         <strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Admin</font></font></strong>
                     </a>
+                    <hr>
                     <ul class="dropdown-menu dropdown-menu-dark text-small shadow" style="">
                         <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Ayarlar</font></font></a></li>
                         <li><a class="dropdown-item" href="#"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Profil</font></font></a></li>
@@ -80,10 +106,10 @@
                             </form>
                         </li>
                     </ul>
+                    -->
                 </div>
             </ul>
         </div>
-
 
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
 

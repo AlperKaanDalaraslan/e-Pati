@@ -156,6 +156,8 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::get('/', [AdminYoneticilerController::class, 'yoneticiler'])->name('yoneticiler');
         Route::post('/delete_yonetici/{id}', [AdminYoneticilerController::class, 'delete_yonetici'])->name('delete_yonetici');
     });
+
+    Route::get('/admin_profil', function(){ return view('admin.admin_profil'); })->name('admin_profil');
 });
 
 

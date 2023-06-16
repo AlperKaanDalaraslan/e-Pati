@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Kayip;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -29,26 +30,17 @@ class AdminKayipIlanController extends Controller
         if( $request->ilan_baslik ){
             $data->baslik = $request->ilan_baslik;
         }
-
-        if( $request->hasFile('hayvan_image') ){
-
-            Storage::delete($data->hayvan_image);
-
-            $imageName=Str::slug($request->hayvan_ad).'.'.$request->hayvan_image->getClientOriginalExtension();
-            $request->hayvan_image->move(public_path('kayip_images'),$imageName);
-            $data->hayvan_image = '/kayip_images/'.$imageName;
-
-            //$new_image = $request->hasFile('hayvan_image');
-            //$new_image_yol = $new_image->store('public/sahiplen_images');
-            //$data->hayvan_image = $new_image_yol;
-
-        }
-
-        if( $request->tur ){
-            $data->tur = $request->tur;
-        }
         if( $request->hayvan_ad ){
             $data->hayvan_ad = $request->hayvan_ad;
+        }
+        if( $request->hasFile('hayvan_image') ){
+            File::delete(public_path($data->hayvan_image));
+            $imageName=Str::slug($data->hayvan_ad).'.'.$request->hayvan_image->getClientOriginalExtension();
+            $request->hayvan_image->move(public_path('kayip_images'),$imageName);
+            $data->hayvan_image = '/kayip_images/'.$imageName;
+        }
+        if( $request->tur ){
+            $data->tur = $request->tur;
         }
         if( $request->has('cinsiyet') ){
             $data->cinsiyet = $request->cinsiyet;
