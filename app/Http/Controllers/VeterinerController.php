@@ -38,7 +38,7 @@ class VeterinerController extends Controller
             $imageName=Str::slug(Auth::user()->email).'.'.$request->image->getClientOriginalExtension();
 
             $request->image->move(public_path('sertifika'),$imageName);
-            $data->sertifika_img = 'sertifika/'.$imageName;
+            $data->sertifika_img = '/sertifika/'.$imageName;
     }
         $data->save();
         return redirect()->route('sertifika');

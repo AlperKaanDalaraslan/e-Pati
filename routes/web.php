@@ -26,6 +26,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SayacController;
 use App\Http\Controllers\HaberController;
+use App\Http\Controllers\RaporController;
 
 
 /*
@@ -60,6 +61,8 @@ Route::prefix('sahiplenme')->middleware('auth')->group(function (){
    Route::get('/sahiplenme_post', [SahiplendirmeController::class, 'sahiplenme_kriter_fonksiyonu'])->name('sahiplenme_post');
    Route::get('/sahiplenme-sil/{id}',[SahiplendirmeController::class,'del_sahiplen_ilan'])->name('s_ilan_sil');
     Route::post('/sahiplenilecek_hayvan_update_post/{id}',[SahiplendirmeController::class,'update_sahiplen_ilan_post'])->name('update_sahiplen');
+
+
 
 });
 
@@ -101,6 +104,8 @@ Route::prefix('es_bulma')->middleware('auth')->group(function (){
     Route::post('/es_bul_update_post/{id}',[EsBulmaController::class,'update_es_bul_ilan_post'])->name('update_es_bul');
 
 });
+Route::middleware('auth')->get('/rapor/{ilan_tur}{id}',[RaporController::class,'form'])->name('rapor_form');
+Route::middleware('auth')->post('/rapor-post/{ilan_tur}{id}',[RaporController::class,'create_rapor'])->name('raporla_post');
 
 
 Route::prefix('/admin_panel')->middleware('auth')->group(function(){

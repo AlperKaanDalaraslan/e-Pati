@@ -29,6 +29,11 @@
             <i class="fas fa-check-circle"></i> {{ session('success') }}
         </div>
     @endif
+    @if(session('error'))
+        <div class="alert alert-danger" role="alert" style="width: 1000px; margin: 0 auto; background-color: red; color: white;">
+            <i class="fas fa-times-circle"></i> {{ session('error') }}
+        </div>
+    @endif
 
     <div class="container">
         <div class="image-wrapper">
@@ -96,7 +101,7 @@
         @if(Auth::user()->id === $data->getUser->id)
         <a href="{{route('es_bul_duzenle',$data->id)}}" class="edit-button">İlanı Düzenle</a>
         @else
-            <a href="#" class="rapor-button">İlanı Raporla</a>
+            <a href="{{route('rapor_form', ['ilan_tur'=> 3 ,$data->id])}}" class="rapor-button">İlanı Raporla</a>
         @endif
     </div>
 
