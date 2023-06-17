@@ -40,6 +40,7 @@ use App\Http\Controllers\HaberController;
 */
 
 Route::get('/',[AnasayfaController::class,'kontrol'])->name('anasayfa');
+Route::get('/e-pati/bagis',function (){return view('bagis');})->name('bagis_sayfasi');
 Route::get('/haber/{id}',[HaberController::class, 'show'])->name('show_haber');
 Route::post('sahiplenme/sahiplendirme_ilan_post',[SahiplendirmeController::class,'create'])->name('sahiplendirme_ilan_post');
 

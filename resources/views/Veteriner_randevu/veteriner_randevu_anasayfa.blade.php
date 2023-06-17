@@ -69,6 +69,10 @@
                 @endforeach
 
     </div>
-    {{$data->links('pagination::bootstrap-4')}}
+    <div style="display: flex; justify-content: center;">
+        <div>
+            {{$data->links('pagination::bootstrap-4')}}
+        </div>
+    </div>
 
 @endsection

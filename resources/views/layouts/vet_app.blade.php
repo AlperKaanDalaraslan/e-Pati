@@ -31,7 +31,7 @@
             color: rgb(81, 83, 85);
             line-height: 0.5 ;
         }
-        .header {
+        .header2 {
             font-family: "Nunito Sans";
         }
 
@@ -43,7 +43,7 @@
 </head>
 <body>
 <section class="main">
-    <nav class="header" >
+    <nav class="header2" >
         <a href={{route('Veteriner_anasayfa')}} class="logo">
             <img src="/images/logo.png">
         </a>

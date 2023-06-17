@@ -22,7 +22,7 @@ class VeterinerSeeder extends Seeder
         $rand_bit = ['16', '17','18','19'];
         $rand_aralik = ['15','20','30'];
         $districts = json_decode(json_encode(DB::table('ilceler')->get()), true);
-        for ($i = 0; $i< 100; $i++){
+        for ($i = 0; $i< 1000; $i++){
             $r_aralik = $rand_aralik[rand(0,2)];
             $rand_il = rand(1, 81);
             $filteredArray = array_filter($districts, function ($item) use ($rand_il){

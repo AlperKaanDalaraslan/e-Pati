@@ -169,7 +169,7 @@ mutluluğu ve sağlığı da
 bizim sorumluluğumuzdadır.
 Lütfen onları sevin,
 koruyun ve hayatlarına
-dokunacak bir <a href="---------------" style="color:yellow">bağışta bulunun.</a>
+dokunacak bir <a href="{{ route('bagis_sayfasi') }}" style="color:yellow">bağışta bulunun.</a>
                         </pre>
             </div>
         </div>
