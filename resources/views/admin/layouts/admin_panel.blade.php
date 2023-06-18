@@ -21,6 +21,11 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
+                    <a href="{{ route('admin_panel') }}" class="nav-link text-white">
+                        Ana Sayfa
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('haberler') }}" class="nav-link text-white">
                         Haberler
                     </a>
@@ -64,7 +69,7 @@
                     <a href="{{ route('yoneticiler') }}" class="nav-link text-white">
                         Yöneticiler
                     </a>
-                </li><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                </li><br><br><br><br><br><br><br><br><br><br><br>
 
                 <div class="dropdown">
                     <a href="{{ route('admin_profil') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
