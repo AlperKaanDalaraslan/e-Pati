@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="profili_duzenle_button_div">
-        <a href="#" class="profili_duzenle_button_div" style="text-decoration: none;">
+        <a href="{{route('update_form')}}" class="profili_duzenle_button_div" style="text-decoration: none;">
 
             <div class="profili_düzenle_button_border">Profili Düzenle</div>
         </a>

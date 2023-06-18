@@ -73,7 +73,7 @@ class RegisterController extends Controller
         if(isset($data['image'])) {
             $imageName = Str::slug($data['username']) . '.' . $data['image']->getClientOriginalExtension();//uploadlanan resmin uzantısını tutar
             $data['image']->move(public_path('user_images'), $imageName);
-            $data['image'] = 'user_images/' . $imageName;
+            $data['image'] = '/user_images/' . $imageName;
 
         }
         else {
@@ -90,5 +90,9 @@ class RegisterController extends Controller
             'user_image' => $data['image'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+    protected function registered()
+    {
+        return redirect()->route('anasayfa');
     }
 }
