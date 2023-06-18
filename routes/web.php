@@ -174,10 +174,12 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
 
 Route::middleware('auth')->get('/profil',[ProfilController::class,'show_profil'])->name('profil');
-Route::middleware('auth')->get('/profil/{id}',[ProfilController::class,'show_randevu'])->name('profil_show_randevu');
+Route::middleware('auth')->get('/profil/randevu/{id}',[ProfilController::class,'show_randevu'])->name('profil_show_randevu');
 Route::middleware('auth')->get('/profil/s_ilan_onayla/{id}',[SayacController::class,'ekle_Sahiplen'])->name('S_ilanı_onayla');
 Route::middleware('auth')->get('/profil/k_ilan_onayla/{id}',[SayacController::class,'ekle_Kayip'])->name('K_ilanı_onayla');
 Route::middleware('auth')->get('/profil/e_ilan_onayla/{id}',[SayacController::class,'ekle_Es_bul'])->name('E_ilanı_onayla');
+Route::middleware('auth')->get('/profil/update',[ProfilController::class,'update_form'])->name('update_form');
+Route::middleware('auth')->post('/profil/update_post',[ProfilController::class,'update_form_post'])->name('update_form_post');
 
 
 Route::get('/vet_register',function (){return view('auth/vet_register');})->name('vet_register');
