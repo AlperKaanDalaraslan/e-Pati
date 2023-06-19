@@ -9,12 +9,22 @@
     @yield('css_js')
 </head>
 <body>
+<style>
+    .circle-image1 {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+</style>
 
 <div class="container-fluid">
     <div class="row">
         <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
             <a href="{{ route('admin_panel') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                <img src="/images/logo.png" alt="" width="32" height="32">
+                <div class="circle-image1">
+                    <img src="/images/logo.png" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">e-Pati</font></font></span>
             </a>
@@ -72,15 +82,17 @@
                 </li><br><br><br><br><br><br><br><br><br><br><br>
 
                 <div class="dropdown">
-                    <a href="{{ route('admin_profil') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                        <img src="{{ asset(Auth::user()->user_image ?: "/images/user.png") }}" class="user_resmi" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <a href="{{ route('admin_profil', ['id'=>Auth::id()]) }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <div class="circle-image1">
+                            <img src="{{ asset(Auth::user()->user_image) }}" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="fs-4"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{ Auth::user()->username }}</font></font></span>
                     </a>
                     <hr>
                     <ul class="nav nav-pills flex-column mb-auto">
                         <li class="nav-item">
-                            <a href="{{ route('admin_profil') }}" class="nav-link text-white">
+                            <a href="{{ route('admin_profil', ['id'=>Auth::id()]) }}" class="nav-link text-white">
                                 Profil
                             </a>
                         </li>

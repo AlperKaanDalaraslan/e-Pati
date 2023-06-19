@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <a href="{{ route('haberler') }}" style="text-decoration: none;">
+                <a href="{{ route('haberler') }}" style="text-decoration: none;" title="Haberler">
                     <div class="card" style="background-image: url('admin_home_images/haber.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center text-white" style="font-weight: bold;">Yayındaki Haberlerin Sayısı</h4>
@@ -38,7 +38,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('veteriner_sertifika_onay') }}" style="text-decoration: none;">
+                <a href="{{ route('veteriner_sertifika_onay') }}" style="text-decoration: none;" title="Veteriner Sertifika Onay">
                     <div class="card" style="background-image: url('admin_home_images/sertifika.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center" style="font-weight: bold;">Onaylanmayı Bekleyen Veteriner Sertifika Sayısı</h4>
@@ -48,7 +48,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('sahiplenme_ilanlari') }}" style="text-decoration: none;">
+                <a href="{{ route('sahiplenme_ilanlari') }}" style="text-decoration: none;" title="Sahiplenme İlanları">
                     <div class="card" style="background-image: url('admin_home_images/sahiplen.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center text-white" style="font-weight: bold;">Yayındaki Sahiplenme İlan Sayısı</h4>
@@ -58,7 +58,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('kayip_ilanlari') }}" style="text-decoration: none;">
+                <a href="{{ route('kayip_ilanlari') }}" style="text-decoration: none;" title="Kayıp İlanları">
                     <div class="card" style="background-image: url('admin_home_images/kayip.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center" style="font-weight: bold;">Yayındaki Kayıp İlan Sayısı</h4>
@@ -70,7 +70,7 @@
         </div><br>
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <a href="{{ route('es_bulma_ilanlari') }}" style="text-decoration: none;">
+                <a href="{{ route('es_bulma_ilanlari') }}" style="text-decoration: none;" title="Es Bulma İlanları">
                     <div class="card" style="background-image: url('admin_home_images/es_bulma.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center text-white" style="font-weight: bold;">Yayındaki Eş Bulma İlan Sayısı</h4>
@@ -80,7 +80,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('raporlar') }}" style="text-decoration: none;">
+                <a href="{{ route('raporlar') }}" style="text-decoration: none;" title="Raporlar">
                     <div class="card" style="background-image: url('admin_home_images/rapor.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center" style="font-weight: bold;">Raporlanan İlan Sayısı</h4>
@@ -90,7 +90,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('kullanicilar') }}" style="text-decoration: none;">
+                <a href="{{ route('kullanicilar') }}" style="text-decoration: none;" title="Kullanıcılar">
                     <div class="card" style="background-image: url('admin_home_images/kullanici.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center text-white" style="font-weight: bold;">Kullanıcı Sayısı</h4>
@@ -100,7 +100,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <a href="{{ route('veterinerler') }}" style="text-decoration: none;">
+                <a href="{{ route('veterinerler') }}" style="text-decoration: none;" title="Veterinerler">
                     <div class="card" style="background-image: url('admin_home_images/veteriner.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center" style="font-weight: bold;">Veteriner Sayısı</h4>
@@ -112,7 +112,7 @@
         </div><br>
         <div class="row justify-content-center">
             <div class="col-md-3">
-                <a href="{{ route('yoneticiler') }}" style="text-decoration: none;">
+                <a href="{{ route('yoneticiler') }}" style="text-decoration: none;" title="Yöneticiler">
                     <div class="card" style="background-image: url('admin_home_images/yonetici.jpg');">
                         <div class="card-body d-flex flex-column justify-content-center align-items-center">
                             <h4 class="card-title text-center text-white" style="font-weight: bold;">Yönetici Sayısı</h4>

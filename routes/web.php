@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AdminKullanicilarController;
 use App\Http\Controllers\Admin\AdminVeterinerlerController;
 use App\Http\Controllers\Admin\AdminYoneticilerController;
 use App\Http\Controllers\Admin\AdminUpdateStatus;
+use App\Http\Controllers\Admin\AdminProfilController;
 
 use App\Http\Controllers\AnasayfaController;
 use App\Http\Controllers\Auth\LoginController;
@@ -169,7 +170,7 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
 
     Route::get('/update_status/{id}/{status}', [AdminUpdateStatus::class, 'update_status'])->name('update_status');
 
-    Route::get('/admin_profil', function(){ return view('admin.admin_profil'); })->name('admin_profil');
+    Route::get('/admin_profil/{id}', [AdminProfilController::class, 'profil'])->name('admin_profil');
 });
 
 
