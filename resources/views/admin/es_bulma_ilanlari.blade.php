@@ -19,18 +19,18 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">Hayvan id</th>
-                <th scope="col">Kullanıcı id</th>
-                <th scope="col">İlan başlık</th>
-                <th scope="col">Hayvan image</th>
-                <th scope="col">Hayvan ad</th>
-                <th scope="col">Hayvan tür</th>
-                <th scope="col">Hayvan cins</th>
-                <th scope="col">Hayvan cinsiyet</th>
-                <th scope="col">Hayvan yaş</th>
+                <th scope="col">Hayvan ID</th>
+                <th scope="col">Kullanıcı ID</th>
+                <th scope="col">İlan Başlık</th>
+                <th scope="col">Hayvan Resim</th>
+                <th scope="col">Hayvan Ad</th>
+                <th scope="col">Hayvan Tür</th>
+                <th scope="col">Hayvan Cins</th>
+                <th scope="col">Hayvan Cinsiyet</th>
+                <th scope="col">Hayvan Yaş</th>
                 <th scope="col">Kısırlık Durumu</th>
                 <th scope="col">Hayvan Adres</th>
-                <th scope="col">İlan açıklama</th>
+                <th scope="col">İlan Açıklama</th>
                 <th scope="col">Oluşturma tarihi</th>
                 <th scope="col">Güncelleme tarihi</th>
                 <th scope="col">İlanı Güncelle</th>

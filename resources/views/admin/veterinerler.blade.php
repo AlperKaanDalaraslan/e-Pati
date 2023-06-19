@@ -19,18 +19,21 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">Kullanıcı id</th>
-                <th scope="col">Kullanıcı statü</th>
-                <th scope="col">Kullanıcının kullanıcı adı</th>
-                <th scope="col">Kullanıcı image</th>
-                <th scope="col">Kullanıcı adı</th>
-                <th scope="col">Kullanıcı soyadı</th>
-                <th scope="col">Kullanıcı e-mail</th>
-                <th scope="col">Kullanıcı tel</th>
-                <th scope="col">Kullanıcı şifre</th>
-                <th scope="col">Oluşturma tarihi</th>
-                <th scope="col">Güncelleme tarihi</th>
-                <th scope="col">Veteriner Bilgilerini Güncelle</th>
+                <th scope="col">Kullanıcı ID</th>
+                <th scope="col">Kullanıcı Statü</th>
+                <th scope="col">Kullanıcının Kullanıcı Adı</th>
+                <th scope="col">Kullanıcı Resim</th>
+                <th scope="col">Kullanıcı Ad</th>
+                <th scope="col">Kullanıcı Soyad</th>
+                <th scope="col">Kullanıcı E-mail</th>
+                <th scope="col">Kullanıcı Tel</th>
+                <th scope="col">Sertifika Onay Durumu</th>
+                <th scope="col">Uzmanlık Alanı</th>
+                <th scope="col">Çalıştığı Gün ve saatler</th>
+                <th scope="col">Çalıştığı Klinik Ad</th>
+                <th scope="col">Çalıştığı Klinik Adres</th>
+                <th scope="col">Kayıt Tarihi</th>
+                <th scope="col">Profil Güncelleme Tarihi</th>
                 <th scope="col">Veteriner Sil</th>
             </tr>
             </thead>
@@ -78,16 +81,29 @@
                     <td>{{ $dat->surname }}</td>
                     <td>{{ $dat->email }}</td>
                     <td>{{ $dat->tel }}</td>
-                    <td>***********</td>
+                    <td>{{ $dat->onay==1 ? 'Onaylandı' : 'Onaylanmadı' }}</td>
+                    <td>{{ $dat->cerrahi ? 'Cerrahi, ' : ''}}{{ $dat->teshis ? 'Teşhis, ' : ''}}{{ $dat->kuafor ? 'Kuafor, ' : ''}}{{ $dat->dahiliye ? 'Dahiliye, ' : ''}}{{ $dat->lab ? 'Lab, ' : ''}}{{ $dat->muayene ? 'Muayene, ' : ''}}{{ $dat->koruyucu_hekim ? 'Koruyucu Hekim, ' : ''}}{{ $dat->rontgen ? 'Röntgen, ' : ''}}{{ $dat->yogun_bakim ? 'Yoğun Bakım' : ''}}</td>
+                    <td>
+                        @if($dat->gun==1)
+                            Pazartesi ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==2)
+                            Salı ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==3)
+                            Çarşamba ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==4)
+                            Perşembe ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==5)
+                            Cuma ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==6)
+                            Cumartesi ({{$dat->randevu_bas}}-{{$dat->randevu_bit}}),
+                        @elseif($dat->gun==7)
+                            Pazar ({{$dat->randevu_bas}}-{{$dat->randevu_bit}})
+                        @endif
+                    </td>
+                    <td>{{ $dat->klinik_ad }}</td>
+                    <td>{{ $dat->il_id }}, {{ $dat->ilce }}, {{ $dat->adres }}</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td>
-                        <a href="#">
-                            <button type="button" class="btn btn-warning">
-                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Güncelle</font></font>
-                            </button>
-                        </a>
-                    </td>
                     <td>
                         <form action="{{ route('delete_veteriner', $dat->id) }}" method="post">
                             @csrf

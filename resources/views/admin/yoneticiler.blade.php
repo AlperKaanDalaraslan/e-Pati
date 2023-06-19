@@ -19,18 +19,16 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">Kullanıcı id</th>
-                <th scope="col">Kullanıcı statü</th>
-                <th scope="col">Kullanıcının kullanıcı adı</th>
-                <th scope="col">Kullanıcı image</th>
-                <th scope="col">Kullanıcı adı</th>
-                <th scope="col">Kullanıcı soyadı</th>
-                <th scope="col">Kullanıcı e-mail</th>
-                <th scope="col">Kullanıcı tel</th>
-                <th scope="col">Kullanıcı şifre</th>
-                <th scope="col">Oluşturma tarihi</th>
-                <th scope="col">Güncelleme tarihi</th>
-                <th scope="col">Yönetici Bilgilerini Güncelle</th>
+                <th scope="col">Kullanıcı ID</th>
+                <th scope="col">Kullanıcı Statü</th>
+                <th scope="col">Kullanıcının Kullanıcı Adı</th>
+                <th scope="col">Kullanıcı Resim</th>
+                <th scope="col">Kullanıcı Ad</th>
+                <th scope="col">Kullanıcı Soyad</th>
+                <th scope="col">Kullanıcı E-mail</th>
+                <th scope="col">Kullanıcı Tel</th>
+                <th scope="col">Kayıt Tarihi</th>
+                <th scope="col">Profil Güncelleme Tarihi</th>
                 <th scope="col">Yönetici Sil</th>
             </tr>
             </thead>
@@ -78,16 +76,8 @@
                     <td>{{ $dat->surname }}</td>
                     <td>{{ $dat->email }}</td>
                     <td>{{ $dat->tel }}</td>
-                    <td>***********</td>
                     <td>{{ $dat->created_at }}</td>
                     <td>{{ $dat->updated_at }}</td>
-                    <td>
-                        <a href="#">
-                            <button type="button" class="btn btn-warning">
-                                <font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Güncelle</font></font>
-                            </button>
-                        </a>
-                    </td>
                     <td>
                         <form action="{{ route('delete_yonetici', $dat->id) }}" method="post">
                             @csrf

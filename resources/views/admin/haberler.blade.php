@@ -32,13 +32,13 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">Haber id</th>
-                <th scope="col">Kullanıcı id</th>
-                <th scope="col">Haber image</th>
-                <th scope="col">Haber başlık</th>
-                <th scope="col">Haber içerik</th>
-                <th scope="col">Oluşturma tarihi</th>
-                <th scope="col">Güncelleme tarihi</th>
+                <th scope="col">Haber ID</th>
+                <th scope="col">Kullanıcı ID</th>
+                <th scope="col">Haber Resim</th>
+                <th scope="col">Haber Başlık</th>
+                <th scope="col">Haber İçerik</th>
+                <th scope="col">Oluşturma Tarihi</th>
+                <th scope="col">Güncelleme Tarihi</th>
                 <th scope="col">Haberi Güncelle</th>
                 <th scope="col">Haberi Sil</th>
             </tr>

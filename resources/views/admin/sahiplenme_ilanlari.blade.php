@@ -19,20 +19,20 @@
         <table class="table table-striped table-sm">
             <thead>
             <tr>
-                <th scope="col">Hayvan id</th>
-                <th scope="col">Kullanıcı id</th>
-                <th scope="col">İlan başlık</th>
-                <th scope="col">Hayvan image</th>
-                <th scope="col">Hayvan ad</th>
-                <th scope="col">Hayvan tür</th>
-                <th scope="col">Hayvan cins</th>
-                <th scope="col">Hayvan cinsiyet</th>
-                <th scope="col">Hayvan yaş</th>
+                <th scope="col">Hayvan ID</th>
+                <th scope="col">Kullanıcı ID</th>
+                <th scope="col">İlan Başlık</th>
+                <th scope="col">Hayvan Resim</th>
+                <th scope="col">Hayvan Ad</th>
+                <th scope="col">Hayvan Tür</th>
+                <th scope="col">Hayvan Cins</th>
+                <th scope="col">Hayvan Cinsiyet</th>
+                <th scope="col">Hayvan Yaş</th>
                 <th scope="col">Kısırlık Durumu</th>
-                <th scope="col">Aşı durumu</th>
-                <th scope="col">Hayvan cip no</th>
+                <th scope="col">Aşı Durumu</th>
+                <th scope="col">Hayvan Cip No</th>
                 <th scope="col">Hayvan Adres</th>
-                <th scope="col">İlan açıklama</th>
+                <th scope="col">İlan Açıklama</th>
                 <th scope="col">Oluşturma tarihi</th>
                 <th scope="col">Güncelleme tarihi</th>
                 <th scope="col">İlanı Güncelle</th>
@@ -52,7 +52,7 @@
                     <td>{{ $dat->cinsiyet==0 ? 'Erkek' : 'Dişi' }}</td>
                     <td>{{ $dat->yas }}</td>
                     <td>{{ $dat->kisir==1 ? 'Kısır' : 'Kısır Değil' }}</td>
-                    <td>{{ $dat->kuduz==1 ? 'Kuduz': '' }}, {{ $dat->karma==1 ? 'Karma' :'' }}, {{ $dat->parazit==1 ? 'Parazit' : '' }}, {{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
+                    <td>{{ $dat->kuduz==1 ? 'Kuduz, ': '' }}{{ $dat->karma==1 ? 'Karma, ' :'' }}{{ $dat->parazit==1 ? 'Parazit, ' : '' }}{{ $dat->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</td>
                     <td>{{ $dat->cip_no }}</td>
                     <td>{{ $dat->getIL->title }}, {{ $dat->ilce }}, {{$dat->adres}}</td>
                     <td>{{ $dat->aciklama }}</td>

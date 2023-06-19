@@ -132,7 +132,7 @@
         <hr>
         <div style="display: flex; justify-content: center;">
             <div style="width: 50%;">
-                <p>Hayvanın Varsayılan Aşıları: <h5>{{ $data->kuduz==1 ? 'Kuduz': '' }}, {{ $data->karma==1 ? 'Karma' :'' }}, {{ $data->parazit==1 ? 'Parazit' : '' }}, {{ $data->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</h5></p>
+                <p>Hayvanın Varsayılan Aşıları: <h5>{{ $data->kuduz==1 ? 'Kuduz, ': '' }}{{ $data->karma==1 ? 'Karma, ' :'' }}{{ $data->parazit==1 ? 'Parazit, ' : '' }}{{ $data->kalp_kurtlari==1 ? 'Kalp Kurtları' : '' }}</h5></p>
             </div>
             <div style="width: 50%;">
                 <label for="asi_durumu">Aşı Durumu: </label>
