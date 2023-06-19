@@ -147,7 +147,10 @@ Route::prefix('/admin_panel')->middleware('auth')->group(function(){
         Route::post('/delete_es_bulma_ilan/{id}', [AdminEsBulmaIlanController::class, 'delete_es_bulma_ilan'])->name('delete_es_bulma_ilan');
     });
 
-    Route::get('/raporlar', [AdminRaporController::class, 'raporlar'])->name('raporlar');
+    Route::prefix('/raporlar')->middleware('auth')->group(function(){
+        Route::get('/', [AdminRaporController::class, 'raporlar'])->name('raporlar');
+        Route::post('/delete_rapor/{id}', [AdminRaporController::class, 'delete_rapor'])->name('delete_rapor');
+    });
 
     Route::prefix('/kullanicilar')->middleware('auth')->group(function(){
         Route::get('/', [AdminKullanicilarController::class, 'kullanicilar'])->name('kullanicilar');
